@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <LangVersion>11</LangVersion>
+        <Nullable>enable</Nullable>
+        <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <ProjectReference Include="..\NetQuantities.Generators\NetQuantities.Generators.csproj">
+            <OutputItemType>Analyzer</OutputItemType>
+            <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+        </ProjectReference>
+    </ItemGroup>
+</Project>

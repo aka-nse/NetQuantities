@@ -1,0 +1,45 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+
+namespace NetQuantities;
+
+
+[AttributeUsage(AttributeTargets.Struct, AllowMultiple = false)]
+internal sealed class QuantityAttribute : Attribute
+{
+}
+
+[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]
+internal sealed class QuantityUnitAttribute : Attribute
+{
+    public string Name { get; }
+    public string Unit { get; }
+    public double Scale { get; }
+
+    public QuantityUnitAttribute(string name, string unit, double scale)
+    {
+        Name = name;
+        Unit = unit;
+        Scale = scale;
+    }
+}
+
+    
+[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]
+internal sealed class QuantityOperationAttribute : Attribute
+{
+    public Type MultiplicantType { get; }
+    public Type MultiplierType { get; }
+    public Type ProductType { get; }
+
+    public QuantityOperationAttribute(Type multiplicant, Type multiplier, Type product)
+    {
+        MultiplicantType = multiplicant;
+        MultiplierType = multiplier;
+        ProductType = product;
+    }
+}
