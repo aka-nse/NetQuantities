@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetQuantities", "NetQuantities\NetQuantities.csproj", "{8EFE546A-894C-45D1-907D-10D20AB8E9DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetQuantities", "NetQuantities\NetQuantities.csproj", "{8EFE546A-894C-45D1-907D-10D20AB8E9DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetQuantities.Generators", "NetQuantities.Generators\NetQuantities.Generators.csproj", "{2177DEA0-3A44-4267-A439-2191D75FAE99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetQuantities.Generators", "NetQuantities.Generators\NetQuantities.Generators.csproj", "{2177DEA0-3A44-4267-A439-2191D75FAE99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetQuantities.Shared", "NetQuantities.Shared", "{6D2C6801-C4CC-4405-B04B-BC9A3BC73963}"
+	ProjectSection(SolutionItems) = preProject
+		NetQuantities.Shared\PlatformCapabilities.cs = NetQuantities.Shared\PlatformCapabilities.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetQuantities.Test", "NetQuantities.Test\NetQuantities.Test.csproj", "{0C26342B-0C0E-4A60-8B2A-40987AD0576A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,10 @@ Global
 		{2177DEA0-3A44-4267-A439-2191D75FAE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2177DEA0-3A44-4267-A439-2191D75FAE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2177DEA0-3A44-4267-A439-2191D75FAE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C26342B-0C0E-4A60-8B2A-40987AD0576A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C26342B-0C0E-4A60-8B2A-40987AD0576A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C26342B-0C0E-4A60-8B2A-40987AD0576A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C26342B-0C0E-4A60-8B2A-40987AD0576A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

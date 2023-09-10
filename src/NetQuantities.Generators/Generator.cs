@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 
@@ -50,14 +51,26 @@ public class Generator : IIncrementalGenerator
         canceller.ThrowIfCancellationRequested();
 
         var (info, (qUnitAttr, qOpAttr)) = tpl;
-        info.TargetSymbol.GetAttributes();
+        var attributes = info.TargetSymbol.GetAttributes();
+        var unitDefs = attributes
+            .Where(attr => SymbolEqualityComparer.Default.Equals(attr.AttributeClass, qUnitAttr));
+        var operationDefs = attributes
+            .Where(attr => SymbolEqualityComparer.Default.Equals(attr.AttributeClass, qOpAttr));
 
-        var unitSource = new UnitImplements()
+        var unitSource = new QuantityImplement()
         {
             TargetTypeName = info.TargetSymbol.Name,
+            UnitSymbols = unitDefs
+                .Select(attr => new UnitSymbolDef(attr))
+                .ToArray(),
+            UnitOperations = operationDefs
+                .Select(attr => new UnitOperationDef(attr))
+                .ToArray(),
         };
+
+        string sourceCode = unitSource.TransformText();
         context.AddSource(
             $"{info.TargetSymbol.Name}.g.cs",
-            unitSource.TransformText());
+            sourceCode);
     }
 }
