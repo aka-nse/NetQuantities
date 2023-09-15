@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace NetQuantities;
 
+/// <summary>
+/// Represents a value of length.
+/// This type can be re-interpret-casted into <see cref="double"/> as [m] scale.
+/// </summary>
 [Quantity]
 [QuantityUnit("Kilometre", "km", 1.0e+3)]
 [QuantityUnit("Metre", "m", 1.0)]
@@ -11,6 +12,6 @@ namespace NetQuantities;
 [QuantityUnit("Millimetre", "mm", 1.0e-3)]
 [QuantityUnit("Micrometre", "um", 1.0e-6)]
 [QuantityUnit("Nanometre", "nm", 1.0e-9)]
-public readonly partial struct QLength
+public readonly partial struct QLength : IQuantity
 {
 }
