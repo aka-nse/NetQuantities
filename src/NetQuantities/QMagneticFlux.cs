@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [Wb] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Weber", "Wb", 1.0)]
+[QuantityUnit("Weber", "Wb", 1.0, None | Milli | Micro | Nano)]
 public readonly partial struct QMagneticFlux : IQuantity
 {
 }

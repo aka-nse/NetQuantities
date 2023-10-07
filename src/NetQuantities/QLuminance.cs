@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [cd/m^2] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("CandelaPerSquareMetre", "cd/m^2", 1.0)]
+[QuantityUnit("CandelaPerSquareMetre", "cd/m^2", 1.0, None)]
 [QuantityOperation(typeof(QArea), typeof(QLuminance), typeof(QLuminousIntensity))]
 public readonly partial struct QLuminance : IQuantity
 {

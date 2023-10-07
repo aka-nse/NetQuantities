@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [T] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Tesla", "T", 1.0)]
+[QuantityUnit("Tesla", "T", 1.0, None | Milli | Micro)]
 [QuantityOperation(typeof(QArea), typeof(QMagneticFluxDensity), typeof(QMagneticFlux))]
 public readonly partial struct QMagneticFluxDensity : IQuantity
 {

@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [C/m^2] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("CoulombPerSquareMetre", "C/m^2", 1.0)]
+[QuantityUnit("CoulombPerSquareMetre", "C/m^2", 1.0, None | Milli | Micro | Nano | Pico)]
 [QuantityOperation(typeof(QArea), typeof(QElectricFluxDensity), typeof(QElectricCharge))]
 public readonly partial struct QElectricFluxDensity : IQuantity
 {

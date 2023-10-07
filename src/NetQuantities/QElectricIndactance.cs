@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [H] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Henry", "H", 1.0)]
+[QuantityUnit("Henry", "H", 1.0, None | Milli | Micro | Nano | Pico)]
 public readonly partial struct QElectricIndactance : IQuantity
 {
 }

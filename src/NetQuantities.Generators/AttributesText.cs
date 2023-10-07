@@ -44,11 +44,14 @@ namespace NetQuantities.Generators
                     "tityOperationAttribute(Type multiplicant, Type multiplier, Type product)\r\n    {\r" +
                     "\n        MultiplicantType = multiplicant;\r\n        MultiplierType = multiplier;\r" +
                     "\n        ProductType = product;\r\n    }\r\n}\r\n\r\n\r\n[Flags]\r\ninternal enum UnitPrefix" +
-                    "\r\n{\r\n    None = 0,\r\n    \r\n    Centi = 0b_0000_0001,\r\n    Milli = 0b_0000_0010,\r\n" +
-                    "    Micro = 0b_0000_0100,\r\n    Nano  = 0b_0000_1000,\r\n    Pico  = 0b_0001_0000,\r" +
-                    "\n\r\n    Hecto = 0b_0000_0001 << 16,\r\n    Kilo  = 0b_0000_0010 << 16,\r\n    Mega  =" +
-                    " 0b_0000_0100 << 16,\r\n    Giga  = 0b_0000_1000 << 16,\r\n    Tera  = 0b_0001_0000 " +
-                    "<< 16,\r\n}");
+                    "\r\n{\r\n    None = 0,\r\n    \r\n    Centi  = 1 << 0,\r\n    Milli  = 1 << 1,\r\n    Micro " +
+                    " = 1 << 2,\r\n    Nano   = 1 << 3,\r\n    Pico   = 1 << 4,\r\n    Femto  = 1 << 5,\r\n  " +
+                    "  Atto   = 1 << 6,\r\n    Zepto  = 1 << 7,\r\n    Yocto  = 1 << 8,\r\n    Ronto  = 1 <" +
+                    "< 9,\r\n    Quecto = 1 << 10,\r\n\r\n    Hecto  = 1 << (0 + 16),\r\n    Kilo   = 1 << (1" +
+                    " + 16),\r\n    Mega   = 1 << (2 + 16),\r\n    Giga   = 1 << (3 + 16),\r\n    Tera   = " +
+                    "1 << (4 + 16),\r\n    Peta   = 1 << (5 + 16),\r\n    Exa    = 1 << (6 + 16),\r\n    Ze" +
+                    "tta  = 1 << (7 + 16),\r\n    Yotta  = 1 << (8 + 16),\r\n    Ronna  = 1 << (9 + 16),\r" +
+                    "\n    Quetta = 1 << (10 + 16),\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

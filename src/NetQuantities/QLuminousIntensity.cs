@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [cd] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Candela", "cd", 1.0)]
+[QuantityUnit("Candela", "cd", 1.0, None)]
 public readonly partial struct QLuminousIntensity : IQuantity
 {
 }

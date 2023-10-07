@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [V] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Volt", "V", 1.0)]
+[QuantityUnit("Volt", "V", 1.0, None | Milli | Micro | Kilo | Mega)]
 public readonly partial struct QElectricVoltage : IQuantity
 {
 }

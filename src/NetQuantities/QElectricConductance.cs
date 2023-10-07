@@ -8,10 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [S] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Siemens", "S", 1.0)]
-[QuantityUnit("Millisiemens", "mS", 1.0e-3)]
-[QuantityUnit("Microsiemens", "uS", 1.0e-6)]
-[QuantityUnit("Nanosiemens", "nS", 1.0e-9)]
+[QuantityUnit("Siemens", "S", 1.0, None | Milli | Micro | Nano)]
 [QuantityOperation(typeof(QElectricResistance), typeof(QElectricConductance), typeof(QDimensionless))]
 public readonly partial struct QElectricConductance : IQuantity
 {

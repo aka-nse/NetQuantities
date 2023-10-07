@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [J/(Kg*K)] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("JoulePerKilogramPerKelvin", "J/(Kg*K)", 1.0)]
+[QuantityUnit("JoulePerKilogramPerKelvin", "J/(Kg*K)", 1.0, None | Kilo)]
 [QuantityOperation(typeof(QMass), typeof(QSpecificHeatCapacity), typeof(QHeatCapacity))]
 public readonly partial struct QSpecificHeatCapacity : IQuantity
 {
