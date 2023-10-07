@@ -9,8 +9,7 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("RadianPerSecond", "rad/s", 1.0)]
-[QuantityUnit("DegreePerSecond", "deg/s", 2 * Math.PI / 360)]
-[QuantityUnit("MilliDegreePerSecond", "mdeg/s", 2 * Math.PI / 360e+3)]
+[QuantityUnit("DegreePerSecond", "deg/s", 2 * Math.PI / 360, None | Milli)]
 [QuantityUnit("RevolutionPerMinute", "rpm", 2 * Math.PI / 60)]
 [QuantityOperation(typeof(QTime), typeof(QAngularVelocity), typeof(QAngle))]
 public readonly partial struct QAngularVelocity : IQuantity

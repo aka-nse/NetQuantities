@@ -20,13 +20,15 @@ internal sealed class QuantityUnitAttribute : Attribute
     public string Unit { get; }
     public double Scale { get; }
     public UnitPrefix Prefix { get; }
+    public int PowerOfPrefix { get; }
 
-    public QuantityUnitAttribute(string name, string unit, double scale, UnitPrefix prefix = UnitPrefix.None)
+    public QuantityUnitAttribute(string name, string unit, double scale, UnitPrefix prefix = UnitPrefix.None, int powerOfPrefix = 1)
     {
         Name = name;
         Unit = unit;
         Scale = scale;
         Prefix = prefix;
+        PowerOfPrefix = powerOfPrefix;
     }
 }
 
