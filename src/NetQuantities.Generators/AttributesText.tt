@@ -19,12 +19,14 @@ internal sealed class QuantityUnitAttribute : Attribute
     public string Name { get; }
     public string Unit { get; }
     public double Scale { get; }
+    public UnitPrefix Prefix { get; }
 
-    public QuantityUnitAttribute(string name, string unit, double scale)
+    public QuantityUnitAttribute(string name, string unit, double scale, UnitPrefix prefix = UnitPrefix.None)
     {
         Name = name;
         Unit = unit;
         Scale = scale;
+        Prefix = prefix;
     }
 }
 
@@ -42,4 +44,23 @@ internal sealed class QuantityOperationAttribute : Attribute
         MultiplierType = multiplier;
         ProductType = product;
     }
+}
+
+
+[Flags]
+internal enum UnitPrefix
+{
+    None = 0,
+    
+    Centi = 0b_0000_0001,
+    Milli = 0b_0000_0010,
+    Micro = 0b_0000_0100,
+    Nano  = 0b_0000_1000,
+    Pico  = 0b_0001_0000,
+
+    Hecto = 0b_0000_0001 << 16,
+    Kilo  = 0b_0000_0010 << 16,
+    Mega  = 0b_0000_0100 << 16,
+    Giga  = 0b_0000_1000 << 16,
+    Tera  = 0b_0001_0000 << 16,
 }

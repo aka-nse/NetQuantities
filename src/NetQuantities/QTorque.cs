@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Numerics;
+using static NetQuantities.UnitPrefix;
+
 namespace NetQuantities;
 
 /// <summary>

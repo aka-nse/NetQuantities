@@ -1,4 +1,6 @@
 ﻿using System;
+using static NetQuantities.UnitPrefix;
+
 namespace NetQuantities;
 
 
@@ -8,6 +10,7 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("KilogramPerCubicMetre", "kg/m^3", 1.0)]
+[QuantityUnit("GramPerCubicCentimetre", "g/cm^3", 1.0e-3)]
 [QuantityOperation(typeof(QVolume), typeof(QDensity), typeof(QMass))]
 public readonly partial struct QDensity : IQuantity
 {

@@ -1,4 +1,6 @@
 ﻿using System;
+using static NetQuantities.UnitPrefix;
+
 namespace NetQuantities;
 
 /// <summary>
@@ -7,6 +9,7 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("RadianPerSquareSecond", "rad/s^2", 1.0)]
+[QuantityUnit("DegreePerSquareSecond", "deg/s^2", 2 * Math.PI / 360)]
 [QuantityOperation(typeof(QTime), typeof(QAngularAcceleration), typeof(QAngularVelocity))]
 public readonly partial struct QAngularAcceleration : IQuantity
 {

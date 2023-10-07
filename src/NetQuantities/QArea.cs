@@ -1,4 +1,6 @@
 ﻿using System;
+using static NetQuantities.UnitPrefix;
+
 namespace NetQuantities;
 
 /// <summary>
@@ -12,6 +14,7 @@ namespace NetQuantities;
 [QuantityUnit("Micrometre2", "um^2", 1.0e-12)]
 [QuantityUnit("Nanometre2", "nm^2", 1.0e-18)]
 [QuantityUnit("Kilometre2", "km^2", 1.0e+6)]
+[QuantityUnit("Hectare", "ha", 1.0e+4)]
 [QuantityOperation(typeof(QLength), typeof(QLength), typeof(QArea))]
 public readonly partial struct QArea : IQuantity
 {

@@ -18,7 +18,7 @@ namespace NetQuantities.Generators
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\develop\CSharp\NetQuantities\src\NetQuantities.Generators\AttributesText.tt"
+    #line 1 "D:\develop\NetQuantities\src\NetQuantities.Generators\AttributesText.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AttributesText : AttributesTextBase
     {
@@ -28,46 +28,25 @@ namespace NetQuantities.Generators
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"using System;
-
-namespace NetQuantities;
-
-
-[AttributeUsage(AttributeTargets.Struct, AllowMultiple = false)]
-internal sealed class QuantityAttribute : Attribute
-{
-}
-
-[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]
-internal sealed class QuantityUnitAttribute : Attribute
-{
-    public string Name { get; }
-    public string Unit { get; }
-    public double Scale { get; }
-
-    public QuantityUnitAttribute(string name, string unit, double scale)
-    {
-        Name = name;
-        Unit = unit;
-        Scale = scale;
-    }
-}
-
-    
-[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]
-internal sealed class QuantityOperationAttribute : Attribute
-{
-    public Type MultiplicantType { get; }
-    public Type MultiplierType { get; }
-    public Type ProductType { get; }
-
-    public QuantityOperationAttribute(Type multiplicant, Type multiplier, Type product)
-    {
-        MultiplicantType = multiplicant;
-        MultiplierType = multiplier;
-        ProductType = product;
-    }
-}");
+            this.Write("using System;\r\n\r\nnamespace NetQuantities;\r\n\r\n\r\n[AttributeUsage(AttributeTargets.S" +
+                    "truct, AllowMultiple = false)]\r\ninternal sealed class QuantityAttribute : Attrib" +
+                    "ute\r\n{\r\n}\r\n\r\n[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]\r\nin" +
+                    "ternal sealed class QuantityUnitAttribute : Attribute\r\n{\r\n    public string Name" +
+                    " { get; }\r\n    public string Unit { get; }\r\n    public double Scale { get; }\r\n  " +
+                    "  public UnitPrefix Prefix { get; }\r\n\r\n    public QuantityUnitAttribute(string n" +
+                    "ame, string unit, double scale, UnitPrefix prefix = UnitPrefix.None)\r\n    {\r\n   " +
+                    "     Name = name;\r\n        Unit = unit;\r\n        Scale = scale;\r\n        Prefix " +
+                    "= prefix;\r\n    }\r\n}\r\n\r\n    \r\n[AttributeUsage(AttributeTargets.Struct, AllowMulti" +
+                    "ple = true)]\r\ninternal sealed class QuantityOperationAttribute : Attribute\r\n{\r\n " +
+                    "   public Type MultiplicantType { get; }\r\n    public Type MultiplierType { get; " +
+                    "}\r\n    public Type ProductType { get; }\r\n\r\n    public QuantityOperationAttribute" +
+                    "(Type multiplicant, Type multiplier, Type product)\r\n    {\r\n        MultiplicantT" +
+                    "ype = multiplicant;\r\n        MultiplierType = multiplier;\r\n        ProductType =" +
+                    " product;\r\n    }\r\n}\r\n\r\n\r\n[Flags]\r\ninternal enum UnitPrefix\r\n{\r\n    None = 0,\r\n  " +
+                    "  \r\n    Centi = 0b_0000_0001,\r\n    Milli = 0b_0000_0010,\r\n    Micro = 0b_0000_01" +
+                    "00,\r\n    Nano  = 0b_0000_1000,\r\n    Pico  = 0b_0001_0000,\r\n\r\n    Hecto = 0b_0000" +
+                    "_0001 << 16,\r\n    Kilo  = 0b_0000_0010 << 16,\r\n    Mega  = 0b_0000_0100 << 16,\r\n" +
+                    "    Giga  = 0b_0000_1000 << 16,\r\n    Tera  = 0b_0001_0000 << 16,\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

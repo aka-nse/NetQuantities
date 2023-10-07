@@ -1,4 +1,6 @@
 ﻿using System;
+using static NetQuantities.UnitPrefix;
+
 using System.Numerics;
 
 namespace NetQuantities;

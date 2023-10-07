@@ -61,7 +61,7 @@ public class Generator : IIncrementalGenerator
         {
             TargetTypeName = info.TargetSymbol.Name,
             UnitSymbols = unitDefs
-                .Select(attr => new UnitSymbolDef(attr))
+                .SelectMany(UnitSymbolDef.GetUnitSymbols)
                 .ToArray(),
             UnitOperations = operationDefs
                 .Select(attr => new UnitOperationDef(attr))
