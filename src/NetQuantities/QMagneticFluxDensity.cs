@@ -7,6 +7,7 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Tesla", "T", 1.0)]
+[QuantityOperation(typeof(QArea), typeof(QMagneticFluxDensity), typeof(QMagneticFlux))]
 public readonly partial struct QMagneticFluxDensity : IQuantity
 {
 }

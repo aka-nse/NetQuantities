@@ -10,7 +10,7 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("MetrePerSquareSecond", "m/s^2", 1.0)]
-[QuantityOperation(typeof(QTime), typeof(QAcceleration), typeof(QVelocity))]
+[QuantityOperation(typeof(QTime), typeof(QAcceleration), typeof(QSpeed))]
 public readonly partial struct QAcceleration : IQuantity
 {
 }

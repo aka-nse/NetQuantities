@@ -60,4 +60,36 @@ namespace NetQuantities
         public static EnergyOrTorque operator *(QForce x, QLength y)
             => new(x.RawValue * y.RawValue);
     }
+
+    partial struct QEnergy
+        : IQuantity
+#if NET7_0_OR_GREATER
+    , IDivisionOperators<QEnergy, QForce, QLength>
+    , IDivisionOperators<QEnergy, QLength, QForce>
+#endif
+    {
+        /// <inheritdoc />
+        public static QLength operator /(QEnergy x, QForce y)
+            => new(x.RawValue * y.RawValue);
+
+        /// <inheritdoc />
+        public static QForce operator /(QEnergy x, QLength y)
+            => new(x.RawValue * y.RawValue);
+    }
+
+    partial struct QTorque
+    : IQuantity
+#if NET7_0_OR_GREATER
+    , IDivisionOperators<QTorque, QForce, QLength>
+    , IDivisionOperators<QTorque, QLength, QForce>
+#endif
+    {
+        /// <inheritdoc />
+        public static QLength operator /(QTorque x, QForce y)
+            => new(x.RawValue * y.RawValue);
+
+        /// <inheritdoc />
+        public static QForce operator /(QTorque x, QLength y)
+            => new(x.RawValue * y.RawValue);
+    }
 }

@@ -12,7 +12,7 @@ namespace NetQuantities;
 [QuantityUnit("MicrometrePerSecond", "um/s", 1.0e-6)]
 [QuantityUnit("MetrePerMinute", "m/min", 1.0 / 60)]
 [QuantityUnit("KilometrePerHour", "km/h", 1.0e+3 / 3600)]
-[QuantityOperation(typeof(QTime), typeof(QVelocity), typeof(QLength))]
-public readonly partial struct QVelocity : IQuantity
+[QuantityOperation(typeof(QTime), typeof(QSpeed), typeof(QLength))]
+public readonly partial struct QSpeed : IQuantity
 {
 }

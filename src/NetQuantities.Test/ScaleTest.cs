@@ -50,20 +50,20 @@ public class ScaleTest
     [Fact]
     public void Scale_QVelocity()
     {
-        Assert.Equal(1.0, QVelocity.FromMetrePerSecond(1).RawValue);
-        Assert.Equal(1.0, QVelocity.FromMetrePerSecond(1).MetrePerSecond);
+        Assert.Equal(1.0, QSpeed.FromMetrePerSecond(1).RawValue);
+        Assert.Equal(1.0, QSpeed.FromMetrePerSecond(1).MetrePerSecond);
 
-        Assert.Equal(1.0e-3, QVelocity.FromMillimetrePerSecond(1).MetrePerSecond, precision: 10);
-        Assert.Equal(1.0, QVelocity.FromMillimetrePerSecond(1).MillimetrePerSecond, precision: 10);
+        Assert.Equal(1.0e-3, QSpeed.FromMillimetrePerSecond(1).MetrePerSecond, precision: 10);
+        Assert.Equal(1.0, QSpeed.FromMillimetrePerSecond(1).MillimetrePerSecond, precision: 10);
         
-        Assert.Equal(1.0e-6, QVelocity.FromMicrometrePerSecond(1).MetrePerSecond);
-        Assert.Equal(1.0, QVelocity.FromMicrometrePerSecond(1).MicrometrePerSecond, precision: 10);
+        Assert.Equal(1.0e-6, QSpeed.FromMicrometrePerSecond(1).MetrePerSecond);
+        Assert.Equal(1.0, QSpeed.FromMicrometrePerSecond(1).MicrometrePerSecond, precision: 10);
         
-        Assert.Equal(1.0/60, QVelocity.FromMetrePerMinute(1).MetrePerSecond, precision: 10);
-        Assert.Equal(1.0, QVelocity.FromMetrePerMinute(1).MetrePerMinute, precision: 10);
+        Assert.Equal(1.0/60, QSpeed.FromMetrePerMinute(1).MetrePerSecond, precision: 10);
+        Assert.Equal(1.0, QSpeed.FromMetrePerMinute(1).MetrePerMinute, precision: 10);
 
-        Assert.Equal(1.0e+3/3600, QVelocity.FromKilometrePerHour(1).MetrePerSecond, precision: 10);
-        Assert.Equal(1.0, QVelocity.FromKilometrePerHour(1).KilometrePerHour, precision: 10);
+        Assert.Equal(1.0e+3/3600, QSpeed.FromKilometrePerHour(1).MetrePerSecond, precision: 10);
+        Assert.Equal(1.0, QSpeed.FromKilometrePerHour(1).KilometrePerHour, precision: 10);
 
 
     }

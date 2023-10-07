@@ -9,18 +9,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Joule", "J", 1.0)]
-public readonly partial struct QEnergy
-    : IQuantity
-#if NET7_0_OR_GREATER
-    , IDivisionOperators<QEnergy, QForce, QLength>
-    , IDivisionOperators<QEnergy, QLength, QForce>
-#endif
+public readonly partial struct QEnergy : IQuantity
 {
-    /// <inheritdoc />
-    public static QLength operator /(QEnergy x, QForce y)
-        => new(x.RawValue * y.RawValue);
-
-    /// <inheritdoc />
-    public static QForce operator /(QEnergy x, QLength y)
-        => new(x.RawValue * y.RawValue);
 }
