@@ -10,7 +10,7 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("CoulombPerSquareMetre", "C/m^2", 1.0, None | Milli | Micro | Nano | Pico)]
 [QuantityOperation(typeof(QArea), typeof(QElectricFluxDensity), typeof(QElectricCharge))]
-public readonly partial struct QElectricFluxDensity : IQuantity
+public readonly partial struct QElectricFluxDensity : IQuantity<QElectricFluxDensity>
 {
 }
 

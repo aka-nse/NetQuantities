@@ -9,6 +9,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Ampere", "A", 1.0, None | Milli | Micro | Nano | Pico | Kilo)]
-public readonly partial struct QElectricCurrent : IQuantity
+public readonly partial struct QElectricCurrent : IQuantity<QElectricCurrent>
 {
 }

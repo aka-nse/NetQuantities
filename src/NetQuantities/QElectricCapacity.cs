@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Farad", "F", 1.0, None | Milli| Micro | Nano | Pico)]
 [QuantityOperation(typeof(QElectricCapacity), typeof(QElectricVoltage), typeof(QElectricCharge))]
-public readonly partial struct QElectricCapacity : IQuantity
+public readonly partial struct QElectricCapacity : IQuantity<QElectricCapacity>
 {
 }

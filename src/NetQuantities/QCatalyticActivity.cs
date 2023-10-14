@@ -11,6 +11,6 @@ namespace NetQuantities;
 [QuantityUnit("Katal", "kat", 1.0, None | Milli | Micro | Nano)]
 [QuantityUnit("Unit", "unit", 1e-6 / 60, None | Milli)]
 [QuantityOperation(typeof(QTime), typeof(QCatalyticActivity), typeof(QSubstanceAmount))]
-public readonly partial struct QCatalyticActivity : IQuantity
+public readonly partial struct QCatalyticActivity : IQuantity<QCatalyticActivity>
 {
 }

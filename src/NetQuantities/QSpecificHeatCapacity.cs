@@ -10,7 +10,7 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("JoulePerKilogramPerKelvin", "J/(Kg*K)", 1.0, None | Kilo)]
 [QuantityOperation(typeof(QMass), typeof(QSpecificHeatCapacity), typeof(QHeatCapacity))]
-public readonly partial struct QSpecificHeatCapacity : IQuantity
+public readonly partial struct QSpecificHeatCapacity : IQuantity<QSpecificHeatCapacity>
 {
 }
 

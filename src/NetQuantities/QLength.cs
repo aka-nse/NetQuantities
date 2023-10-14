@@ -8,6 +8,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Metre", "m", 1.0, None | Centi | Milli | Micro | Nano | Kilo)]
-public readonly partial struct QLength : IQuantity
+public readonly partial struct QLength : IQuantity<QLength>
 {
 }

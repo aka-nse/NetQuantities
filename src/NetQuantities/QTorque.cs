@@ -10,6 +10,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("NewtonMetre", "N*m", 1.0)]
-public readonly partial struct QTorque : IQuantity
+public readonly partial struct QTorque : IQuantity<QTorque>
 {
 }

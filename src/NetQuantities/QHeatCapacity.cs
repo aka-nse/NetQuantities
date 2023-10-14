@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("JoulePerKelvin", "J/K", 1.0, None | Milli | Micro | Nano | Kilo | Mega | Giga)]
 [QuantityOperation(typeof(QTemperature), typeof(QHeatCapacity), typeof(QEnergy))]
-public readonly partial struct QHeatCapacity : IQuantity
+public readonly partial struct QHeatCapacity : IQuantity<QHeatCapacity>
 {
 }

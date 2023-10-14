@@ -9,6 +9,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Weber", "Wb", 1.0, None | Milli | Micro | Nano)]
-public readonly partial struct QMagneticFlux : IQuantity
+public readonly partial struct QMagneticFlux : IQuantity<QMagneticFlux>
 {
 }

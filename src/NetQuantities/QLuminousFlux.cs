@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Lumen", "lm", 1.0, None)]
 [QuantityOperation(typeof(QSolidAngle), typeof(QLuminousIntensity), typeof(QLuminousFlux))]
-public readonly partial struct QLuminousFlux : IQuantity
+public readonly partial struct QLuminousFlux : IQuantity<QLuminousFlux>
 {
 }

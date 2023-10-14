@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Newton", "N", 1.0, None | Milli | Kilo | Mega)]
 [QuantityOperation(typeof(QMass), typeof(QAcceleration), typeof(QForce))]
-public readonly partial struct QForce : IQuantity
+public readonly partial struct QForce : IQuantity<QForce>
 {
 }

@@ -9,9 +9,21 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Second", "s", 1.0, None | Milli | Micro | Nano | Pico | Femto)]
-[QuantityUnit("Millisecond", "ms", 1.0e-3)]
 [QuantityUnit("Minute", "min", 60.0)]
 [QuantityUnit("Hour", "h", 3600.0)]
-public readonly partial struct QTime : IQuantity
+public readonly partial struct QTime : IQuantity<QTime>
 {
+    /// <summary>
+    /// Converts from <see cref="QTime"/> to <see cref="TimeSpan"/>.
+    /// </summary>
+    /// <param name="time"></param>
+    public static explicit operator TimeSpan(QTime time)
+        => TimeSpan.FromSeconds(time.Second);
+
+    /// <summary>
+    /// Converts from <see cref="TimeSpan"/> to <see cref="QTime"/>.
+    /// </summary>
+    /// <param name="time"></param>
+    public static explicit operator QTime(TimeSpan time)
+        => FromSecond(time.TotalSeconds);
 }

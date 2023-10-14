@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("SiemensPerMetre", "S/m", 1.0, None | Milli | Micro | Nano | Pico)]
 [QuantityOperation(typeof(QLength), typeof(QElectricConductivity), typeof(QElectricConductance))]
-public readonly partial struct QElectricConductivity : IQuantity
+public readonly partial struct QElectricConductivity : IQuantity<QElectricConductivity>
 {
 }

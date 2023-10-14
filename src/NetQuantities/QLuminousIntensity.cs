@@ -9,6 +9,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Candela", "cd", 1.0, None)]
-public readonly partial struct QLuminousIntensity : IQuantity
+public readonly partial struct QLuminousIntensity : IQuantity<QLuminousIntensity>
 {
 }

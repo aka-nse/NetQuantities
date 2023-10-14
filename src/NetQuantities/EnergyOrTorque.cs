@@ -62,7 +62,7 @@ namespace NetQuantities
     }
 
     partial struct QEnergy
-        : IQuantity
+        : IQuantity<QEnergy>
 #if NET7_0_OR_GREATER
     , IDivisionOperators<QEnergy, QForce, QLength>
     , IDivisionOperators<QEnergy, QLength, QForce>
@@ -78,7 +78,7 @@ namespace NetQuantities
     }
 
     partial struct QTorque
-    : IQuantity
+    : IQuantity<QTorque>
 #if NET7_0_OR_GREATER
     , IDivisionOperators<QTorque, QForce, QLength>
     , IDivisionOperators<QTorque, QLength, QForce>

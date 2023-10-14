@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Siemens", "S", 1.0, None | Milli | Micro | Nano)]
 [QuantityOperation(typeof(QElectricResistance), typeof(QElectricConductance), typeof(QDimensionless))]
-public readonly partial struct QElectricConductance : IQuantity
+public readonly partial struct QElectricConductance : IQuantity<QElectricConductance>
 {
 }

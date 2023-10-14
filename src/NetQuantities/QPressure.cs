@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Pascal", "Pa", 1.0, None | Milli | Micro | Nano | Hecto | Kilo | Mega | Giga)]
 [QuantityOperation(typeof(QArea), typeof(QPressure), typeof(QForce))]
-public readonly partial struct QPressure : IQuantity
+public readonly partial struct QPressure : IQuantity<QPressure>
 {
 }

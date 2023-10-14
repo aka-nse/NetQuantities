@@ -9,6 +9,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Volt", "V", 1.0, None | Milli | Micro | Kilo | Mega)]
-public readonly partial struct QElectricVoltage : IQuantity
+public readonly partial struct QElectricVoltage : IQuantity<QElectricVoltage>
 {
 }

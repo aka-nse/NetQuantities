@@ -10,7 +10,7 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Steradian", "sr", 1.0)]
 [QuantityUnit("SquareDegree", "deg2", (2 * Math.PI / 360) * (2 * Math.PI / 360))]
-public readonly partial struct QSolidAngle : IQuantity
+public readonly partial struct QSolidAngle : IQuantity<QSolidAngle>
 {
     public static readonly QSolidAngle WholeSphere = FromSteradian(4 * Math.PI);
 }

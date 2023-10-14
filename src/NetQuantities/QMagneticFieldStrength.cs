@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("AmparePerMetre", "A/m", 1.0, None | Milli | Kilo)]
 [QuantityOperation(typeof(QLength), typeof(QMagneticFieldStrength), typeof(QElectricCurrent))]
-public readonly partial struct QMagneticFieldStrength : IQuantity
+public readonly partial struct QMagneticFieldStrength : IQuantity<QMagneticFieldStrength>
 {
 }

@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Hertz", "Hz", 1.0, None | Kilo | Mega | Giga | Tera)]
 [QuantityOperation(typeof(QTime), typeof(QFrequency), typeof(QDimensionless))]
-public readonly partial struct QFrequency : IQuantity
+public readonly partial struct QFrequency : IQuantity<QFrequency>
 {
 }

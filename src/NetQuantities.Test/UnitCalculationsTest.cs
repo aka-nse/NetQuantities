@@ -5,7 +5,8 @@ public class UnitCalculationsTest
     [Fact]
     public void Test()
     {
-#pragma warning disable IDE1006
+        //This test is implemented to verify the definition of the operator.
+        // Make sure the build is successful.
         var accel = QAcceleration.FromMetrePerSquareSecond(1);
         var angle = QAngle.FromRadian(1);
         var angac = QAngularAcceleration.FromRadianPerSquareSecond(1);
@@ -53,6 +54,7 @@ public class UnitCalculationsTest
         Assert.Equal(volum * denst, mass_);
         Assert.Equal(ecapa * evolt, echrg);
         Assert.Equal(ecurr * time_, echrg);
+        Assert.Equal(eidtc * ecurr, mflux);
         Assert.Equal(eresi * econd, nodim);
         Assert.Equal(lngth * econy, econd);
         Assert.Equal(lngth * eflds, evolt);

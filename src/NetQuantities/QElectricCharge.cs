@@ -11,6 +11,6 @@ namespace NetQuantities;
 [QuantityUnit("Coulomb", "C", 1.0, None | Milli | Micro | Nano | Pico)]
 [QuantityUnit("AmpareHour", "Ah", 3600, None | Milli | Kilo)]
 [QuantityOperation(typeof(QElectricCurrent), typeof(QTime), typeof(QElectricCharge))]
-public readonly partial struct QElectricCharge : IQuantity
+public readonly partial struct QElectricCharge : IQuantity<QElectricCharge>
 {
 }

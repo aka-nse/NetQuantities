@@ -12,6 +12,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Joule", "J", 1.0, None | Milli | Kilo | Mega | Giga)]
 [QuantityUnit("ElectronVolt", "eV", 1.602176634e-19, None | Milli | Kilo | Mega | Giga)]
-public readonly partial struct QEnergy : IQuantity
+public readonly partial struct QEnergy : IQuantity<QEnergy>
 {
 }

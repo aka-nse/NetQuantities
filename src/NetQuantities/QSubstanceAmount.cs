@@ -9,6 +9,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Mole", "mol", 1.0, None | Milli | Kilo)]
-public readonly partial struct QSubstanceAmount : IQuantity
+public readonly partial struct QSubstanceAmount : IQuantity<QSubstanceAmount>
 {
 }

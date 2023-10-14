@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Gram", "g", 1.0e-3, None | Milli | Micro | Kilo)]
 [QuantityUnit("Tonne", "t", 1.0e+3)]
-public readonly partial struct QMass : IQuantity
+public readonly partial struct QMass : IQuantity<QMass>
 {
 }

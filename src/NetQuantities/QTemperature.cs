@@ -9,6 +9,6 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Kelvin", "K", 1.0)]
-public readonly partial struct QTemperature : IQuantity
+public readonly partial struct QTemperature : IQuantity<QTemperature>
 {
 }

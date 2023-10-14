@@ -11,6 +11,6 @@ namespace NetQuantities;
 [QuantityUnit("RadianPerSquareSecond", "rad/s^2", 1.0)]
 [QuantityUnit("DegreePerSquareSecond", "deg/s^2", 2 * Math.PI / 360, None | Milli)]
 [QuantityOperation(typeof(QTime), typeof(QAngularAcceleration), typeof(QAngularVelocity))]
-public readonly partial struct QAngularAcceleration : IQuantity
+public readonly partial struct QAngularAcceleration : IQuantity<QAngularAcceleration>
 {
 }

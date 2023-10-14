@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("VoltPerMetre", "V/m", 1.0, None | Milli | Micro | Nano | Kilo)]
 [QuantityOperation(typeof(QLength), typeof(QElectricFieldStrength), typeof(QElectricVoltage))]
-public readonly partial struct QElectricFieldStrength : IQuantity
+public readonly partial struct QElectricFieldStrength : IQuantity<QElectricFieldStrength>
 {
 }

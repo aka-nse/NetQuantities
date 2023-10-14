@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Radian", "rad", 1.0)]
 [QuantityUnit("Degree", "deg", 2 * Math.PI / 360, None | Milli)]
-public readonly partial struct QAngle : IQuantity
+public readonly partial struct QAngle : IQuantity<QAngle>
 {
 }

@@ -10,6 +10,6 @@ namespace NetQuantities;
 [Quantity]
 [QuantityUnit("Ohm", "Ω", 1.0, None | Milli | Kilo | Mega | Giga)]
 [QuantityOperation(typeof(QElectricCurrent), typeof(QElectricResistance), typeof(QElectricVoltage))]
-public readonly partial struct QElectricResistance : IQuantity
+public readonly partial struct QElectricResistance : IQuantity<QElectricResistance>
 {
 }

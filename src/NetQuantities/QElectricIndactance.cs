@@ -9,6 +9,7 @@ namespace NetQuantities;
 /// </summary>
 [Quantity]
 [QuantityUnit("Henry", "H", 1.0, None | Milli | Micro | Nano | Pico)]
-public readonly partial struct QElectricIndactance : IQuantity
+[QuantityOperation(typeof(QElectricIndactance), typeof(QElectricCurrent), typeof(QMagneticFlux))]
+public readonly partial struct QElectricIndactance : IQuantity<QElectricIndactance>
 {
 }

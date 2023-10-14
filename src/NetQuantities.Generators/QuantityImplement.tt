@@ -16,22 +16,17 @@ using System.Text;
 namespace NetQuantities
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, Size = sizeof(double))]
-    partial struct <#=TargetTypeName#>
-        : IComparable
-        , IComparable<<#=TargetTypeName#>>
+    public partial struct <#=TargetTypeName#>
+        : IComparable<<#=TargetTypeName#>>
         , IEquatable<<#=TargetTypeName#>>
-        , IFormattable
-    #if NET6_0_OR_GREATER
-        , ISpanFormattable
-    #endif
     #if NET7_0_OR_GREATER
         , IComparisonOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, bool>
         , IAdditionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, <#=TargetTypeName#>>
         , ISubtractionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, <#=TargetTypeName#>>
         , IMultiplyOperators<<#=TargetTypeName#>, QDimensionless, <#=TargetTypeName#>>
-        , IDivisionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, QDimensionless>
-<# if(TargetTypeName != "QDimensionless") { #>
         , IDivisionOperators<<#=TargetTypeName#>, QDimensionless, <#=TargetTypeName#>>
+<# if(TargetTypeName != "QDimensionless") { #>
+        , IDivisionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, QDimensionless>
 <# } #>
         , IModulusOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, <#=TargetTypeName#>>
         , IAdditiveIdentity<<#=TargetTypeName#>, <#=TargetTypeName#>>
@@ -226,3 +221,205 @@ namespace NetQuantities
 <# } #>
     #endregion
 }
+
+
+#if NET7_0_OR_GREATER
+namespace NetQuantities.Generic
+{
+    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = sizeof(double))]
+    public partial struct <#=TargetTypeName#><T>
+        : IComparable<<#=TargetTypeName#><T>>
+        , IEquatable<<#=TargetTypeName#><T>>
+        , IComparisonOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, bool>
+        , IAdditionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
+        , ISubtractionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
+        , IMultiplyOperators<<#=TargetTypeName#><T>, QDimensionless<T>, <#=TargetTypeName#><T>>
+<# if(TargetTypeName != "QDimensionless") { #>
+        , IDivisionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, QDimensionless<T>>
+<# } #>
+        , IModulusOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
+        , IAdditiveIdentity<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
+        , IMultiplicativeIdentity<<#=TargetTypeName#><T>, QDimensionless<T>>
+        , IUnaryPlusOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
+        , IUnaryNegationOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
+        where T : INumber<T>
+    {
+        private readonly T _RawValue;
+
+        /// <summary>
+        /// The raw value of <see href="<#=TargetTypeName#>{T}" />.
+        /// </summary>
+        public T RawValue => _RawValue;
+
+        internal <#=TargetTypeName#>(T rawValue)
+            => _RawValue = rawValue;
+
+        #region unit definitions
+
+<# foreach(var unit in UnitSymbols) { #>
+        private static readonly T _<#=unit.MajorName#>Scale = T.CreateSaturating<double>(<#=unit.Scale#>);
+
+        /// <summary>
+        /// Creates a new <see href="<#=TargetTypeName#>{T}" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
+        /// </summary>
+        /// <param name="Second"></param>
+        /// <returns></returns>
+        public static <#=TargetTypeName#><T> From<#=unit.MajorName#>(T <#=unit.MajorName#>)
+            => new (<#=unit.MajorName#> * _<#=unit.MajorName#>Scale);
+
+        /// <summary>
+        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
+        /// </summary>
+        public T <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
+
+<# } #>
+        #endregion
+    
+        /// <summary>
+        /// Determines whether the 2 values are same or not.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static bool Equals(in <#=TargetTypeName#><T> x, in <#=TargetTypeName#><T> y) => x._RawValue == y._RawValue;
+
+        /// <summary>
+        /// Determines which value is greater than another.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static int Compare(in <#=TargetTypeName#><T> x, in <#=TargetTypeName#><T> y)
+        {
+            if (x._RawValue == y._RawValue) { return 0; }
+            return x._RawValue < y._RawValue ? -1 : 1;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+            => ToString(null, CultureInfo.CurrentCulture);
+
+        /// <inheritdoc />
+        public override int GetHashCode()
+            => _RawValue.GetHashCode();
+
+        /// <inheritdoc />
+        public override bool Equals([NotNullWhen(true)] object? obj)
+            => obj is <#=TargetTypeName#><T> other && Equals(this, other);
+
+        #region basic interface implements
+
+        /// <inheritdoc />
+        public int CompareTo(object? obj)
+            => obj is <#=TargetTypeName#><T> other
+            ? Compare(this, other)
+            : throw new ArgumentException(nameof(obj));
+
+        /// <inheritdoc />
+        public int CompareTo(<#=TargetTypeName#><T> other) => Compare(this, other);
+
+        /// <inheritdoc />
+        public bool Equals(<#=TargetTypeName#><T> other) => Equals(this, other);
+
+        /// <inheritdoc />
+        public string ToString(string? format, IFormatProvider? formatProvider)
+            => _RawValue.ToString(format, formatProvider);
+
+        /// <inheritdoc />
+        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+            => _RawValue.TryFormat(destination, out charsWritten, format, provider);
+
+        /// <inheritdoc />
+        public static bool operator ==(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Equals(x, y);
+
+        /// <inheritdoc />
+        public static bool operator !=(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => !Equals(x, y);
+
+        /// <inheritdoc />
+        public static bool operator <(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) < 0;
+
+        /// <inheritdoc />
+        public static bool operator >(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) > 0;
+
+        /// <inheritdoc />
+        public static bool operator <=(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) <= 0;
+
+        /// <inheritdoc />
+        public static bool operator >=(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) >= 0;
+
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator +(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new (x._RawValue + y._RawValue);
+
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator-(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new (x._RawValue - y._RawValue);
+
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator *(QDimensionless<T> x, <#=TargetTypeName#><T> y) => new (x * y._RawValue);
+
+        /// <inheritdoc />
+        public static QDimensionless<T> operator /(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => x._RawValue / y._RawValue;
+
+<# if(!TargetTypeName.StartsWith("QDimensionless")) { #>
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator *(<#=TargetTypeName#><T> x, QDimensionless<T> y) => new (x._RawValue * y);
+
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator /(<#=TargetTypeName#><T> x, QDimensionless<T> y) => new(x._RawValue / y);
+
+<# } #>
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator %(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new(x._RawValue % y._RawValue);
+
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> AdditiveIdentity => default;
+
+        /// <inheritdoc />
+        public static QDimensionless<T> MultiplicativeIdentity => default;
+
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator +(<#=TargetTypeName#><T> value) => value;
+
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator -(<#=TargetTypeName#><T> value) => new(-value._RawValue);
+
+        #endregion
+    }
+
+
+    #region unit operations
+<# foreach(var op in UnitOperations) { #>
+
+    partial struct <#=op.ProductType#><T>
+        : IDivisionOperators<<#=op.ProductType#><T>, <#=op.MultiplicantType#><T>, <#=op.MultiplierType#><T>>
+    {
+        /// <inheritdoc />
+        public static <#=op.MultiplierType#><T> operator /(<#=op.ProductType#><T> x, <#=op.MultiplicantType#><T> y) => new(x.RawValue / y.RawValue);
+    }
+
+    partial struct <#=op.MultiplicantType#><T>
+        : IMultiplyOperators<<#=op.MultiplicantType#><T>, <#=op.MultiplierType#><T>, <#=op.ProductType#><T>>
+    {
+        /// <inheritdoc />
+        public static <#=op.ProductType#><T> operator *(<#=op.MultiplicantType#><T> x, <#=op.MultiplierType#><T> y) => new(x.RawValue * y.RawValue);
+    }
+    
+<#     if(op.MultiplierType != op.MultiplicantType) { #>
+    partial struct <#=op.ProductType#><T>
+        : IDivisionOperators<<#=op.ProductType#><T>, <#=op.MultiplierType#><T>, <#=op.MultiplicantType#><T>>
+    {
+        /// <inheritdoc />
+        public static <#=op.MultiplicantType#><T> operator /(<#=op.ProductType#><T> x, <#=op.MultiplierType#><T> y) => new(x.RawValue / y.RawValue);
+    }
+
+    partial struct <#=op.MultiplierType#><T>
+        : IMultiplyOperators<<#=op.MultiplierType#><T>, <#=op.MultiplicantType#><T>, <#=op.ProductType#><T>>
+    {
+        /// <inheritdoc />
+        public static <#=op.ProductType#><T> operator *(<#=op.MultiplierType#><T> x, <#=op.MultiplicantType#><T> y) => new(x.RawValue * y.RawValue);
+    }
+<#     } #>
+
+<# } #>
+    #endregion
+}
+#endif
