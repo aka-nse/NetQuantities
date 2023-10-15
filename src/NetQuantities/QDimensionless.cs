@@ -7,7 +7,7 @@ namespace NetQuantities
     /// This type can be re-interpret-casted into <see cref="double"/> as [1] scale.
     /// </summary>
     [Quantity]
-    public readonly partial struct QDimensionless : IQuantity<QDimensionless>
+    public readonly partial struct QDimensionless
     {
         public static QDimensionless FromRaw(double rawValue) => new(rawValue);
 
@@ -26,7 +26,7 @@ namespace NetQuantities.Generic
     /// Represents a value of dimensionless.
     /// This type can be re-interpret-casted into <typeparamref name="T"/> as [1] scale.
     /// </summary>
-    public readonly partial struct QDimensionless<T> : IQuantity<QDimensionless<T>, T>
+    public readonly partial struct QDimensionless<T>
     {
         public static QDimensionless<T> FromRaw(T rawValue) => new(rawValue);
 

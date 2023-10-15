@@ -1,15 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <LangVersion>11</LangVersion>
         <Nullable>enable</Nullable>
         <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="System.Memory" Version="4.5.5" />
-    </ItemGroup>
-
+    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0'">
+        <LangVersion>11</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(TargetFramework)'!='net7.0'">
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\NetQuantities.Generators\NetQuantities.Generators.csproj">

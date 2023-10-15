@@ -3,9 +3,17 @@ using System.Numerics;
 
 namespace NetQuantities
 {
-    public interface IQuantity<TSelf>
+    public partial interface IQuantity
         : IComparable
         , IFormattable
+#if NET7_0_OR_GREATER
+        , ISpanFormattable
+#endif
+    {
+    }
+
+    public partial interface IQuantity<TSelf>
+        : IQuantity
         , IComparable<TSelf>
         , IEquatable<TSelf>
 #if NET6_0_OR_GREATER
@@ -33,11 +41,9 @@ namespace NetQuantities
 namespace NetQuantities.Generic
 {
     public interface IQuantity<TSelf, T>
-        : IComparable
+        : IQuantity
         , IComparable<TSelf>
         , IEquatable<TSelf>
-        , IFormattable
-        , ISpanFormattable
         , IComparisonOperators<TSelf, TSelf, bool>
         , IAdditionOperators<TSelf, TSelf, TSelf>
         , ISubtractionOperators<TSelf, TSelf, TSelf>

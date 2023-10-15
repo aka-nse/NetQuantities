@@ -88,6 +88,39 @@ namespace NetQuantities
         public override string ToString()
             => ToString(null, CultureInfo.CurrentCulture);
 
+        /// <summary>
+        /// Formats the value of the current instance using the specified format.
+        /// </summary>
+        /// <param name="format">
+        /// The format to use. -or- A null reference (Nothing in Visual Basic) to use the
+        /// default format defined for the type of the System.IFormattable implementation.
+        /// </param>
+        /// <returns>
+        /// The value of the current instance in the specified format.
+        /// </returns>
+        public string ToString(string? format)
+            => _RawValue.ToString(format, CultureInfo.CurrentCulture);
+
+        /// <inheritdoc />
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            if(!QuantityFormatInfo.TryParse(format, out var info))
+            {
+                throw new FormatException();
+            }
+
+            var (value, unit) = info.UnitSelector switch {
+<# foreach(var unit in UnitSymbols) { #>
+                "<#=unit.ShortName#>" => (<#=unit.MajorName#>, "<#=unit.ShortName#>"),
+<# } #>
+                "" => (<#=PrimaryUnit.MajorName#>, "<#=PrimaryUnit.ShortName#>"),
+                _ => throw new FormatException(),
+            };
+            var number = string.Format("{0:" + info.NumberFormat + "}", value);
+            var (open, close) = info.HasBrackets ? ("[", "]") : ("", "");
+            return $"{number}{info.Spacing}{open}{unit}{close}";
+        }
+
         /// <inheritdoc />
         public override int GetHashCode()
             => _RawValue.GetHashCode();
@@ -109,10 +142,6 @@ namespace NetQuantities
 
         /// <inheritdoc />
         public bool Equals(<#=TargetTypeName#> other) => Equals(this, other);
-
-        /// <inheritdoc />
-        public string ToString(string? format, IFormatProvider? formatProvider)
-            => _RawValue.ToString(format, formatProvider);
 
     #if NET6_0_OR_GREATER
         /// <inheritdoc />
@@ -165,7 +194,7 @@ namespace NetQuantities
         public static <#=TargetTypeName#> AdditiveIdentity => default;
 
         /// <inheritdoc />
-        public static QDimensionless MultiplicativeIdentity => default;
+        public static QDimensionless MultiplicativeIdentity => QDimensionless.FromRaw(1);
 
         /// <inheritdoc />
         public static <#=TargetTypeName#> operator +(<#=TargetTypeName#> value) => value;
@@ -228,7 +257,8 @@ namespace NetQuantities.Generic
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, Size = sizeof(double))]
     public partial struct <#=TargetTypeName#><T>
-        : IComparable<<#=TargetTypeName#><T>>
+        : IQuantity<<#=TargetTypeName#><T>, T>
+        , IComparable<<#=TargetTypeName#><T>>
         , IEquatable<<#=TargetTypeName#><T>>
         , IComparisonOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, bool>
         , IAdditionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
@@ -321,13 +351,52 @@ namespace NetQuantities.Generic
         /// <inheritdoc />
         public bool Equals(<#=TargetTypeName#><T> other) => Equals(this, other);
 
+        /// <summary>
+        /// Formats the value of the current instance using the specified format.
+        /// </summary>
+        /// <param name="format">
+        /// The format to use. -or- A null reference (Nothing in Visual Basic) to use the
+        /// default format defined for the type of the System.IFormattable implementation.
+        /// </param>
+        /// <returns>
+        /// The value of the current instance in the specified format.
+        /// </returns>
+        public string ToString(string? format)
+            => _RawValue.ToString(format, CultureInfo.CurrentCulture);
+
         /// <inheritdoc />
         public string ToString(string? format, IFormatProvider? formatProvider)
-            => _RawValue.ToString(format, formatProvider);
+        {
+            if(!QuantityFormatInfo.TryParse(format, out var info))
+            {
+                throw new FormatException();
+            }
+
+            var (value, unit) = info.UnitSelector switch {
+<# foreach(var unit in UnitSymbols) { #>
+                "<#=unit.ShortName#>" => (<#=unit.MajorName#>, "<#=unit.ShortName#>"),
+<# } #>
+                "" => (<#=PrimaryUnit.MajorName#>, "<#=PrimaryUnit.ShortName#>"),
+                _ => throw new FormatException(),
+            };
+            var number = string.Format("{0:" + info.NumberFormat + "}", value);
+            var (open, close) = info.HasBrackets ? ("[", "]") : ("", "");
+            return $"{number}{info.Spacing}{open}{unit}{close}";
+        }
 
         /// <inheritdoc />
         public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
-            => _RawValue.TryFormat(destination, out charsWritten, format, provider);
+        {
+            var str = ToString(format.ToString(), provider);
+            if(destination.Length < str.Length)
+            {
+                charsWritten = default;
+                return false;
+            }
+            str.AsSpan().CopyTo(destination);
+            charsWritten = str.Length;
+            return true;
+        }
 
         /// <inheritdoc />
         public static bool operator ==(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Equals(x, y);
@@ -374,7 +443,7 @@ namespace NetQuantities.Generic
         public static <#=TargetTypeName#><T> AdditiveIdentity => default;
 
         /// <inheritdoc />
-        public static QDimensionless<T> MultiplicativeIdentity => default;
+        public static QDimensionless<T> MultiplicativeIdentity => QDimensionless<T>.FromRaw(T.One);
 
         /// <inheritdoc />
         public static <#=TargetTypeName#><T> operator +(<#=TargetTypeName#><T> value) => value;

@@ -12,6 +12,10 @@ partial class QuantityImplement
     public string TargetTypeName { get; init; } = null!;
     public IList<UnitSymbolDef> UnitSymbols { get; init; } = new List<UnitSymbolDef>();
     public IList<UnitOperationDef> UnitOperations { get; init; } = new List<UnitOperationDef>();
+
+    public UnitSymbolDef PrimaryUnit => _PrimaryUnit ??= GetPrimaryUnit();
+    private UnitSymbolDef? _PrimaryUnit;
+    private UnitSymbolDef GetPrimaryUnit() => UnitSymbols.FirstOrDefault() ?? new UnitSymbolDef("RawValue", "", 1);
 }
 
 
