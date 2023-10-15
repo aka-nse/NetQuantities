@@ -9,6 +9,7 @@ static void NonGenericSample()
     var length = QLength.FromMetre(600);
     var time = QTime.FromSecond(33.5);
     var speed = length / time;
+    // Console.WriteLine(speed.ToString("0.00& [km/h]"));
     Console.WriteLine($"{speed:0.00& [km/h]}");
 }
 

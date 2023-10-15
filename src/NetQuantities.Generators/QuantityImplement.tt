@@ -17,7 +17,8 @@ namespace NetQuantities
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, Size = sizeof(double))]
     public partial struct <#=TargetTypeName#>
-        : IComparable<<#=TargetTypeName#>>
+        : IQuantity<<#=TargetTypeName#>>
+        , IComparable<<#=TargetTypeName#>>
         , IEquatable<<#=TargetTypeName#>>
     #if NET7_0_OR_GREATER
         , IComparisonOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, bool>
@@ -97,7 +98,7 @@ namespace NetQuantities
         /// The value of the current instance in the specified format.
         /// </returns>
         public string ToString(string? format)
-            => _RawValue.ToString(format, CultureInfo.CurrentCulture);
+            => ToString(format, CultureInfo.CurrentCulture);
 
         /// <inheritdoc />
         public string ToString(string? format, IFormatProvider? formatProvider)
@@ -118,6 +119,23 @@ namespace NetQuantities
             var (open, close) = info.HasBrackets ? ("[", "]") : ("", "");
             return $"{number}{info.Spacing}{open}{unit}{close}";
         }
+
+    #if NET6_0_OR_GREATER
+        /// <inheritdoc />
+        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+        {
+            var str = ToString(format.ToString(), provider);
+            if(destination.Length < str.Length)
+            {
+                charsWritten = default;
+                return false;
+            }
+            str.AsSpan().CopyTo(destination);
+            charsWritten = str.Length;
+            return true;
+        }
+
+    #endif
 
         /// <inheritdoc />
         public override int GetHashCode()
@@ -140,12 +158,6 @@ namespace NetQuantities
 
         /// <inheritdoc />
         public bool Equals(<#=TargetTypeName#> other) => Equals(this, other);
-
-    #if NET6_0_OR_GREATER
-        /// <inheritdoc />
-        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
-            => _RawValue.TryFormat(destination, out charsWritten, format, provider);
-    #endif
 
         /// <inheritdoc />
         public static bool operator ==(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => Equals(x, y);
@@ -355,7 +367,7 @@ namespace NetQuantities.Generic
         /// The value of the current instance in the specified format.
         /// </returns>
         public string ToString(string? format)
-            => _RawValue.ToString(format, CultureInfo.CurrentCulture);
+            => ToString(format, CultureInfo.CurrentCulture);
 
         /// <inheritdoc />
         public string ToString(string? format, IFormatProvider? formatProvider)
