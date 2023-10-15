@@ -23,11 +23,11 @@ namespace NetQuantities
         , IComparisonOperators<TSelf, TSelf, bool>
         , IAdditionOperators<TSelf, TSelf, TSelf>
         , ISubtractionOperators<TSelf, TSelf, TSelf>
-        , IMultiplyOperators<TSelf, QDimensionless, TSelf>
-        , IDivisionOperators<TSelf, QDimensionless, TSelf>
+        , IMultiplyOperators<TSelf, double, TSelf>
+        , IDivisionOperators<TSelf, double, TSelf>
         , IModulusOperators<TSelf, TSelf, TSelf>
         , IAdditiveIdentity<TSelf, TSelf>
-        , IMultiplicativeIdentity<TSelf, QDimensionless>
+        , IMultiplicativeIdentity<TSelf, double>
         , IUnaryPlusOperators<TSelf, TSelf>
         , IUnaryNegationOperators<TSelf, TSelf>
     #endif
@@ -47,11 +47,11 @@ namespace NetQuantities.Generic
         , IComparisonOperators<TSelf, TSelf, bool>
         , IAdditionOperators<TSelf, TSelf, TSelf>
         , ISubtractionOperators<TSelf, TSelf, TSelf>
-        , IMultiplyOperators<TSelf, QDimensionless<T>, TSelf>
-        , IDivisionOperators<TSelf, QDimensionless<T>, TSelf>
+        , IMultiplyOperators<TSelf, T, TSelf>
+        , IDivisionOperators<TSelf, T, TSelf>
         , IModulusOperators<TSelf, TSelf, TSelf>
         , IAdditiveIdentity<TSelf, TSelf>
-        , IMultiplicativeIdentity<TSelf, QDimensionless<T>>
+        , IMultiplicativeIdentity<TSelf, T>
         , IUnaryPlusOperators<TSelf, TSelf>
         , IUnaryNegationOperators<TSelf, TSelf>
         where T : INumber<T>

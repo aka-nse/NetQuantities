@@ -14,13 +14,7 @@ static void NonGenericSample()
 
 #if NET7_0_OR_GREATER
 
-var baseType = typeof(IQuantity);
-var assm = baseType.Assembly;
-var types = assm.GetTypes();
-foreach(var t in types)
-{
-    Console.WriteLine(t);
-}
+GenericSample();
 static void GenericSample()
 {
     var length = QLength<decimal>.FromMetre(600m);

@@ -23,14 +23,12 @@ namespace NetQuantities
         , IComparisonOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, bool>
         , IAdditionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, <#=TargetTypeName#>>
         , ISubtractionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, <#=TargetTypeName#>>
-        , IMultiplyOperators<<#=TargetTypeName#>, QDimensionless, <#=TargetTypeName#>>
-        , IDivisionOperators<<#=TargetTypeName#>, QDimensionless, <#=TargetTypeName#>>
-<# if(TargetTypeName != "QDimensionless") { #>
-        , IDivisionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, QDimensionless>
-<# } #>
+        , IMultiplyOperators<<#=TargetTypeName#>, double, <#=TargetTypeName#>>
+        , IDivisionOperators<<#=TargetTypeName#>, double, <#=TargetTypeName#>>
+        , IDivisionOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, double>
         , IModulusOperators<<#=TargetTypeName#>, <#=TargetTypeName#>, <#=TargetTypeName#>>
         , IAdditiveIdentity<<#=TargetTypeName#>, <#=TargetTypeName#>>
-        , IMultiplicativeIdentity<<#=TargetTypeName#>, QDimensionless>
+        , IMultiplicativeIdentity<<#=TargetTypeName#>, double>
         , IUnaryPlusOperators<<#=TargetTypeName#>, <#=TargetTypeName#>>
         , IUnaryNegationOperators<<#=TargetTypeName#>, <#=TargetTypeName#>>
     #endif
@@ -174,19 +172,17 @@ namespace NetQuantities
         public static <#=TargetTypeName#> operator-(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => new (x._RawValue - y._RawValue);
 
         /// <inheritdoc />
-        public static <#=TargetTypeName#> operator *(QDimensionless x, <#=TargetTypeName#> y) => new (x * y._RawValue);
+        public static <#=TargetTypeName#> operator *(double x, <#=TargetTypeName#> y) => new (x * y._RawValue);
 
         /// <inheritdoc />
-        public static QDimensionless operator /(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => x._RawValue / y._RawValue;
-
-<# if(!TargetTypeName.StartsWith("QDimensionless")) { #>
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator *(<#=TargetTypeName#> x, QDimensionless y) => new (x._RawValue * y);
+        public static double operator /(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => x._RawValue / y._RawValue;
 
         /// <inheritdoc />
-        public static <#=TargetTypeName#> operator /(<#=TargetTypeName#> x, QDimensionless y) => new(x._RawValue / y);
+        public static <#=TargetTypeName#> operator *(<#=TargetTypeName#> x, double y) => new (x._RawValue * y);
 
-<# } #>
+        /// <inheritdoc />
+        public static <#=TargetTypeName#> operator /(<#=TargetTypeName#> x, double y) => new(x._RawValue / y);
+
         /// <inheritdoc />
         public static <#=TargetTypeName#> operator %(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => new(x._RawValue % y._RawValue);
 
@@ -194,7 +190,7 @@ namespace NetQuantities
         public static <#=TargetTypeName#> AdditiveIdentity => default;
 
         /// <inheritdoc />
-        public static QDimensionless MultiplicativeIdentity => QDimensionless.FromRaw(1);
+        public static double MultiplicativeIdentity => 1.0;
 
         /// <inheritdoc />
         public static <#=TargetTypeName#> operator +(<#=TargetTypeName#> value) => value;
@@ -255,7 +251,6 @@ namespace NetQuantities
 #if NET7_0_OR_GREATER
 namespace NetQuantities.Generic
 {
-    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = sizeof(double))]
     public partial struct <#=TargetTypeName#><T>
         : IQuantity<<#=TargetTypeName#><T>, T>
         , IComparable<<#=TargetTypeName#><T>>
@@ -263,13 +258,11 @@ namespace NetQuantities.Generic
         , IComparisonOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, bool>
         , IAdditionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
         , ISubtractionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
-        , IMultiplyOperators<<#=TargetTypeName#><T>, QDimensionless<T>, <#=TargetTypeName#><T>>
-<# if(TargetTypeName != "QDimensionless") { #>
-        , IDivisionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, QDimensionless<T>>
-<# } #>
+        , IMultiplyOperators<<#=TargetTypeName#><T>, T, <#=TargetTypeName#><T>>
+        , IDivisionOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, T>
         , IModulusOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
         , IAdditiveIdentity<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
-        , IMultiplicativeIdentity<<#=TargetTypeName#><T>, QDimensionless<T>>
+        , IMultiplicativeIdentity<<#=TargetTypeName#><T>, T>
         , IUnaryPlusOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
         , IUnaryNegationOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
         where T : INumber<T>
@@ -423,19 +416,17 @@ namespace NetQuantities.Generic
         public static <#=TargetTypeName#><T> operator-(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new (x._RawValue - y._RawValue);
 
         /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator *(QDimensionless<T> x, <#=TargetTypeName#><T> y) => new (x * y._RawValue);
+        public static <#=TargetTypeName#><T> operator *(T x, <#=TargetTypeName#><T> y) => new (x * y._RawValue);
 
         /// <inheritdoc />
-        public static QDimensionless<T> operator /(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => x._RawValue / y._RawValue;
-
-<# if(!TargetTypeName.StartsWith("QDimensionless")) { #>
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator *(<#=TargetTypeName#><T> x, QDimensionless<T> y) => new (x._RawValue * y);
+        public static T operator /(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => x._RawValue / y._RawValue;
 
         /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator /(<#=TargetTypeName#><T> x, QDimensionless<T> y) => new(x._RawValue / y);
+        public static <#=TargetTypeName#><T> operator *(<#=TargetTypeName#><T> x, T y) => new (x._RawValue * y);
 
-<# } #>
+        /// <inheritdoc />
+        public static <#=TargetTypeName#><T> operator /(<#=TargetTypeName#><T> x, T y) => new(x._RawValue / y);
+
         /// <inheritdoc />
         public static <#=TargetTypeName#><T> operator %(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new(x._RawValue % y._RawValue);
 
@@ -443,7 +434,7 @@ namespace NetQuantities.Generic
         public static <#=TargetTypeName#><T> AdditiveIdentity => default;
 
         /// <inheritdoc />
-        public static QDimensionless<T> MultiplicativeIdentity => QDimensionless<T>.FromRaw(T.One);
+        public static T MultiplicativeIdentity => T.One;
 
         /// <inheritdoc />
         public static <#=TargetTypeName#><T> operator +(<#=TargetTypeName#><T> value) => value;
