@@ -3,5 +3,4 @@ using NetQuantities;
 using NetQuantities.Generic;
 using System.Numerics;
 
-NonGenericSample.Run();
-GenericSample.Run();
+SampleMethods.ReinterpretCastSample();
