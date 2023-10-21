@@ -22,4 +22,8 @@
     <ItemGroup>
         <Compile Include="..\NetQuantities.Shared\PlatformCapabilities.cs" Link="PlatformCapabilities.cs" />
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Memory" Version="4.5.5" />
+    </ItemGroup>
 </Project>

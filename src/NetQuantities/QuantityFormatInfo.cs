@@ -48,4 +48,45 @@ internal record QuantityFormatInfo(
             hasBrackets);
         return true;
     }
+
+    public string Format(string number, string unit)
+    {
+        var buffer = (stackalloc char[number.Length + Spacing.Length + (HasBrackets ? 2 : 0) + unit.Length]);
+        Format(buffer, number, unit);
+        return buffer.ToString();
+    }
+
+    public bool TryFormat(Span<char> destination, out int charsWritten, string number, string unit)
+    {
+        var length = number.Length + Spacing.Length + (HasBrackets ? 2 : 0) + unit.Length;
+        if (destination.Length < length)
+        {
+            charsWritten = default;
+            return false;
+        }
+        charsWritten = Format(destination, number, unit);
+        return true;
+    }
+    
+    private int Format(Span<char> destination, string number, string unit)
+    {
+        var cursor = 0;
+        number.AsSpan().CopyTo(destination.Slice(cursor));
+        cursor += number.Length;
+        Spacing.AsSpan().CopyTo(destination.Slice(cursor));
+        cursor += Spacing.Length;
+        if (HasBrackets)
+        {
+            destination[cursor] = '[';
+            ++cursor;
+        }
+        unit.AsSpan().CopyTo(destination.Slice(cursor));
+        cursor += unit.Length;
+        if (HasBrackets)
+        {
+            destination[cursor] = ']';
+            ++cursor;
+        }
+        return cursor;
+    }
 }

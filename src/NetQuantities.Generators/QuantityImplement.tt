@@ -100,8 +100,7 @@ namespace NetQuantities
         public string ToString(string? format)
             => ToString(format, CultureInfo.CurrentCulture);
 
-        /// <inheritdoc />
-        public string ToString(string? format, IFormatProvider? formatProvider)
+        private (QuantityFormatInfo info, string number, string unit) GetFormatInfo(string? format, IFormatProvider? formatProvider)
         {
             if(!QuantityFormatInfo.TryParse(format, out var info))
             {
@@ -115,27 +114,35 @@ namespace NetQuantities
                 "" => (<#=PrimaryUnit.MajorName#>, "<#=PrimaryUnit.ShortName#>"),
                 _ => throw new FormatException(),
             };
-            var number = string.Format("{0:" + info.NumberFormat + "}", value);
-            var (open, close) = info.HasBrackets ? ("[", "]") : ("", "");
-            return $"{number}{info.Spacing}{open}{unit}{close}";
+            var number = string.Format(formatProvider, "{0:" + info.NumberFormat + "}", value);
+            return (info, number, unit);
         }
 
-    #if NET6_0_OR_GREATER
         /// <inheritdoc />
-        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+        public string ToString(string? format, IFormatProvider? formatProvider)
         {
-            var str = ToString(format.ToString(), provider);
-            if(destination.Length < str.Length)
-            {
-                charsWritten = default;
-                return false;
-            }
-            str.AsSpan().CopyTo(destination);
-            charsWritten = str.Length;
-            return true;
+            var (info, number, unit) = GetFormatInfo(format, formatProvider);
+            return info.Format(number, unit);
         }
 
-    #endif
+#if NET6_0_OR_GREATER
+        /// <inheritdoc />
+#else
+        /// <summary>
+        /// Tries to format the value of the current instance into the provided span of characters.
+        /// </summary>
+        /// <param name="destination">The span in which to write this instance's value formatted as a span of characters.</param>
+        /// <param name="charsWritten">When this method returns, contains the number of characters that were written in <paramref name="destination"/>.</param>
+        /// <param name="format">A span containing the characters that represent a standard or custom format string that defines the acceptable format for <paramref name="destination"/>.</param>
+        /// <param name="formatProvider">An optional object that supplies culture-specific formatting information for <paramref name="destination"/>.</param>
+        /// <returns><c>true</c> if the formatting was successful; otherwise, <c>false</c>.</returns>
+#endif
+        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? formatProvider)
+        {
+            var (info, number, unit) = GetFormatInfo(format.ToString(), formatProvider);
+            return info.TryFormat(destination, out charsWritten, number, unit);
+        }
+
 
         /// <inheritdoc />
         public override int GetHashCode()
