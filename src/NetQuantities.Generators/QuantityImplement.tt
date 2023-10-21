@@ -47,18 +47,25 @@ namespace NetQuantities
         #region unit definitions
 
 <# foreach(var unit in UnitSymbols) { #>
+
+        /// <summary>
+        /// The scale value to convert between scaled value as [<#=unit.ShortName#>] and raw value.
+        /// <c><#=unit.MajorName#> == RawValue / <#=unit.MajorName#>Scale</c>
+        /// </summary>
+        public const double <#=unit.MajorName#>Scale = <#=unit.Scale#>;
+
         /// <summary>
         /// Creates a new <see href="<#=TargetTypeName#>" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
         /// </summary>
         /// <param name="Second"></param>
         /// <returns></returns>
         public static <#=TargetTypeName#> From<#=unit.MajorName#>(double <#=unit.MajorName#>)
-            => new (<#=unit.MajorName#> * <#=unit.Scale#>);
+            => new (<#=unit.MajorName#> * <#=unit.MajorName#>Scale);
 
         /// <summary>
         /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
         /// </summary>
-        public double <#=unit.MajorName#> => _RawValue / <#=unit.Scale#>;
+        public double <#=unit.MajorName#> => _RawValue / <#=unit.MajorName#>Scale;
 
 <# } #>
         #endregion
@@ -299,7 +306,12 @@ namespace NetQuantities.Generic
         #region unit definitions
 
 <# foreach(var unit in UnitSymbols) { #>
-        private static readonly T _<#=unit.MajorName#>Scale = T.CreateSaturating<double>(<#=unit.Scale#>);
+
+        /// <summary>
+        /// The scale value to convert between scaled value as [<#=unit.ShortName#>] and raw value.
+        /// <c><#=unit.MajorName#> == RawValue / <#=unit.MajorName#>Scale</c>
+        /// </summary>
+        public static readonly T <#=unit.MajorName#>Scale = T.CreateSaturating<double>(<#=unit.Scale#>);
 
         /// <summary>
         /// Creates a new <see href="<#=TargetTypeName#>{T}" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
@@ -307,12 +319,12 @@ namespace NetQuantities.Generic
         /// <param name="Second"></param>
         /// <returns></returns>
         public static <#=TargetTypeName#><T> From<#=unit.MajorName#>(T <#=unit.MajorName#>)
-            => new (<#=unit.MajorName#> * _<#=unit.MajorName#>Scale);
+            => new (<#=unit.MajorName#> * <#=unit.MajorName#>Scale);
 
         /// <summary>
         /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
         /// </summary>
-        public T <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
+        public T <#=unit.MajorName#> => _RawValue / <#=unit.MajorName#>Scale;
 
 <# } #>
         #endregion
