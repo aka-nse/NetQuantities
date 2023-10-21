@@ -3,6 +3,12 @@ using System.Numerics;
 
 namespace NetQuantities
 {
+    public interface IQuantityValue<T>
+        where T : notnull
+    {
+        public T RawValue { get; }
+    }
+
     public partial interface IQuantity
         : IComparable
         , IFormattable
@@ -14,6 +20,7 @@ namespace NetQuantities
 
     public partial interface IQuantity<TSelf>
         : IQuantity
+        , IQuantityValue<double>
         , IComparable<TSelf>
         , IEquatable<TSelf>
 #if NET6_0_OR_GREATER
@@ -33,7 +40,6 @@ namespace NetQuantities
     #endif
         where TSelf : IQuantity<TSelf>
     {
-        public double RawValue { get; }
     }
 }
 
@@ -42,6 +48,7 @@ namespace NetQuantities.Generic
 {
     public interface IQuantity<TSelf, T>
         : IQuantity
+        , IQuantityValue<T>
         , IComparable<TSelf>
         , IEquatable<TSelf>
         , IComparisonOperators<TSelf, TSelf, bool>
@@ -54,10 +61,9 @@ namespace NetQuantities.Generic
         , IMultiplicativeIdentity<TSelf, T>
         , IUnaryPlusOperators<TSelf, TSelf>
         , IUnaryNegationOperators<TSelf, TSelf>
-        where T : INumber<T>
+        where T : notnull, INumber<T>
         where TSelf : IQuantity<TSelf, T>
     {
-        public T RawValue { get; }
     }
 }
 #endif

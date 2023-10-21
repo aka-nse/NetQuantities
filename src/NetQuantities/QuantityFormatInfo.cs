@@ -1,24 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace NetQuantities;
 
-internal record QuantityFormatInfo(
+internal partial record QuantityFormatInfo(
     string NumberFormat,
     string Spacing,
     string UnitSelector,
     bool HasBrackets)
 {
+    // lang=regex
+    private const string _EscapeMatcherPattern = @"\\(.)";
     private static readonly Regex _EscapeMatcher
-        = new(@"\\(.)");
+#if NET7_0_OR_GREATER
+        = GenerateEscapeMatcher();
+    [GeneratedRegex(_EscapeMatcherPattern)]
+    private static partial Regex GenerateEscapeMatcher();
+#else
+        = new(_EscapeMatcherPattern, RegexOptions.Compiled);
+#endif
 
+    // lang=regex
+    private const string _FormatMatcherPattern = @"^(?<number>(?:[^\s&]|\\.)*)(?:&(?<spacing>\s*)(?<open>\[?)(?<unit>(?:[^\s\[\]]|\\.)*)(?<close>\]?))?$";
     private static readonly Regex _FormatMatcher
-        = new(@"^(?<number>(?:[^\s&]|\\.)*)(?:&(?<spacing>\s*)(?<open>\[?)(?<unit>(?:[^\s\[\]]|\\.)*)(?<close>\]?))?$");
+#if NET7_0_OR_GREATER
+        = GenerateFormatMatcher();
+    [GeneratedRegex(_FormatMatcherPattern)]
+    private static partial Regex GenerateFormatMatcher();
+#else
+        = new(_FormatMatcherPattern, RegexOptions.Compiled);
+#endif
 
-    public static bool TryParse(
+
+    public static bool TryCompile(
         string? format,
         [NotNullWhen(true)] out QuantityFormatInfo? info)
     {

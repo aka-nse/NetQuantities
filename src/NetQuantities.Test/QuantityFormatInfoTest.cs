@@ -38,7 +38,7 @@ public class QuantityFormatInfoTest
     [MemberData(nameof(TryParseTestCases))]
     public void TryParse(string format, object? expectedResult)
     {
-        var actualSucceeded = QuantityFormatInfo.TryParse(format, out var actualResult);
+        var actualSucceeded = QuantityFormatInfo.TryCompile(format, out var actualResult);
         if(expectedResult is QuantityFormatInfo expectedResult_)
         {
             Assert.True(actualSucceeded);

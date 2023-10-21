@@ -26,7 +26,16 @@ public class FormatTest
         yield return core(QSpeed.FromMetrePerSecond(1.234), "E&[]", null, "1.234000E+000[m/s]");
         yield return core(QSpeed.FromMetrePerSecond(1.234), "E& []", null, "1.234000E+000 [m/s]");
 
-        // yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "", null, "1.234m/s");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "", null, "1.234m/s");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "&", null, "1.234m/s");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "& ", null, "1.234 m/s");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "&[]", null, "1.234[m/s]");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "& []", null, "1.234 [m/s]");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "E", null, "1.234000E+000m/s");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "E&", null, "1.234000E+000m/s");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "E& ", null, "1.234000E+000 m/s");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "E&[]", null, "1.234000E+000[m/s]");
+        yield return core(QSpeed<decimal>.FromMetrePerSecond(1.234m), "E& []", null, "1.234000E+000 [m/s]");
 
         yield break;
     }

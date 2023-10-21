@@ -7,6 +7,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
@@ -44,32 +45,6 @@ namespace NetQuantities
         internal <#=TargetTypeName#>(double rawValue)
             => _RawValue = rawValue;
 
-        #region unit definitions
-
-<# foreach(var unit in UnitSymbols) { #>
-
-        /// <summary>
-        /// The scale value to convert between scaled value as [<#=unit.ShortName#>] and raw value.
-        /// <c><#=unit.MajorName#> == RawValue / <#=unit.MajorName#>Scale</c>
-        /// </summary>
-        public const double <#=unit.MajorName#>Scale = <#=unit.Scale#>;
-
-        /// <summary>
-        /// Creates a new <see href="<#=TargetTypeName#>" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
-        /// </summary>
-        /// <param name="Second"></param>
-        /// <returns></returns>
-        public static <#=TargetTypeName#> From<#=unit.MajorName#>(double <#=unit.MajorName#>)
-            => new (<#=unit.MajorName#> * <#=unit.MajorName#>Scale);
-
-        /// <summary>
-        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
-        /// </summary>
-        public double <#=unit.MajorName#> => _RawValue / <#=unit.MajorName#>Scale;
-
-<# } #>
-        #endregion
-    
         /// <summary>
         /// Determines whether the 2 values are same or not.
         /// </summary>
@@ -88,6 +63,47 @@ namespace NetQuantities
         {
             if (x._RawValue == y._RawValue) { return 0; }
             return x._RawValue < y._RawValue ? -1 : 1;
+        }
+
+        /// <summary>
+        /// Tries to parse a string into a value.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="provider"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        public static bool TryParse(string? s, IFormatProvider? provider, out <#=TargetTypeName#> result)
+        {
+            if(!QuantityParseInfo.TryCompile(s, out var info))
+            {
+                result = default;
+                return false;
+            }
+            var (succeeded, value) = info.UnitSelector switch {
+<# foreach(var unit in UnitSymbols) { #>
+                "<#=unit.ShortName#>" => (double.TryParse(info.Number, NumberStyles.Any, provider, out var x), From<#=unit.MajorName#>(x)),
+<# } #>
+                _ => (false, default),
+            };
+            result = value;
+            return succeeded;
+        }
+
+        /// <summary>
+        /// Parses a string into a value.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="FormatException"></exception>
+        public static <#=TargetTypeName#> Parse(string? s, IFormatProvider? provider)
+        {
+            if(s is null)
+                throw new ArgumentNullException(nameof(s));
+            if(!TryParse(s, provider, out var result))
+                throw new FormatException();
+            return result;
         }
 
         /// <inheritdoc />
@@ -109,7 +125,7 @@ namespace NetQuantities
 
         private (QuantityFormatInfo info, string number, string unit) GetFormatInfo(string? format, IFormatProvider? formatProvider)
         {
-            if(!QuantityFormatInfo.TryParse(format, out var info))
+            if(!QuantityFormatInfo.TryCompile(format, out var info))
             {
                 throw new FormatException();
             }
@@ -158,6 +174,45 @@ namespace NetQuantities
         /// <inheritdoc />
         public override bool Equals([NotNullWhen(true)] object? obj)
             => obj is <#=TargetTypeName#> other && Equals(this, other);
+
+        #region unit definitions
+
+        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
+        public static readonly ImmutableDictionary<string, UnitInfo> UnitsBySymbol = GetUnitsBySymbol();
+        private static ImmutableDictionary<string, UnitInfo> GetUnitsBySymbol()
+        {
+            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo>();
+<# foreach(var unit in UnitSymbols) { #>
+            builder.Add("<#=unit.ShortName#>", <#=unit.MajorName#>Info);
+<# } #>
+            return builder.ToImmutable();
+        }
+
+<# foreach(var unit in UnitSymbols) { #>
+        #region <#=unit.MajorName#>
+
+        private const double _<#=unit.MajorName#>Scale = <#=unit.Scale#>;
+
+        /// <summary> The information for [<#=unit.ShortName#>]. </summary>
+        public static readonly UnitInfo <#=unit.MajorName#>Info = new (_<#=unit.MajorName#>Scale, "<#=unit.MajorName#>", "<#=unit.ShortName#>");
+
+        /// <summary>
+        /// Creates a new <see href="<#=TargetTypeName#>" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
+        /// </summary>
+        /// <param name="Second"></param>
+        /// <returns></returns>
+        public static <#=TargetTypeName#> From<#=unit.MajorName#>(double <#=unit.MajorName#>)
+            => new (<#=unit.MajorName#> * _<#=unit.MajorName#>Scale);
+
+        /// <summary>
+        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
+        /// </summary>
+        public double <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
+
+        #endregion
+
+<# } #>
+        #endregion
 
         #region basic interface implements
 
@@ -303,32 +358,6 @@ namespace NetQuantities.Generic
         internal <#=TargetTypeName#>(T rawValue)
             => _RawValue = rawValue;
 
-        #region unit definitions
-
-<# foreach(var unit in UnitSymbols) { #>
-
-        /// <summary>
-        /// The scale value to convert between scaled value as [<#=unit.ShortName#>] and raw value.
-        /// <c><#=unit.MajorName#> == RawValue / <#=unit.MajorName#>Scale</c>
-        /// </summary>
-        public static readonly T <#=unit.MajorName#>Scale = T.CreateSaturating<double>(<#=unit.Scale#>);
-
-        /// <summary>
-        /// Creates a new <see href="<#=TargetTypeName#>{T}" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
-        /// </summary>
-        /// <param name="Second"></param>
-        /// <returns></returns>
-        public static <#=TargetTypeName#><T> From<#=unit.MajorName#>(T <#=unit.MajorName#>)
-            => new (<#=unit.MajorName#> * <#=unit.MajorName#>Scale);
-
-        /// <summary>
-        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
-        /// </summary>
-        public T <#=unit.MajorName#> => _RawValue / <#=unit.MajorName#>Scale;
-
-<# } #>
-        #endregion
-    
         /// <summary>
         /// Determines whether the 2 values are same or not.
         /// </summary>
@@ -349,6 +378,47 @@ namespace NetQuantities.Generic
             return x._RawValue < y._RawValue ? -1 : 1;
         }
 
+        /// <summary>
+        /// Tries to parse a string into a value.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="provider"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        public static bool TryParse(string? s, IFormatProvider? provider, out <#=TargetTypeName#><T> result)
+        {
+            if(!QuantityParseInfo.TryCompile(s, out var info))
+            {
+                result = default;
+                return false;
+            }
+            var (succeeded, value) = info.UnitSelector switch {
+<# foreach(var unit in UnitSymbols) { #>
+                "<#=unit.ShortName#>" => (T.TryParse(info.Number, provider, out var x), From<#=unit.MajorName#>(x)),
+<# } #>
+                _ => (false, default),
+            };
+            result = value;
+            return succeeded;
+        }
+
+        /// <summary>
+        /// Parses a string into a value.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="FormatException"></exception>
+        public static <#=TargetTypeName#><T> Parse(string? s, IFormatProvider? provider)
+        {
+            if(s is null)
+                throw new ArgumentNullException(nameof(s));
+            if(!TryParse(s, provider, out var result))
+                throw new FormatException();
+            return result;
+        }
+
         /// <inheritdoc />
         public override string ToString()
             => ToString(null, CultureInfo.CurrentCulture);
@@ -360,6 +430,45 @@ namespace NetQuantities.Generic
         /// <inheritdoc />
         public override bool Equals([NotNullWhen(true)] object? obj)
             => obj is <#=TargetTypeName#><T> other && Equals(this, other);
+
+        #region unit definitions
+        
+        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
+        public static readonly ImmutableDictionary<string, UnitInfo<T>> UnitsBySymbol = GetUnitsBySymbol();
+        private static ImmutableDictionary<string, UnitInfo<T>> GetUnitsBySymbol()
+        {
+            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo<T>>();
+<# foreach(var unit in UnitSymbols) { #>
+            builder.Add("<#=unit.ShortName#>", <#=unit.MajorName#>Info);
+<# } #>
+            return builder.ToImmutable();
+        }
+
+<# foreach(var unit in UnitSymbols) { #>
+        #region <#=unit.MajorName#>
+
+        private static readonly T _<#=unit.MajorName#>Scale = T.CreateSaturating(<#=unit.Scale#>);
+
+        /// <summary> The information for [<#=unit.ShortName#>]. </summary>
+        public static readonly UnitInfo<T> <#=unit.MajorName#>Info = new (_<#=unit.MajorName#>Scale, "<#=unit.MajorName#>", "<#=unit.ShortName#>");
+
+        /// <summary>
+        /// Creates a new <see href="<#=TargetTypeName#>{T}" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
+        /// </summary>
+        /// <param name="Second"></param>
+        /// <returns></returns>
+        public static <#=TargetTypeName#><T> From<#=unit.MajorName#>(T <#=unit.MajorName#>)
+            => new (<#=unit.MajorName#> * _<#=unit.MajorName#>Scale);
+
+        /// <summary>
+        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
+        /// </summary>
+        public T <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
+
+        #endregion
+
+<# } #>
+        #endregion
 
         #region basic interface implements
 
@@ -391,7 +500,7 @@ namespace NetQuantities.Generic
         /// <inheritdoc />
         public string ToString(string? format, IFormatProvider? formatProvider)
         {
-            if(!QuantityFormatInfo.TryParse(format, out var info))
+            if(!QuantityFormatInfo.TryCompile(format, out var info))
             {
                 throw new FormatException();
             }
