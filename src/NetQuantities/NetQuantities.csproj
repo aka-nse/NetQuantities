@@ -3,6 +3,18 @@
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageId>aka-nse.$(AssemblyName)</PackageId>
+        <Title>NetQuantities</Title>
+        <Authors>aka-nse</Authors>
+        <PackageProjectUrl>https://github.com/aka-nse/NetQuantities</PackageProjectUrl>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/aka-nse/NetQuantities</RepositoryUrl>
+        <Description>.Net library for physical quantity handling</Description>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)'=='net7.0'">
@@ -21,6 +33,21 @@
 
     <ItemGroup>
         <Compile Include="..\NetQuantities.Shared\PlatformCapabilities.cs" Link="PlatformCapabilities.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="D:\develop\NetQuantities\src\..\LICENSE">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="D:\develop\NetQuantities\src\..\readme.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="D:\develop\NetQuantities\src\..\resource\icon.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
