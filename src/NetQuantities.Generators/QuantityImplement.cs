@@ -1432,40 +1432,45 @@ namespace NetQuantities
             
             #line default
             #line hidden
-            this.Write("<T> result)\r\n        {\r\n            if(!QuantityParseInfo.TryCompile(s, out var i" +
-                    "nfo))\r\n            {\r\n                result = default;\r\n                return " +
-                    "false;\r\n            }\r\n            var (succeeded, value) = info.UnitSelector sw" +
-                    "itch {\r\n");
+            this.Write(@"<T> result)
+        {
+            if(!QuantityParseInfo.TryCompile(s, out var info))
+            {
+                result = default;
+                return false;
+            }
+            var succeeded = false;
+            result = info.UnitSelector switch {
+");
             
-            #line 396 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 397 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
  foreach(var unit in UnitSymbols) { 
             
             #line default
             #line hidden
             this.Write("                \"");
             
-            #line 397 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 398 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
             
             #line default
             #line hidden
-            this.Write("\" => (T.TryParse(info.Number, provider, out var x), From");
+            this.Write("\" => (succeeded = T.TryParse(info.Number, provider, out var x)) ? From");
             
-            #line 397 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 398 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
             
             #line default
             #line hidden
-            this.Write("(x)),\r\n");
+            this.Write("(x!) : default,\r\n");
             
-            #line 398 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 399 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
  } 
             
             #line default
             #line hidden
-            this.Write(@"                _ => (false, default),
+            this.Write(@"                _ => default,
             };
-            result = value;
             return succeeded;
         }
 

@@ -392,13 +392,13 @@ namespace NetQuantities.Generic
                 result = default;
                 return false;
             }
-            var (succeeded, value) = info.UnitSelector switch {
+            var succeeded = false;
+            result = info.UnitSelector switch {
 <# foreach(var unit in UnitSymbols) { #>
-                "<#=unit.ShortName#>" => (T.TryParse(info.Number, provider, out var x), From<#=unit.MajorName#>(x)),
+                "<#=unit.ShortName#>" => (succeeded = T.TryParse(info.Number, provider, out var x)) ? From<#=unit.MajorName#>(x!) : default,
 <# } #>
-                _ => (false, default),
+                _ => default,
             };
-            result = value;
             return succeeded;
         }
 
