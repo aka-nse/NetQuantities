@@ -51,7 +51,7 @@ public record UnitSymbolDef(
             (1 << ( 8 + 16), "Yotta" , "Y", 1e+24),
             (1 << ( 9 + 16), "Ronna" , "R", 1e+27),
             (1 << (10 + 16), "Quetta", "Q", 1e+30),
-            
+
         };
 #pragma warning restore format
 

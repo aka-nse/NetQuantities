@@ -32,7 +32,7 @@ internal sealed class QuantityUnitAttribute : Attribute
     }
 }
 
-    
+
 [AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]
 internal sealed class QuantityOperationAttribute : Attribute
 {
@@ -53,7 +53,7 @@ internal sealed class QuantityOperationAttribute : Attribute
 internal enum UnitPrefix
 {
     None = 0,
-    
+
     Centi  = 1 << 0,
     Milli  = 1 << 1,
     Micro  = 1 << 2,

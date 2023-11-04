@@ -303,7 +303,7 @@ namespace NetQuantities
         /// <inheritdoc />
         public static <#=op.ProductType#> operator *(<#=op.MultiplicantType#> x, <#=op.MultiplierType#> y) => new(x.RawValue * y.RawValue);
     }
-    
+
 <#     if(op.MultiplierType != op.MultiplicantType) { #>
     partial struct <#=op.ProductType#>
     #if NET7_0_OR_GREATER
@@ -432,7 +432,7 @@ namespace NetQuantities.Generic
             => obj is <#=TargetTypeName#><T> other && Equals(this, other);
 
         #region unit definitions
-        
+
         /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
         public static readonly ImmutableDictionary<string, UnitInfo<T>> UnitsBySymbol = GetUnitsBySymbol();
         private static ImmutableDictionary<string, UnitInfo<T>> GetUnitsBySymbol()
@@ -606,7 +606,7 @@ namespace NetQuantities.Generic
         /// <inheritdoc />
         public static <#=op.ProductType#><T> operator *(<#=op.MultiplicantType#><T> x, <#=op.MultiplierType#><T> y) => new(x.RawValue * y.RawValue);
     }
-    
+
 <#     if(op.MultiplierType != op.MultiplicantType) { #>
     partial struct <#=op.ProductType#><T>
 //        : IDivisionOperators<<#=op.ProductType#><T>, <#=op.MultiplierType#><T>, <#=op.MultiplicantType#><T>>
