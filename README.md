@@ -11,6 +11,11 @@
   - quantity types are designed simple ValueObject wrapped `double` / `T` (for .Net 7 or later). - in most case there would be no overhead after JIT.
   - all types can be re-interpret casting to/from `double`/`T` (for .Net 7 or later, unmanaged type) as SI units.
 
+### Install
+
+- `dotnet add package akanse.NetQuantities`
+- [NuGet Gallery | akanse.NetQuantities](https://www.nuget.org/packages/akanse.NetQuantities/1.0.0)
+
 ## Usage
 
 ### quantity dimension operation

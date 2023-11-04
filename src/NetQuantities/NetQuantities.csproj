@@ -4,7 +4,7 @@
         <Nullable>enable</Nullable>
         <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <PackageId>aka-nse.$(AssemblyName)</PackageId>
+        <PackageId>akanse.$(AssemblyName)</PackageId>
         <Title>NetQuantities</Title>
         <Authors>aka-nse</Authors>
         <PackageProjectUrl>https://github.com/aka-nse/NetQuantities</PackageProjectUrl>
