@@ -115,3 +115,8 @@ Console.WriteLine(Unsafe.As<double, NetQuantities.QSpeed>(ref rawValueNonGeneric
 var rawValueGeneric = 1.234m;
 Console.WriteLine(Unsafe.As<decimal, NetQuantities.Generic.QSpeed<decimal>>(ref rawValueGeneric));  // 1.234m/s
 ```
+
+## Coding Conventions
+
+- generally, coding styles shall be obeyed [.Net C# Coding Style](https://github.com/dotnet/runtime/blob/main/docs/coding-guidelines/coding-style.md).
+  - exceptly double brank lines at out of method is allowed.

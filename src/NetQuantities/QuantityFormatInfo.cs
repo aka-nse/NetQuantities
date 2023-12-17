@@ -85,7 +85,7 @@ internal partial record QuantityFormatInfo(
         charsWritten = Format(destination, number, unit);
         return true;
     }
-    
+
     private int Format(Span<char> destination, string number, string unit)
     {
         var cursor = 0;
