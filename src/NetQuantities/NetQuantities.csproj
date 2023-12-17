@@ -36,15 +36,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="D:\develop\NetQuantities\src\..\LICENSE">
+      <None Include="..\..\LICENSE">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
-      <None Include="D:\develop\NetQuantities\src\..\readme.md">
+      <None Include="..\..\readme.md">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
-      <None Include="D:\develop\NetQuantities\src\..\resource\icon.png">
+      <None Include="..\..\resource\icon.png">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
