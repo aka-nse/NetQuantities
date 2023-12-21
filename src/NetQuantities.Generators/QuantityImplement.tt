@@ -2,6 +2,7 @@
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
 <#@ import namespace="System.Collections.Generic" #>
 #nullable enable
 using System;
@@ -326,6 +327,17 @@ namespace NetQuantities
 
 <# } #>
     #endregion
+
+    partial class UnitShorthands
+    {
+<# foreach(var unit in UnitSymbols) { #>
+<#     if(unit.ExportsShorthandSymbol) { #>
+            /// <summary> A symbol for <see cref="<#=TargetTypeName#>" />. </summary>
+            public static readonly <#=TargetTypeName#> <#=unit.ShortName#> = new(<#=unit.Scale#>);
+
+<#     } #>
+<# } #>
+    }
 }
 
 
@@ -625,5 +637,16 @@ namespace NetQuantities.Generic
 
 <# } #>
     #endregion
+
+    partial class UnitShorthands
+    {
+<# foreach(var unit in UnitSymbols) { #>
+<#     if(unit.ExportsShorthandSymbol) { #>
+            /// <summary> A symbol for <see cref="<#=TargetTypeName#>" />. </summary>
+            public static readonly <#=TargetTypeName#> <#=unit.ShortName#> = new(<#=unit.Scale#>);
+
+<#     } #>
+<# } #>
+    }
 }
 #endif
