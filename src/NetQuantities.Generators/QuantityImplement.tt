@@ -333,6 +333,7 @@ namespace NetQuantities
 <# foreach(var unit in UnitSymbols) { #>
 <#     if(unit.ExportsShorthandSymbol) { #>
             /// <summary> A symbol for <see cref="<#=TargetTypeName#>" />. </summary>
+            [CLSCompliant(false)]
             public static readonly <#=TargetTypeName#> <#=unit.ShortName#> = new(<#=unit.Scale#>);
 
 <#     } #>
@@ -643,6 +644,7 @@ namespace NetQuantities.Generic
 <# foreach(var unit in UnitSymbols) { #>
 <#     if(unit.ExportsShorthandSymbol) { #>
             /// <summary> A symbol for <see cref="<#=TargetTypeName#>" />. </summary>
+            [CLSCompliant(false)]
             public static readonly <#=TargetTypeName#> <#=unit.ShortName#> = new(<#=unit.Scale#>);
 
 <#     } #>

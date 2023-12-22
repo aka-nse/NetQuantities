@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [s] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Second", "s", 1.0, None | Milli | Micro | Nano | Pico | Femto)]
+[QuantityUnit("Second", "s", 1.0, None | Milli | Micro | Nano | Pico | Femto, exportsShorthandSymbol: true)]
 [QuantityUnit("Minute", "min", 60.0)]
 [QuantityUnit("Hour", "h", 3600.0)]
 public readonly partial struct QTime : IQuantity<QTime>
