@@ -28,8 +28,9 @@ public class Generator : IIncrementalGenerator
             .FindAttributedMembers<StructDeclarationSyntax, INamedTypeSymbol>(quantityAttributeSymbol);
 
         var source = attributedFiles
-            .Combine(quantityUnitAttributeSymbol
-                .Combine(quantityOperationAttributeSymbol));
+            .Combine(quantityAttributeSymbol
+                .Combine(quantityUnitAttributeSymbol
+                    .Combine(quantityOperationAttributeSymbol)));
         context.RegisterSourceOutput(source, GenerateUnitTypeImplements);
     }
 
@@ -45,13 +46,15 @@ public class Generator : IIncrementalGenerator
     private void GenerateUnitTypeImplements(
         SourceProductionContext context,
         (AttributedMemberInfo<INamedTypeSymbol> info,
-        (INamedTypeSymbol unitAttr, INamedTypeSymbol opAttr)) tpl)
+        (INamedTypeSymbol qAttr, (INamedTypeSymbol unitAttr, INamedTypeSymbol opAttr))) tpl)
     {
         var canceller = context.CancellationToken;
         canceller.ThrowIfCancellationRequested();
 
-        var (info, (qUnitAttr, qOpAttr)) = tpl;
+        var (info, (qAttr, (qUnitAttr, qOpAttr))) = tpl;
         var attributes = info.TargetSymbol.GetAttributes();
+        var qDef = attributes
+            .Single(attr => SymbolEqualityComparer.Default.Equals(attr.AttributeClass, qAttr));
         var unitDefs = attributes
             .Where(attr => SymbolEqualityComparer.Default.Equals(attr.AttributeClass, qUnitAttr));
         var operationDefs = attributes
@@ -60,6 +63,7 @@ public class Generator : IIncrementalGenerator
         var unitSource = new QuantityImplement()
         {
             TargetTypeName = info.TargetSymbol.Name,
+            QuantityDef = QuantityDef.GetQuantityDef(qDef),
             UnitSymbols = unitDefs
                 .SelectMany(UnitSymbolDef.GetUnitSymbols)
                 .ToArray(),

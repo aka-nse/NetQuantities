@@ -7,7 +7,7 @@ namespace NetQuantities;
 /// Represents a value of pressure.
 /// This type can be re-interpret-casted into <see cref="double"/> as [Pa] scale.
 /// </summary>
-[Quantity]
+[Quantity(L: -1, M: 1, T: -2, I: 0, Th: 0, N: 0, J: 1)]
 [QuantityUnit("Pascal", "Pa", 1.0, None | Milli | Micro | Nano | Hecto | Kilo | Mega | Giga)]
 [QuantityOperation(typeof(QArea), typeof(QPressure), typeof(QForce))]
 public readonly partial struct QPressure : IQuantity<QPressure>

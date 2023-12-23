@@ -11,6 +11,24 @@ namespace NetQuantities;
 [AttributeUsage(AttributeTargets.Struct, AllowMultiple = false)]
 internal sealed class QuantityAttribute : Attribute
 {
+    public int L { get; }
+    public int M { get; }
+    public int T { get; }
+    public int I { get; }
+    public int Th { get; }
+    public int N { get; }
+    public int J { get; }
+
+    public QuantityAttribute(int L = 0, int M = 0, int T = 0, int I = 0, int Th = 0, int N = 0, int J = 0)
+    {
+        this.L  = L ;
+        this.M  = M ;
+        this.T  = T ;
+        this.I  = I ;
+        this.Th = Th;
+        this.N  = N ;
+        this.J  = J ;
+    }
 }
 
 [AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]

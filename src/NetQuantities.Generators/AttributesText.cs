@@ -30,28 +30,34 @@ namespace NetQuantities.Generators
         {
             this.Write("using System;\r\n\r\nnamespace NetQuantities;\r\n\r\n\r\n[AttributeUsage(AttributeTargets.S" +
                     "truct, AllowMultiple = false)]\r\ninternal sealed class QuantityAttribute : Attrib" +
-                    "ute\r\n{\r\n}\r\n\r\n[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]\r\nin" +
-                    "ternal sealed class QuantityUnitAttribute : Attribute\r\n{\r\n    public string Name" +
-                    " { get; }\r\n    public string Unit { get; }\r\n    public double Scale { get; }\r\n  " +
-                    "  public UnitPrefix Prefix { get; }\r\n    public int PowerOfPrefix { get; }\r\n\r\n  " +
-                    "  public QuantityUnitAttribute(string name, string unit, double scale, UnitPrefi" +
-                    "x prefix = UnitPrefix.None, int powerOfPrefix = 1)\r\n    {\r\n        Name = name;\r" +
-                    "\n        Unit = unit;\r\n        Scale = scale;\r\n        Prefix = prefix;\r\n       " +
-                    " PowerOfPrefix = powerOfPrefix;\r\n    }\r\n}\r\n\r\n    \r\n[AttributeUsage(AttributeTarg" +
-                    "ets.Struct, AllowMultiple = true)]\r\ninternal sealed class QuantityOperationAttri" +
-                    "bute : Attribute\r\n{\r\n    public Type MultiplicantType { get; }\r\n    public Type " +
-                    "MultiplierType { get; }\r\n    public Type ProductType { get; }\r\n\r\n    public Quan" +
-                    "tityOperationAttribute(Type multiplicant, Type multiplier, Type product)\r\n    {\r" +
-                    "\n        MultiplicantType = multiplicant;\r\n        MultiplierType = multiplier;\r" +
-                    "\n        ProductType = product;\r\n    }\r\n}\r\n\r\n\r\n[Flags]\r\ninternal enum UnitPrefix" +
-                    "\r\n{\r\n    None = 0,\r\n    \r\n    Centi  = 1 << 0,\r\n    Milli  = 1 << 1,\r\n    Micro " +
-                    " = 1 << 2,\r\n    Nano   = 1 << 3,\r\n    Pico   = 1 << 4,\r\n    Femto  = 1 << 5,\r\n  " +
-                    "  Atto   = 1 << 6,\r\n    Zepto  = 1 << 7,\r\n    Yocto  = 1 << 8,\r\n    Ronto  = 1 <" +
-                    "< 9,\r\n    Quecto = 1 << 10,\r\n\r\n    Hecto  = 1 << (0 + 16),\r\n    Kilo   = 1 << (1" +
-                    " + 16),\r\n    Mega   = 1 << (2 + 16),\r\n    Giga   = 1 << (3 + 16),\r\n    Tera   = " +
-                    "1 << (4 + 16),\r\n    Peta   = 1 << (5 + 16),\r\n    Exa    = 1 << (6 + 16),\r\n    Ze" +
-                    "tta  = 1 << (7 + 16),\r\n    Yotta  = 1 << (8 + 16),\r\n    Ronna  = 1 << (9 + 16),\r" +
-                    "\n    Quetta = 1 << (10 + 16),\r\n}");
+                    "ute\r\n{\r\n    public int L { get; }\r\n    public int M { get; }\r\n    public int T {" +
+                    " get; }\r\n    public int I { get; }\r\n    public int Th { get; }\r\n    public int N" +
+                    " { get; }\r\n    public int J { get; }\r\n\r\n    public QuantityAttribute(int L = 0, " +
+                    "int M = 0, int T = 0, int I = 0, int Th = 0, int N = 0, int J = 0)\r\n    {\r\n     " +
+                    "   this.L  = L ;\r\n        this.M  = M ;\r\n        this.T  = T ;\r\n        this.I  " +
+                    "= I ;\r\n        this.Th = Th;\r\n        this.N  = N ;\r\n        this.J  = J ;\r\n    " +
+                    "}\r\n}\r\n\r\n[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]\r\ninterna" +
+                    "l sealed class QuantityUnitAttribute : Attribute\r\n{\r\n    public string Name { ge" +
+                    "t; }\r\n    public string Unit { get; }\r\n    public double Scale { get; }\r\n    pub" +
+                    "lic UnitPrefix Prefix { get; }\r\n    public int PowerOfPrefix { get; }\r\n\r\n    pub" +
+                    "lic QuantityUnitAttribute(string name, string unit, double scale, UnitPrefix pre" +
+                    "fix = UnitPrefix.None, int powerOfPrefix = 1)\r\n    {\r\n        Name = name;\r\n    " +
+                    "    Unit = unit;\r\n        Scale = scale;\r\n        Prefix = prefix;\r\n        Powe" +
+                    "rOfPrefix = powerOfPrefix;\r\n    }\r\n}\r\n\r\n\r\n[AttributeUsage(AttributeTargets.Struc" +
+                    "t, AllowMultiple = true)]\r\ninternal sealed class QuantityOperationAttribute : At" +
+                    "tribute\r\n{\r\n    public Type MultiplicantType { get; }\r\n    public Type Multiplie" +
+                    "rType { get; }\r\n    public Type ProductType { get; }\r\n\r\n    public QuantityOpera" +
+                    "tionAttribute(Type multiplicant, Type multiplier, Type product)\r\n    {\r\n        " +
+                    "MultiplicantType = multiplicant;\r\n        MultiplierType = multiplier;\r\n        " +
+                    "ProductType = product;\r\n    }\r\n}\r\n\r\n\r\n[Flags]\r\ninternal enum UnitPrefix\r\n{\r\n    " +
+                    "None = 0,\r\n\r\n    Centi  = 1 << 0,\r\n    Milli  = 1 << 1,\r\n    Micro  = 1 << 2,\r\n " +
+                    "   Nano   = 1 << 3,\r\n    Pico   = 1 << 4,\r\n    Femto  = 1 << 5,\r\n    Atto   = 1 " +
+                    "<< 6,\r\n    Zepto  = 1 << 7,\r\n    Yocto  = 1 << 8,\r\n    Ronto  = 1 << 9,\r\n    Que" +
+                    "cto = 1 << 10,\r\n\r\n    Hecto  = 1 << (0 + 16),\r\n    Kilo   = 1 << (1 + 16),\r\n    " +
+                    "Mega   = 1 << (2 + 16),\r\n    Giga   = 1 << (3 + 16),\r\n    Tera   = 1 << (4 + 16)" +
+                    ",\r\n    Peta   = 1 << (5 + 16),\r\n    Exa    = 1 << (6 + 16),\r\n    Zetta  = 1 << (" +
+                    "7 + 16),\r\n    Yotta  = 1 << (8 + 16),\r\n    Ronna  = 1 << (9 + 16),\r\n    Quetta =" +
+                    " 1 << (10 + 16),\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -35,6 +35,24 @@ namespace NetQuantities
         , IUnaryNegationOperators<<#=TargetTypeName#>, <#=TargetTypeName#>>
     #endif
     {
+        /// <summary>
+        /// Gets quantity information instance for <see cref="<#=TargetTypeName#>" />.
+        /// </summary>
+        public static QuantityInfo Info { get; } = new(
+            "<#=TargetTypeName.Substring(1)#>",
+            L : <#=QuantityDef.L #>,
+            M : <#=QuantityDef.M #>,
+            T : <#=QuantityDef.T #>,
+            I : <#=QuantityDef.I #>,
+            Th: <#=QuantityDef.Th#>,
+            N : <#=QuantityDef.N #>,
+            J : <#=QuantityDef.J #>);
+
+        /// <summary>
+        /// Gets quantity information instance for <see cref="<#=TargetTypeName#>" />.
+        /// </summary>
+        public QuantityInfo InfoInstance => Info;
+
         private readonly double _RawValue;
 
         /// <summary>
