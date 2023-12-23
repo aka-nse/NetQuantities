@@ -10,6 +10,7 @@ var samples = new IUsageSample[]
     new ReinterpretCast(),
     new Generics(),
     new UnitShorthandsUsage(),
+    new QuantityInfos(),
 };
 
 foreach(var sample in samples)
