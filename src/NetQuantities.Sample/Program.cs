@@ -9,6 +9,7 @@ var samples = new IUsageSample[]
     new Parsing(),
     new ReinterpretCast(),
     new Generics(),
+    new UnitShorthandsUsage(),
 };
 
 foreach(var sample in samples)

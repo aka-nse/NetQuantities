@@ -6,13 +6,14 @@ using System.Text;
 namespace NetQuantities
 {
     /// <summary>
-    /// Intermediate type for energy or torque.
+    /// Calculation halfway type for energy or torque.
+    /// This type is intended to be used only during conversion to other types.
     /// </summary>
-    public readonly struct EnergyOrTorque
+    public readonly struct QHalfway_EnergyOrTorque
     {
         private readonly double _RawValue;
 
-        internal EnergyOrTorque(double value) => _RawValue = value;
+        internal QHalfway_EnergyOrTorque(double value) => _RawValue = value;
 
         /// <summary>
         /// Casts into <see cref="QEnergy"/>.
@@ -30,34 +31,34 @@ namespace NetQuantities
         /// Casts into <see cref="QEnergy"/>.
         /// </summary>
         /// <param name="x"></param>
-        public static implicit operator QEnergy(EnergyOrTorque x)
+        public static implicit operator QEnergy(QHalfway_EnergyOrTorque x)
             => x.AsEnergy();
 
         /// <summary>
         /// Casts into <see cref="QTorque"/>.
         /// </summary>
         /// <param name="x"></param>
-        public static implicit operator QTorque(EnergyOrTorque x)
+        public static implicit operator QTorque(QHalfway_EnergyOrTorque x)
             => x.AsTorque();
     }
 
     partial struct QLength
 #if NET7_0_OR_GREATER
-        : IMultiplyOperators<QLength, QForce, EnergyOrTorque>
+        : IMultiplyOperators<QLength, QForce, QHalfway_EnergyOrTorque>
 #endif
     {
         /// <inheritdoc />
-        public static EnergyOrTorque operator *(QLength x, QForce y)
+        public static QHalfway_EnergyOrTorque operator *(QLength x, QForce y)
             => new(x.RawValue * y.RawValue);
     }
 
     partial struct QForce
 #if NET7_0_OR_GREATER
-        : IMultiplyOperators<QForce, QLength, EnergyOrTorque>
+        : IMultiplyOperators<QForce, QLength, QHalfway_EnergyOrTorque>
 #endif
     {
         /// <inheritdoc />
-        public static EnergyOrTorque operator *(QForce x, QLength y)
+        public static QHalfway_EnergyOrTorque operator *(QForce x, QLength y)
             => new(x.RawValue * y.RawValue);
     }
 
