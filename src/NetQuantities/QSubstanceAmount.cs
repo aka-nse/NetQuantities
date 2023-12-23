@@ -8,7 +8,7 @@ namespace NetQuantities;
 /// This type can be re-interpret-casted into <see cref="double"/> as [mol] scale.
 /// </summary>
 [Quantity]
-[QuantityUnit("Mole", "mol", 1.0, None | Milli | Kilo)]
+[QuantityUnit("Mole", "mol", 1.0, None | Milli | Kilo, exportsShorthandSymbol: true)]
 public readonly partial struct QSubstanceAmount : IQuantity<QSubstanceAmount>
 {
 }
