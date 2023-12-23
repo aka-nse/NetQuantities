@@ -32,32 +32,56 @@ namespace NetQuantities.Generators
                     "truct, AllowMultiple = false)]\r\ninternal sealed class QuantityAttribute : Attrib" +
                     "ute\r\n{\r\n    public int L { get; }\r\n    public int M { get; }\r\n    public int T {" +
                     " get; }\r\n    public int I { get; }\r\n    public int Th { get; }\r\n    public int N" +
-                    " { get; }\r\n    public int J { get; }\r\n\r\n    public QuantityAttribute(int L = 0, " +
-                    "int M = 0, int T = 0, int I = 0, int Th = 0, int N = 0, int J = 0)\r\n    {\r\n     " +
-                    "   this.L  = L ;\r\n        this.M  = M ;\r\n        this.T  = T ;\r\n        this.I  " +
-                    "= I ;\r\n        this.Th = Th;\r\n        this.N  = N ;\r\n        this.J  = J ;\r\n    " +
-                    "}\r\n}\r\n\r\n[AttributeUsage(AttributeTargets.Struct, AllowMultiple = true)]\r\ninterna" +
-                    "l sealed class QuantityUnitAttribute : Attribute\r\n{\r\n    public string Name { ge" +
-                    "t; }\r\n    public string Unit { get; }\r\n    public double Scale { get; }\r\n    pub" +
-                    "lic UnitPrefix Prefix { get; }\r\n    public int PowerOfPrefix { get; }\r\n\r\n    pub" +
-                    "lic QuantityUnitAttribute(string name, string unit, double scale, UnitPrefix pre" +
-                    "fix = UnitPrefix.None, int powerOfPrefix = 1)\r\n    {\r\n        Name = name;\r\n    " +
-                    "    Unit = unit;\r\n        Scale = scale;\r\n        Prefix = prefix;\r\n        Powe" +
-                    "rOfPrefix = powerOfPrefix;\r\n    }\r\n}\r\n\r\n\r\n[AttributeUsage(AttributeTargets.Struc" +
-                    "t, AllowMultiple = true)]\r\ninternal sealed class QuantityOperationAttribute : At" +
-                    "tribute\r\n{\r\n    public Type MultiplicantType { get; }\r\n    public Type Multiplie" +
-                    "rType { get; }\r\n    public Type ProductType { get; }\r\n\r\n    public QuantityOpera" +
-                    "tionAttribute(Type multiplicant, Type multiplier, Type product)\r\n    {\r\n        " +
-                    "MultiplicantType = multiplicant;\r\n        MultiplierType = multiplier;\r\n        " +
-                    "ProductType = product;\r\n    }\r\n}\r\n\r\n\r\n[Flags]\r\ninternal enum UnitPrefix\r\n{\r\n    " +
-                    "None = 0,\r\n\r\n    Centi  = 1 << 0,\r\n    Milli  = 1 << 1,\r\n    Micro  = 1 << 2,\r\n " +
-                    "   Nano   = 1 << 3,\r\n    Pico   = 1 << 4,\r\n    Femto  = 1 << 5,\r\n    Atto   = 1 " +
-                    "<< 6,\r\n    Zepto  = 1 << 7,\r\n    Yocto  = 1 << 8,\r\n    Ronto  = 1 << 9,\r\n    Que" +
-                    "cto = 1 << 10,\r\n\r\n    Hecto  = 1 << (0 + 16),\r\n    Kilo   = 1 << (1 + 16),\r\n    " +
-                    "Mega   = 1 << (2 + 16),\r\n    Giga   = 1 << (3 + 16),\r\n    Tera   = 1 << (4 + 16)" +
-                    ",\r\n    Peta   = 1 << (5 + 16),\r\n    Exa    = 1 << (6 + 16),\r\n    Zetta  = 1 << (" +
-                    "7 + 16),\r\n    Yotta  = 1 << (8 + 16),\r\n    Ronna  = 1 << (9 + 16),\r\n    Quetta =" +
-                    " 1 << (10 + 16),\r\n}");
+                    " { get; }\r\n    public int J { get; }\r\n\r\n    public QuantityAttribute(int L, int " +
+                    "M, int T, int I, int Th, int N, int J)\r\n    {\r\n        this.L  = L ;\r\n        th" +
+                    "is.M  = M ;\r\n        this.T  = T ;\r\n        this.I  = I ;\r\n        this.Th = Th;" +
+                    "\r\n        this.N  = N ;\r\n        this.J  = J ;\r\n    }\r\n}\r\n\r\n[AttributeUsage(Attr" +
+                    "ibuteTargets.Struct, AllowMultiple = true)]\r\ninternal sealed class QuantityUnitA" +
+                    "ttribute : Attribute\r\n{\r\n    public string Name { get; }\r\n    public string Unit" +
+                    " { get; }\r\n    public double Scale { get; }\r\n    public UnitPrefix Prefix { get;" +
+                    " }\r\n    public int PowerOfPrefix { get; }\r\n    public bool ExportsShorthandSymbo" +
+                    "l { get; }\r\n    \r\n    /// <summary>\r\n    /// Creates a new instance of <see cref" +
+                    "=\"QuantityUnitAttribute\"/>.\r\n    /// </summary>\r\n    /// <param name=\"name\"> The" +
+                    " name of unit. </param>\r\n    /// <param name=\"unit\"> The simply unit symbol expr" +
+                    "ession in ASCII. </param>\r\n    /// <param name=\"scale\">\r\n    ///     <para>The s" +
+                    "cale of the unit from raw value.</para>\r\n    ///     <para>e.g.: `scale` for \"gr" +
+                    "am\" is 1e-3, because raw value is killogram</para>\r\n    /// </param>\r\n    /// <p" +
+                    "aram name=\"prefix\"> The set of available SI prefix. </param>\r\n    /// <param nam" +
+                    "e=\"powerOfPrefix\">\r\n    ///     <para>The coefficient for SI prefix exponent.</p" +
+                    "ara>\r\n    ///     <para>\r\n    ///         e.g.\r\n    ///         <list type=\"tabl" +
+                    "e\">\r\n    ///             <item>\r\n    ///                 <term>for <see cref=\"QS" +
+                    "patialFrequency\" /></term>\r\n    ///                 <description>-1</description" +
+                    ">\r\n    ///             </item>\r\n    ///             <item>\r\n    ///             " +
+                    "    <term>for <see cref=\"QLength\" /></term>\r\n    ///                 <descriptio" +
+                    "n>1</description>\r\n    ///             </item>\r\n    ///             <item>\r\n    " +
+                    "///                 <term>for <see cref=\"QArea\" /></term>\r\n    ///              " +
+                    "   <description>2</description>\r\n    ///             </item>\r\n    ///           " +
+                    "  <item>\r\n    ///                 <term>for <see cref=\"QVolume\" /></term>\r\n    /" +
+                    "//                 <description>3</description>\r\n    ///             </item>\r\n  " +
+                    "  ///         </list>\r\n    ///     </para>\r\n    /// </param>\r\n    /// <param nam" +
+                    "e=\"exportsShorthandSymbol\">\r\n    ///     <para>If <c>true</c> generates symbol f" +
+                    "ield for unit shorthands into <see cref=\"NetQuantities.UnitShorthands.UnitExtens" +
+                    "ions\" />:</para>\r\n    ///     <para>otherwise <c>false</c>.</para>\r\n    /// </pa" +
+                    "ram>\r\n    public QuantityUnitAttribute(\r\n        string name,\r\n        string un" +
+                    "it,\r\n        double scale,\r\n        UnitPrefix prefix = UnitPrefix.None,\r\n      " +
+                    "  int powerOfPrefix = 1,\r\n        bool exportsShorthandSymbol = false)\r\n    {\r\n " +
+                    "       Name = name;\r\n        Unit = unit;\r\n        Scale = scale;\r\n        Prefi" +
+                    "x = prefix;\r\n        PowerOfPrefix = powerOfPrefix;\r\n        ExportsShorthandSym" +
+                    "bol = exportsShorthandSymbol;\r\n    }\r\n}\r\n\r\n\r\n[AttributeUsage(AttributeTargets.St" +
+                    "ruct, AllowMultiple = true)]\r\ninternal sealed class QuantityOperationAttribute :" +
+                    " Attribute\r\n{\r\n    public Type MultiplicantType { get; }\r\n    public Type Multip" +
+                    "lierType { get; }\r\n    public Type ProductType { get; }\r\n\r\n    public QuantityOp" +
+                    "erationAttribute(Type multiplicant, Type multiplier, Type product)\r\n    {\r\n     " +
+                    "   MultiplicantType = multiplicant;\r\n        MultiplierType = multiplier;\r\n     " +
+                    "   ProductType = product;\r\n    }\r\n}\r\n\r\n\r\n[Flags]\r\ninternal enum UnitPrefix\r\n{\r\n " +
+                    "   None = 0,\r\n\r\n    Centi  = 1 << 0,\r\n    Milli  = 1 << 1,\r\n    Micro  = 1 << 2," +
+                    "\r\n    Nano   = 1 << 3,\r\n    Pico   = 1 << 4,\r\n    Femto  = 1 << 5,\r\n    Atto   =" +
+                    " 1 << 6,\r\n    Zepto  = 1 << 7,\r\n    Yocto  = 1 << 8,\r\n    Ronto  = 1 << 9,\r\n    " +
+                    "Quecto = 1 << 10,\r\n\r\n    Hecto  = 1 << (0 + 16),\r\n    Kilo   = 1 << (1 + 16),\r\n " +
+                    "   Mega   = 1 << (2 + 16),\r\n    Giga   = 1 << (3 + 16),\r\n    Tera   = 1 << (4 + " +
+                    "16),\r\n    Peta   = 1 << (5 + 16),\r\n    Exa    = 1 << (6 + 16),\r\n    Zetta  = 1 <" +
+                    "< (7 + 16),\r\n    Yotta  = 1 << (8 + 16),\r\n    Ronna  = 1 << (9 + 16),\r\n    Quett" +
+                    "a = 1 << (10 + 16),\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

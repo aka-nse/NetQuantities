@@ -102,7 +102,7 @@ namespace NetQuantities
 <# foreach(var unit in UnitSymbols) { #>
                 "<#=unit.ShortName#>" => (double.TryParse(info.Number, NumberStyles.Any, provider, out var x), From<#=unit.MajorName#>(x)),
 <# } #>
-                _ => (false, default),
+                _ => (false, default(<#=TargetTypeName#>)),
             };
             result = value;
             return succeeded;

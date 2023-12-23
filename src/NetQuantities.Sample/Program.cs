@@ -4,12 +4,13 @@ using NetQuantities.Samples;
 
 var samples = new IUsageSample[]
 {
-    new BasicUsage(),
-    new Formatting(),
-    new Parsing(),
-    new ReinterpretCast(),
-    new Generics(),
-    new UnitShorthandsUsage(),
+    // new BasicUsage(),
+    // new Formatting(),
+    // new Parsing(),
+    // new ReinterpretCast(),
+    // new Generics(),
+    // new UnitShorthandsUsage(),
+    new QuantityInfos(),
 };
 
 foreach(var sample in samples)

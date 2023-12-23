@@ -56,7 +56,7 @@ public record QuantityInfo
             setup(sb, nameof(Th), Th, ref space);
             setup(sb, nameof(N ), N , ref space);
             setup(sb, nameof(J ), J , ref space);
-            return sb.ToString();
+            return sb.Length > 0 ? sb.ToString() : "1";
         }
     }
 
