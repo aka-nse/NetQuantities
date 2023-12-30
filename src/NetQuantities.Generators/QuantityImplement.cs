@@ -50,99 +50,92 @@ namespace NetQuantities
             
             #line default
             #line hidden
-            this.Write("\r\n        : IQuantity<");
+            this.Write("\r\n");
             
             #line 22 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+ if(!IsRefLikeType) { 
             
             #line default
             #line hidden
-            this.Write(">\r\n        , IComparable<");
+            this.Write("        : IQuantity<");
             
             #line 23 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
-            this.Write(">\r\n        , IEquatable<");
+            this.Write(">\r\n        , IComparable<");
             
             #line 24 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
+            this.Write(">\r\n        , IEquatable<");
+            
+            #line 25 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
             this.Write(">\r\n    #if NET7_0_OR_GREATER\r\n        , IComparisonOperators<");
             
-            #line 26 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 27 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 26 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 27 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", bool>\r\n        , IAdditionOperators<");
             
-            #line 27 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 28 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 27 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 28 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 27 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 28 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(">\r\n        , ISubtractionOperators<");
             
-            #line 28 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 29 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 28 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 29 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 28 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 29 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(">\r\n        , IMultiplyOperators<");
             
-            #line 29 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(", double, ");
-            
-            #line 29 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(">\r\n        , IDivisionOperators<");
-            
             #line 30 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
@@ -158,91 +151,112 @@ namespace NetQuantities
             this.Write(">\r\n        , IDivisionOperators<");
             
             #line 31 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(", double, ");
+            
+            #line 31 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n        , IDivisionOperators<");
+            
+            #line 32 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 31 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 32 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", double>\r\n        , IModulusOperators<");
             
-            #line 32 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 33 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 32 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 33 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 32 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 33 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(">\r\n        , IAdditiveIdentity<");
             
-            #line 33 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 34 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
-            
-            #line 33 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(">\r\n        , IMultiplicativeIdentity<");
             
             #line 34 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
-            this.Write(", double>\r\n        , IUnaryPlusOperators<");
+            this.Write(">\r\n        , IMultiplicativeIdentity<");
             
             #line 35 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
+            this.Write(", double>\r\n        , IUnaryPlusOperators<");
+            
+            #line 36 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
             this.Write(", ");
             
-            #line 35 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 36 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(">\r\n        , IUnaryNegationOperators<");
             
-            #line 36 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 37 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 36 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 37 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
-            this.Write(">\r\n    #endif\r\n    {\r\n        /// <summary>\r\n        /// Gets quantity informatio" +
-                    "n instance for <see cref=\"");
+            this.Write(">\r\n    #endif\r\n");
             
-            #line 40 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 39 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("    {\r\n        /// <summary>\r\n        /// Gets quantity information instance for " +
+                    "<see cref=\"");
+            
+            #line 42 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
@@ -250,56 +264,56 @@ namespace NetQuantities
             this.Write("\" />.\r\n        /// </summary>\r\n        public static QuantityInfo Info { get; } =" +
                     " new(\r\n            \"");
             
-            #line 43 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 45 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName.Substring(1)));
             
             #line default
             #line hidden
             this.Write("\",\r\n            L : ");
             
-            #line 44 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 46 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(QuantityDef.L));
             
             #line default
             #line hidden
             this.Write(",\r\n            M : ");
             
-            #line 45 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 47 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(QuantityDef.M));
             
             #line default
             #line hidden
             this.Write(",\r\n            T : ");
             
-            #line 46 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 48 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(QuantityDef.T));
             
             #line default
             #line hidden
             this.Write(",\r\n            I : ");
             
-            #line 47 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 49 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(QuantityDef.I));
             
             #line default
             #line hidden
             this.Write(",\r\n            Th: ");
             
-            #line 48 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 50 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(QuantityDef.Th));
             
             #line default
             #line hidden
             this.Write(",\r\n            N : ");
             
-            #line 49 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 51 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(QuantityDef.N));
             
             #line default
             #line hidden
             this.Write(",\r\n            J : ");
             
-            #line 50 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 52 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(QuantityDef.J));
             
             #line default
@@ -307,7 +321,7 @@ namespace NetQuantities
             this.Write(");\r\n\r\n        /// <summary>\r\n        /// Gets quantity information instance for <" +
                     "see cref=\"");
             
-            #line 53 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 55 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
@@ -316,7 +330,7 @@ namespace NetQuantities
                     "\n\r\n        private readonly double _RawValue;\r\n\r\n        /// <summary>\r\n        " +
                     "/// The raw value of <see href=\"");
             
-            #line 60 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 62 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
@@ -324,13 +338,1798 @@ namespace NetQuantities
             this.Write("\" />.\r\n        /// </summary>\r\n        public double RawValue => _RawValue;\r\n\r\n  " +
                     "      internal ");
             
-            #line 64 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            #line 66 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
             
             #line default
             #line hidden
-            this.Write(@"(double rawValue)
-            => _RawValue = rawValue;
+            this.Write("(double rawValue)\r\n            => _RawValue = rawValue;\r\n\r\n");
+            
+            #line 69 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ GenerateBasicTypeShape(TargetTypeName, "double"); 
+            
+            #line default
+            #line hidden
+            this.Write(@"
+        #region unit definitions
+
+        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
+        public static readonly ImmutableDictionary<string, UnitInfo> UnitsBySymbol = GetUnitsBySymbol();
+        private static ImmutableDictionary<string, UnitInfo> GetUnitsBySymbol()
+        {
+            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo>();
+");
+            
+            #line 78 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var unit in UnitSymbols) { 
+            
+            #line default
+            #line hidden
+            this.Write("            builder.Add(\"");
+            
+            #line 79 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("\", ");
+            
+            #line 79 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Info);\r\n");
+            
+            #line 80 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("            return builder.ToImmutable();\r\n        }\r\n\r\n");
+            
+            #line 84 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var unit in UnitSymbols) { 
+            
+            #line default
+            #line hidden
+            this.Write("        #region ");
+            
+            #line 85 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n\r\n        private const double _");
+            
+            #line 87 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale = ");
+            
+            #line 87 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\r\n        /// <summary> The information for [");
+            
+            #line 89 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("]. </summary>\r\n        public static readonly UnitInfo ");
+            
+            #line 90 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Info = new (_");
+            
+            #line 90 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale, \"");
+            
+            #line 90 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("\", \"");
+            
+            #line 90 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("\");\r\n\r\n        /// <summary>\r\n        /// Creates a new <see href=\"");
+            
+            #line 93 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("\" /> instance by interpreting the given real value in the scale of [");
+            
+            #line 93 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("].\r\n        /// </summary>\r\n        /// <param name=\"Second\"></param>\r\n        //" +
+                    "/ <returns></returns>\r\n        public static ");
+            
+            #line 97 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" From");
+            
+            #line 97 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("(double ");
+            
+            #line 97 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write(")\r\n            => new (");
+            
+            #line 98 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write(" * _");
+            
+            #line 98 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale);\r\n\r\n        /// <summary>\r\n        /// Gets the value of this instance in " +
+                    "[");
+            
+            #line 101 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("] scale.\r\n        /// </summary>\r\n        public double ");
+            
+            #line 103 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write(" => _RawValue / _");
+            
+            #line 103 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale;\r\n\r\n        #endregion  // ");
+            
+            #line 105 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 106 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        #endregion  //  unit definitions\r\n\r\n        #region basic interface imp" +
+                    "lements\r\n\r\n        /// <inheritdoc />\r\n        public static bool operator ==(");
+            
+            #line 113 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 113 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static bool op" +
+                    "erator !=(");
+            
+            #line 116 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 116 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => !Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static bool o" +
+                    "perator <(");
+            
+            #line 119 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 119 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => Compare(x, y) < 0;\r\n\r\n        /// <inheritdoc />\r\n        public static bo" +
+                    "ol operator >(");
+            
+            #line 122 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 122 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => Compare(x, y) > 0;\r\n\r\n        /// <inheritdoc />\r\n        public static bo" +
+                    "ol operator <=(");
+            
+            #line 125 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 125 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => Compare(x, y) <= 0;\r\n\r\n        /// <inheritdoc />\r\n        public static b" +
+                    "ool operator >=(");
+            
+            #line 128 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 128 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => Compare(x, y) >= 0;\r\n\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 131 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator +(");
+            
+            #line 131 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 131 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new (x._RawValue + y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        pu" +
+                    "blic static ");
+            
+            #line 134 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator-(");
+            
+            #line 134 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 134 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new (x._RawValue - y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        pu" +
+                    "blic static ");
+            
+            #line 137 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator *(double x, ");
+            
+            #line 137 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new (x * y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
+                    "c double operator /(");
+            
+            #line 140 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 140 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => x._RawValue / y._RawValue;\r\n\r\n        /// <inheritdoc />\r\n        public s" +
+                    "tatic ");
+            
+            #line 143 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator *(");
+            
+            #line 143 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, double y) => new (x._RawValue * y);\r\n\r\n        /// <inheritdoc />\r\n        pu" +
+                    "blic static ");
+            
+            #line 146 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator /(");
+            
+            #line 146 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, double y) => new(x._RawValue / y);\r\n\r\n        /// <inheritdoc />\r\n        pub" +
+                    "lic static ");
+            
+            #line 149 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator %(");
+            
+            #line 149 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 149 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new(x._RawValue % y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        pub" +
+                    "lic static ");
+            
+            #line 152 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" AdditiveIdentity => default;\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
+                    "c double MultiplicativeIdentity => 1.0;\r\n\r\n        /// <inheritdoc />\r\n        p" +
+                    "ublic static ");
+            
+            #line 158 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator +(");
+            
+            #line 158 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" value) => value;\r\n\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 161 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" operator -(");
+            
+            #line 161 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" value) => new(-value._RawValue);\r\n\r\n        #endregion\r\n    }\r\n\r\n\r\n    #region u" +
+                    "nit operations\r\n");
+            
+            #line 168 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var op in UnitOperations) { 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    partial struct ");
+            
+            #line 170 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 171 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      if(!IsRefLikeType) { 
+            
+            #line default
+            #line hidden
+            this.Write("    #if NET7_0_OR_GREATER\r\n        : IDivisionOperators<");
+            
+            #line 173 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 173 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 173 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n    #endif\r\n");
+            
+            #line 175 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      } 
+            
+            #line default
+            #line hidden
+            this.Write("    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 178 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(" operator /(");
+            
+            #line 178 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 178 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
+            
+            #line 181 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 182 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      if(!IsRefLikeType) { 
+            
+            #line default
+            #line hidden
+            this.Write("    #if NET7_0_OR_GREATER\r\n        : IMultiplyOperators<");
+            
+            #line 184 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 184 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 184 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n    #endif\r\n");
+            
+            #line 186 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      } 
+            
+            #line default
+            #line hidden
+            this.Write("    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 189 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(" operator *(");
+            
+            #line 189 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 189 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new(x.RawValue * y.RawValue);\r\n    }\r\n\r\n");
+            
+            #line 192 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      if(op.MultiplierType != op.MultiplicantType) { 
+            
+            #line default
+            #line hidden
+            this.Write("    partial struct ");
+            
+            #line 193 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 194 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+          if(!IsRefLikeType) { 
+            
+            #line default
+            #line hidden
+            this.Write("    #if NET7_0_OR_GREATER\r\n        : IDivisionOperators<");
+            
+            #line 196 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 196 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 196 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n    #endif\r\n");
+            
+            #line 198 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+          } 
+            
+            #line default
+            #line hidden
+            this.Write("    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 201 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(" operator /(");
+            
+            #line 201 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 201 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
+            
+            #line 204 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 205 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+          if(!IsRefLikeType) { 
+            
+            #line default
+            #line hidden
+            this.Write("    #if NET7_0_OR_GREATER\r\n        : IMultiplyOperators<");
+            
+            #line 207 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 207 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 207 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n    #endif\r\n");
+            
+            #line 209 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+          } 
+            
+            #line default
+            #line hidden
+            this.Write("    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 212 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write(" operator *(");
+            
+            #line 212 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write(" x, ");
+            
+            #line 212 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write(" y) => new(x.RawValue * y.RawValue);\r\n    }\r\n");
+            
+            #line 214 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 216 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("    #endregion\r\n\r\n    partial class UnitShorthands\r\n    {\r\n");
+            
+            #line 221 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var unit in UnitSymbols) { 
+            
+            #line default
+            #line hidden
+            
+            #line 222 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+     if(unit.ExportsShorthandSymbol) { 
+            
+            #line default
+            #line hidden
+            this.Write("            /// <summary> A symbol for <see cref=\"");
+            
+            #line 223 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("\" />. </summary>\r\n            [CLSCompliant(false)]\r\n            public static re" +
+                    "adonly ");
+            
+            #line 225 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 225 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write(" = new(");
+            
+            #line 225 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n\r\n");
+            
+            #line 227 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+     } 
+            
+            #line default
+            #line hidden
+            
+            #line 228 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("    }\r\n}\r\n\r\n\r\n#if NET7_0_OR_GREATER\r\nnamespace NetQuantities.Generic\r\n{\r\n    publ" +
+                    "ic partial struct ");
+            
+            #line 236 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>\r\n");
+            
+            #line 237 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ if(!IsRefLikeType) { 
+            
+            #line default
+            #line hidden
+            this.Write("        : IQuantity<");
+            
+            #line 238 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, T>\r\n        , IComparable<");
+            
+            #line 239 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , IEquatable<");
+            
+            #line 240 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , IComparisonOperators<");
+            
+            #line 241 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 241 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, bool>\r\n        , IAdditionOperators<");
+            
+            #line 242 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 242 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 242 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , ISubtractionOperators<");
+            
+            #line 243 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 243 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 243 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , IMultiplyOperators<");
+            
+            #line 244 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, T, ");
+            
+            #line 244 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , IDivisionOperators<");
+            
+            #line 245 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 245 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, T>\r\n        , IModulusOperators<");
+            
+            #line 246 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 246 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 246 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , IAdditiveIdentity<");
+            
+            #line 247 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 247 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , IMultiplicativeIdentity<");
+            
+            #line 248 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, T>\r\n        , IUnaryPlusOperators<");
+            
+            #line 249 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 249 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n        , IUnaryNegationOperators<");
+            
+            #line 250 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 250 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n");
+            
+            #line 251 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("        where T : INumber<T>\r\n    {\r\n        private readonly T _RawValue;\r\n\r\n   " +
+                    "     /// <summary>\r\n        /// The raw value of <see href=\"");
+            
+            #line 257 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("{T}\" />.\r\n        /// </summary>\r\n        public T RawValue => _RawValue;\r\n\r\n    " +
+                    "    internal ");
+            
+            #line 261 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("(T rawValue)\r\n            => _RawValue = rawValue;\r\n\r\n");
+            
+            #line 264 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ GenerateBasicTypeShape(TargetTypeName + "<T>", "T"); 
+            
+            #line default
+            #line hidden
+            this.Write(@"
+        #region unit definitions
+
+        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
+        public static readonly ImmutableDictionary<string, UnitInfo<T>> UnitsBySymbol = GetUnitsBySymbol();
+        private static ImmutableDictionary<string, UnitInfo<T>> GetUnitsBySymbol()
+        {
+            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo<T>>();
+");
+            
+            #line 273 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var unit in UnitSymbols) { 
+            
+            #line default
+            #line hidden
+            this.Write("            builder.Add(\"");
+            
+            #line 274 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("\", ");
+            
+            #line 274 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Info);\r\n");
+            
+            #line 275 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("            return builder.ToImmutable();\r\n        }\r\n\r\n");
+            
+            #line 279 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var unit in UnitSymbols) { 
+            
+            #line default
+            #line hidden
+            this.Write("        #region ");
+            
+            #line 280 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n\r\n        private static readonly T _");
+            
+            #line 282 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale = T.CreateSaturating(");
+            
+            #line 282 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n\r\n        /// <summary> The information for [");
+            
+            #line 284 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("]. </summary>\r\n        public static readonly UnitInfo<T> ");
+            
+            #line 285 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Info = new (_");
+            
+            #line 285 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale, \"");
+            
+            #line 285 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("\", \"");
+            
+            #line 285 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("\");\r\n\r\n        /// <summary>\r\n        /// Creates a new <see href=\"");
+            
+            #line 288 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("{T}\" /> instance by interpreting the given real value in the scale of [");
+            
+            #line 288 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("].\r\n        /// </summary>\r\n        /// <param name=\"Second\"></param>\r\n        //" +
+                    "/ <returns></returns>\r\n        public static ");
+            
+            #line 292 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> From");
+            
+            #line 292 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("(T ");
+            
+            #line 292 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write(")\r\n            => new (");
+            
+            #line 293 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write(" * _");
+            
+            #line 293 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale);\r\n\r\n        /// <summary>\r\n        /// Gets the value of this instance in " +
+                    "[");
+            
+            #line 296 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write("] scale.\r\n        /// </summary>\r\n        public T ");
+            
+            #line 298 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write(" => _RawValue / _");
+            
+            #line 298 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+            
+            #line default
+            #line hidden
+            this.Write("Scale;\r\n\r\n        #endregion\r\n\r\n");
+            
+            #line 302 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("        #endregion\r\n\r\n        #region basic interface implements\r\n\r\n        /// <" +
+                    "inheritdoc />\r\n        public static bool operator ==(");
+            
+            #line 308 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 308 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static bool" +
+                    " operator !=(");
+            
+            #line 311 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 311 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => !Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static boo" +
+                    "l operator <(");
+            
+            #line 314 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 314 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => Compare(x, y) < 0;\r\n\r\n        /// <inheritdoc />\r\n        public static" +
+                    " bool operator >(");
+            
+            #line 317 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 317 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => Compare(x, y) > 0;\r\n\r\n        /// <inheritdoc />\r\n        public static" +
+                    " bool operator <=(");
+            
+            #line 320 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 320 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => Compare(x, y) <= 0;\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
+                    "c bool operator >=(");
+            
+            #line 323 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 323 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => Compare(x, y) >= 0;\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
+                    "c ");
+            
+            #line 326 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator +(");
+            
+            #line 326 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 326 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new (x._RawValue + y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n       " +
+                    " public static ");
+            
+            #line 329 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator-(");
+            
+            #line 329 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 329 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new (x._RawValue - y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n       " +
+                    " public static ");
+            
+            #line 332 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator *(T x, ");
+            
+            #line 332 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new (x * y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        public st" +
+                    "atic T operator /(");
+            
+            #line 335 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 335 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => x._RawValue / y._RawValue;\r\n\r\n        /// <inheritdoc />\r\n        publi" +
+                    "c static ");
+            
+            #line 338 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator *(");
+            
+            #line 338 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, T y) => new (x._RawValue * y);\r\n\r\n        /// <inheritdoc />\r\n        publ" +
+                    "ic static ");
+            
+            #line 341 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator /(");
+            
+            #line 341 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, T y) => new(x._RawValue / y);\r\n\r\n        /// <inheritdoc />\r\n        publi" +
+                    "c static ");
+            
+            #line 344 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator %(");
+            
+            #line 344 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 344 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new(x._RawValue % y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        " +
+                    "public static ");
+            
+            #line 347 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> AdditiveIdentity => default;\r\n\r\n        /// <inheritdoc />\r\n        public st" +
+                    "atic T MultiplicativeIdentity => T.One;\r\n\r\n        /// <inheritdoc />\r\n        p" +
+                    "ublic static ");
+            
+            #line 353 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator +(");
+            
+            #line 353 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> value) => value;\r\n\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 356 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator -(");
+            
+            #line 356 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(@"<T> value) => new(-value._RawValue);
+
+        #endregion
+    }
+
+
+    #region unit operations
+
+    /// NOTE: In specific case recursive generic interface causes JIT compile time increasing exponentially.
+    /// Therefore interface implementations are comment-outed until .Net runtime is improved.
+
+");
+            
+            #line 367 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var op in UnitOperations) { 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    partial struct ");
+            
+            #line 369 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>\r\n//        : IDivisionOperators<");
+            
+            #line 370 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 370 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 370 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 373 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator /(");
+            
+            #line 373 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 373 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
+            
+            #line 376 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>\r\n//        : IMultiplyOperators<");
+            
+            #line 377 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 377 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 377 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 380 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator *(");
+            
+            #line 380 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 380 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new(x.RawValue * y.RawValue);\r\n    }\r\n\r\n");
+            
+            #line 383 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+     if(op.MultiplierType != op.MultiplicantType) { 
+            
+            #line default
+            #line hidden
+            this.Write("    partial struct ");
+            
+            #line 384 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>\r\n//        : IDivisionOperators<");
+            
+            #line 385 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 385 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 385 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 388 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator /(");
+            
+            #line 388 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 388 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
+            
+            #line 391 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>\r\n//        : IMultiplyOperators<");
+            
+            #line 392 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 392 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>, ");
+            
+            #line 392 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
+            
+            #line 395 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> operator *(");
+            
+            #line 395 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> x, ");
+            
+            #line 395 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
+            
+            #line default
+            #line hidden
+            this.Write("<T> y) => new(x.RawValue * y.RawValue);\r\n    }\r\n");
+            
+            #line 397 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+     } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 399 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("    #endregion\r\n\r\n    partial class UnitShorthands\r\n    {\r\n");
+            
+            #line 404 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ foreach(var unit in UnitSymbols) { 
+            
+            #line default
+            #line hidden
+            
+            #line 405 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+     if(unit.ExportsShorthandSymbol) { 
+            
+            #line default
+            #line hidden
+            this.Write("            /// <summary> A symbol for <see cref=\"");
+            
+            #line 406 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("\" />. </summary>\r\n            [CLSCompliant(false)]\r\n            public static re" +
+                    "adonly ");
+            
+            #line 408 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 408 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+            
+            #line default
+            #line hidden
+            this.Write(" = new(");
+            
+            #line 408 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n\r\n");
+            
+            #line 410 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+     } 
+            
+            #line default
+            #line hidden
+            
+            #line 411 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("    }\r\n}\r\n#endif\r\n\r\n");
+            return this.GenerationEnvironment.ToString();
+        }
+        
+        #line 416 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+
+public void GenerateBasicTypeShape(string targetTypeName, string entityTypeName)
+{
+    if(IsRefLikeType)
+    {
+        return;
+    }
+
+        
+        #line default
+        #line hidden
+        
+        #line 423 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("        /// <inheritdoc />\r\n        public int CompareTo(object? obj)\r\n          " +
+        "  => obj is ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 426 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 426 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(" other\r\n            ? Compare(this, other)\r\n            : throw new ArgumentExcep" +
+        "tion(nameof(obj));\r\n\r\n        /// <inheritdoc />\r\n        public int CompareTo(");
+
+        
+        #line default
+        #line hidden
+        
+        #line 431 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 431 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(" other) => Compare(this, other);\r\n\r\n        /// <inheritdoc />\r\n        public bo" +
+        "ol Equals(");
+
+        
+        #line default
+        #line hidden
+        
+        #line 434 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 434 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(@" other) => Equals(this, other);
 
         /// <summary>
         /// Determines whether the 2 values are same or not.
@@ -339,20 +2138,34 @@ namespace NetQuantities
         /// <param name=""y""></param>
         /// <returns></returns>
         public static bool Equals(in ");
-            
-            #line 73 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, in ");
-            
-            #line 73 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@" y) => x._RawValue == y._RawValue;
+
+        
+        #line default
+        #line hidden
+        
+        #line 442 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 442 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(" x, in ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 442 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 442 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(@" y) => x._RawValue == y._RawValue;
 
         /// <summary>
         /// Determines which value is greater than another.
@@ -361,20 +2174,34 @@ namespace NetQuantities
         /// <param name=""y""></param>
         /// <returns></returns>
         public static int Compare(in ");
-            
-            #line 81 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, in ");
-            
-            #line 81 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@" y)
+
+        
+        #line default
+        #line hidden
+        
+        #line 450 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 450 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(" x, in ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 450 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 450 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(@" y)
         {
             if (x._RawValue == y._RawValue) { return 0; }
             return x._RawValue < y._RawValue ? -1 : 1;
@@ -388,51 +2215,105 @@ namespace NetQuantities
         /// <param name=""result""></param>
         /// <returns></returns>
         public static bool TryParse(string? s, IFormatProvider? provider, out ");
-            
-            #line 94 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" result)\r\n        {\r\n            if(!QuantityParseInfo.TryCompile(s, out var info" +
-                    "))\r\n            {\r\n                result = default;\r\n                return fal" +
-                    "se;\r\n            }\r\n            var (succeeded, value) = info.UnitSelector switc" +
-                    "h {\r\n");
-            
-            #line 102 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("                \"");
-            
-            #line 103 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\" => (double.TryParse(info.Number, NumberStyles.Any, provider, out var x), From");
-            
-            #line 103 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("(x)),\r\n");
-            
-            #line 104 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("                _ => (false, default(");
-            
-            #line 105 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@")),
+
+        
+        #line default
+        #line hidden
+        
+        #line 463 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 463 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(" result)\r\n        {\r\n            if(!QuantityParseInfo.TryCompile(s, out var info" +
+        "))\r\n            {\r\n                result = default;\r\n                return fal" +
+        "se;\r\n            }\r\n            var (succeeded, value) = info.UnitSelector switc" +
+        "h {\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 471 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      foreach(var unit in UnitSymbols) { 
+        
+        #line default
+        #line hidden
+        
+        #line 471 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("                \"");
+
+        
+        #line default
+        #line hidden
+        
+        #line 472 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 472 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("\" => (");
+
+        
+        #line default
+        #line hidden
+        
+        #line 472 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(entityTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 472 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(".TryParse(info.Number, NumberStyles.Any, provider, out var x), From");
+
+        
+        #line default
+        #line hidden
+        
+        #line 472 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 472 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("(x)),\r\n");
+
+        
+        #line default
+        #line hidden
+        
+        #line 473 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      } 
+        
+        #line default
+        #line hidden
+        
+        #line 473 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("                _ => (false, default(");
+
+        
+        #line default
+        #line hidden
+        
+        #line 474 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 474 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(@")),
             };
             result = value;
             return succeeded;
@@ -447,13 +2328,20 @@ namespace NetQuantities
         /// <exception cref=""ArgumentNullException""></exception>
         /// <exception cref=""FormatException""></exception>
         public static ");
-            
-            #line 119 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@" Parse(string? s, IFormatProvider? provider)
+
+        
+        #line default
+        #line hidden
+        
+        #line 488 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 488 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(@" Parse(string? s, IFormatProvider? provider)
         {
             if(s is null)
                 throw new ArgumentNullException(nameof(s));
@@ -488,2017 +2376,154 @@ namespace NetQuantities
 
             var (value, unit) = info.UnitSelector switch {
 ");
-            
-            #line 153 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("                \"");
-            
-            #line 154 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\" => (");
-            
-            #line 154 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(", \"");
-            
-            #line 154 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\"),\r\n");
-            
-            #line 155 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("                \"\" => (");
-            
-            #line 156 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryUnit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(", \"");
-            
-            #line 156 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryUnit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\"),\r\n                _ => throw new FormatException(),\r\n            };\r\n         " +
-                    "   var number = string.Format(formatProvider, \"{0:\" + info.NumberFormat + \"}\", v" +
-                    "alue);\r\n            return (info, number, unit);\r\n        }\r\n\r\n        /// <inhe" +
-                    "ritdoc />\r\n        public string ToString(string? format, IFormatProvider? forma" +
-                    "tProvider)\r\n        {\r\n            var (info, number, unit) = GetFormatInfo(form" +
-                    "at, formatProvider);\r\n            return info.Format(number, unit);\r\n        }\r\n" +
-                    "\r\n#if NET6_0_OR_GREATER\r\n        /// <inheritdoc />\r\n#else\r\n        /// <summary" +
-                    ">\r\n        /// Tries to format the value of the current instance into the provid" +
-                    "ed span of characters.\r\n        /// </summary>\r\n        /// <param name=\"destina" +
-                    "tion\">The span in which to write this instance\'s value formatted as a span of ch" +
-                    "aracters.</param>\r\n        /// <param name=\"charsWritten\">When this method retur" +
-                    "ns, contains the number of characters that were written in <paramref name=\"desti" +
-                    "nation\"/>.</param>\r\n        /// <param name=\"format\">A span containing the chara" +
-                    "cters that represent a standard or custom format string that defines the accepta" +
-                    "ble format for <paramref name=\"destination\"/>.</param>\r\n        /// <param name=" +
-                    "\"formatProvider\">An optional object that supplies culture-specific formatting in" +
-                    "formation for <paramref name=\"destination\"/>.</param>\r\n        /// <returns><c>t" +
-                    "rue</c> if the formatting was successful; otherwise, <c>false</c>.</returns>\r\n#e" +
-                    "ndif\r\n        public bool TryFormat(Span<char> destination, out int charsWritten" +
-                    ", ReadOnlySpan<char> format, IFormatProvider? formatProvider)\r\n        {\r\n      " +
-                    "      var (info, number, unit) = GetFormatInfo(format.ToString(), formatProvider" +
-                    ");\r\n            return info.TryFormat(destination, out charsWritten, number, uni" +
-                    "t);\r\n        }\r\n\r\n\r\n        /// <inheritdoc />\r\n        public override int GetH" +
-                    "ashCode()\r\n            => _RawValue.GetHashCode();\r\n\r\n        /// <inheritdoc />" +
-                    "\r\n        public override bool Equals([NotNullWhen(true)] object? obj)\r\n        " +
-                    "    => obj is ");
-            
-            #line 195 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@" other && Equals(this, other);
 
-        #region unit definitions
+        
+        #line default
+        #line hidden
+        
+        #line 522 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      foreach(var unit in UnitSymbols) { 
+        
+        #line default
+        #line hidden
+        
+        #line 522 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("                \"");
 
-        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
-        public static readonly ImmutableDictionary<string, UnitInfo> UnitsBySymbol = GetUnitsBySymbol();
-        private static ImmutableDictionary<string, UnitInfo> GetUnitsBySymbol()
-        {
-            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo>();
-");
-            
-            #line 204 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("            builder.Add(\"");
-            
-            #line 205 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\", ");
-            
-            #line 205 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Info);\r\n");
-            
-            #line 206 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("            return builder.ToImmutable();\r\n        }\r\n\r\n");
-            
-            #line 210 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("        #region ");
-            
-            #line 211 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\r\n        private const double _");
-            
-            #line 213 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale = ");
-            
-            #line 213 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\n\r\n        /// <summary> The information for [");
-            
-            #line 215 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("]. </summary>\r\n        public static readonly UnitInfo ");
-            
-            #line 216 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Info = new (_");
-            
-            #line 216 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale, \"");
-            
-            #line 216 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("\", \"");
-            
-            #line 216 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\");\r\n\r\n        /// <summary>\r\n        /// Creates a new <see href=\"");
-            
-            #line 219 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("\" /> instance by interpreting the given real value in the scale of [");
-            
-            #line 219 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("].\r\n        /// </summary>\r\n        /// <param name=\"Second\"></param>\r\n        //" +
-                    "/ <returns></returns>\r\n        public static ");
-            
-            #line 223 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" From");
-            
-            #line 223 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("(double ");
-            
-            #line 223 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(")\r\n            => new (");
-            
-            #line 224 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(" * _");
-            
-            #line 224 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale);\r\n\r\n        /// <summary>\r\n        /// Gets the value of this instance in " +
-                    "[");
-            
-            #line 227 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("] scale.\r\n        /// </summary>\r\n        public double ");
-            
-            #line 229 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(" => _RawValue / _");
-            
-            #line 229 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale;\r\n\r\n        #endregion\r\n\r\n");
-            
-            #line 233 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("        #endregion\r\n\r\n        #region basic interface implements\r\n\r\n        /// <" +
-                    "inheritdoc />\r\n        public int CompareTo(object? obj)\r\n            => obj is " +
-                    "");
-            
-            #line 240 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" other\r\n            ? Compare(this, other)\r\n            : throw new ArgumentExcep" +
-                    "tion(nameof(obj));\r\n\r\n        /// <inheritdoc />\r\n        public int CompareTo(");
-            
-            #line 245 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" other) => Compare(this, other);\r\n\r\n        /// <inheritdoc />\r\n        public bo" +
-                    "ol Equals(");
-            
-            #line 248 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" other) => Equals(this, other);\r\n\r\n        /// <inheritdoc />\r\n        public sta" +
-                    "tic bool operator ==(");
-            
-            #line 251 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 251 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static bool op" +
-                    "erator !=(");
-            
-            #line 254 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 254 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => !Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static bool o" +
-                    "perator <(");
-            
-            #line 257 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 257 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => Compare(x, y) < 0;\r\n\r\n        /// <inheritdoc />\r\n        public static bo" +
-                    "ol operator >(");
-            
-            #line 260 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 260 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => Compare(x, y) > 0;\r\n\r\n        /// <inheritdoc />\r\n        public static bo" +
-                    "ol operator <=(");
-            
-            #line 263 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 263 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => Compare(x, y) <= 0;\r\n\r\n        /// <inheritdoc />\r\n        public static b" +
-                    "ool operator >=(");
-            
-            #line 266 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 266 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => Compare(x, y) >= 0;\r\n\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 269 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator +(");
-            
-            #line 269 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 269 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new (x._RawValue + y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        pu" +
-                    "blic static ");
-            
-            #line 272 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator-(");
-            
-            #line 272 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 272 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new (x._RawValue - y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        pu" +
-                    "blic static ");
-            
-            #line 275 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator *(double x, ");
-            
-            #line 275 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new (x * y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
-                    "c double operator /(");
-            
-            #line 278 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 278 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => x._RawValue / y._RawValue;\r\n\r\n        /// <inheritdoc />\r\n        public s" +
-                    "tatic ");
-            
-            #line 281 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator *(");
-            
-            #line 281 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, double y) => new (x._RawValue * y);\r\n\r\n        /// <inheritdoc />\r\n        pu" +
-                    "blic static ");
-            
-            #line 284 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator /(");
-            
-            #line 284 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, double y) => new(x._RawValue / y);\r\n\r\n        /// <inheritdoc />\r\n        pub" +
-                    "lic static ");
-            
-            #line 287 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator %(");
-            
-            #line 287 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 287 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new(x._RawValue % y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        pub" +
-                    "lic static ");
-            
-            #line 290 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" AdditiveIdentity => default;\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
-                    "c double MultiplicativeIdentity => 1.0;\r\n\r\n        /// <inheritdoc />\r\n        p" +
-                    "ublic static ");
-            
-            #line 296 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator +(");
-            
-            #line 296 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" value) => value;\r\n\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 299 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" operator -(");
-            
-            #line 299 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" value) => new(-value._RawValue);\r\n\r\n        #endregion\r\n    }\r\n\r\n\r\n    #region u" +
-                    "nit operations\r\n");
-            
-            #line 306 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var op in UnitOperations) { 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    partial struct ");
-            
-            #line 308 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    #if NET7_0_OR_GREATER\r\n        : IDivisionOperators<");
-            
-            #line 310 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 310 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 310 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(">\r\n    #endif\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 314 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(" operator /(");
-            
-            #line 314 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 314 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
-            
-            #line 317 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    #if NET7_0_OR_GREATER\r\n        : IMultiplyOperators<");
-            
-            #line 319 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 319 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 319 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(">\r\n    #endif\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 323 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(" operator *(");
-            
-            #line 323 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 323 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new(x.RawValue * y.RawValue);\r\n    }\r\n\r\n");
-            
-            #line 326 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     if(op.MultiplierType != op.MultiplicantType) { 
-            
-            #line default
-            #line hidden
-            this.Write("    partial struct ");
-            
-            #line 327 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    #if NET7_0_OR_GREATER\r\n        : IDivisionOperators<");
-            
-            #line 329 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 329 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 329 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(">\r\n    #endif\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 333 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(" operator /(");
-            
-            #line 333 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 333 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
-            
-            #line 336 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    #if NET7_0_OR_GREATER\r\n        : IMultiplyOperators<");
-            
-            #line 338 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 338 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(", ");
-            
-            #line 338 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(">\r\n    #endif\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 342 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write(" operator *(");
-            
-            #line 342 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write(" x, ");
-            
-            #line 342 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write(" y) => new(x.RawValue * y.RawValue);\r\n    }\r\n");
-            
-            #line 344 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     } 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 346 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("    #endregion\r\n\r\n    partial class UnitShorthands\r\n    {\r\n");
-            
-            #line 351 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            
-            #line 352 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     if(unit.ExportsShorthandSymbol) { 
-            
-            #line default
-            #line hidden
-            this.Write("            /// <summary> A symbol for <see cref=\"");
-            
-            #line 353 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("\" />. </summary>\r\n            [CLSCompliant(false)]\r\n            public static re" +
-                    "adonly ");
-            
-            #line 355 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" ");
-            
-            #line 355 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write(" = new(");
-            
-            #line 355 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
-            
-            #line default
-            #line hidden
-            this.Write(");\r\n\r\n");
-            
-            #line 357 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     } 
-            
-            #line default
-            #line hidden
-            
-            #line 358 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("    }\r\n}\r\n\r\n\r\n#if NET7_0_OR_GREATER\r\nnamespace NetQuantities.Generic\r\n{\r\n    publ" +
-                    "ic partial struct ");
-            
-            #line 366 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>\r\n        : IQuantity<");
-            
-            #line 367 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, T>\r\n        , IComparable<");
-            
-            #line 368 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , IEquatable<");
-            
-            #line 369 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , IComparisonOperators<");
-            
-            #line 370 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 370 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, bool>\r\n        , IAdditionOperators<");
-            
-            #line 371 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 371 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 371 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , ISubtractionOperators<");
-            
-            #line 372 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 372 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 372 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , IMultiplyOperators<");
-            
-            #line 373 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, T, ");
-            
-            #line 373 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , IDivisionOperators<");
-            
-            #line 374 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 374 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, T>\r\n        , IModulusOperators<");
-            
-            #line 375 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 375 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 375 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , IAdditiveIdentity<");
-            
-            #line 376 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 376 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , IMultiplicativeIdentity<");
-            
-            #line 377 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, T>\r\n        , IUnaryPlusOperators<");
-            
-            #line 378 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 378 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        , IUnaryNegationOperators<");
-            
-            #line 379 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 379 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n        where T : INumber<T>\r\n    {\r\n        private readonly T _RawValue;\r" +
-                    "\n\r\n        /// <summary>\r\n        /// The raw value of <see href=\"");
-            
-            #line 385 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("{T}\" />.\r\n        /// </summary>\r\n        public T RawValue => _RawValue;\r\n\r\n    " +
-                    "    internal ");
-            
-            #line 389 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"(T rawValue)
-            => _RawValue = rawValue;
+        
+        #line default
+        #line hidden
+        
+        #line 523 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
 
-        /// <summary>
-        /// Determines whether the 2 values are same or not.
-        /// </summary>
-        /// <param name=""x""></param>
-        /// <param name=""y""></param>
-        /// <returns></returns>
-        public static bool Equals(in ");
-            
-            #line 398 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, in ");
-            
-            #line 398 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"<T> y) => x._RawValue == y._RawValue;
+        
+        #line default
+        #line hidden
+        
+        #line 523 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("\" => (");
 
-        /// <summary>
-        /// Determines which value is greater than another.
-        /// </summary>
-        /// <param name=""x""></param>
-        /// <param name=""y""></param>
-        /// <returns></returns>
-        public static int Compare(in ");
-            
-            #line 406 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, in ");
-            
-            #line 406 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"<T> y)
-        {
-            if (x._RawValue == y._RawValue) { return 0; }
-            return x._RawValue < y._RawValue ? -1 : 1;
-        }
+        
+        #line default
+        #line hidden
+        
+        #line 523 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
 
-        /// <summary>
-        /// Tries to parse a string into a value.
-        /// </summary>
-        /// <param name=""s""></param>
-        /// <param name=""provider""></param>
-        /// <param name=""result""></param>
-        /// <returns></returns>
-        public static bool TryParse(string? s, IFormatProvider? provider, out ");
-            
-            #line 419 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"<T> result)
-        {
-            if(!QuantityParseInfo.TryCompile(s, out var info))
-            {
-                result = default;
-                return false;
-            }
-            var succeeded = false;
-            result = info.UnitSelector switch {
-");
-            
-            #line 428 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("                \"");
-            
-            #line 429 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\" => (succeeded = T.TryParse(info.Number, provider, out var x)) ? From");
-            
-            #line 429 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("(x!) : default,\r\n");
-            
-            #line 430 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write(@"                _ => default,
-            };
-            return succeeded;
-        }
+        
+        #line default
+        #line hidden
+        
+        #line 523 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(", \"");
 
-        /// <summary>
-        /// Parses a string into a value.
-        /// </summary>
-        /// <param name=""s""></param>
-        /// <param name=""provider""></param>
-        /// <returns></returns>
-        /// <exception cref=""ArgumentNullException""></exception>
-        /// <exception cref=""FormatException""></exception>
-        public static ");
-            
-            #line 444 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"<T> Parse(string? s, IFormatProvider? provider)
-        {
-            if(s is null)
-                throw new ArgumentNullException(nameof(s));
-            if(!TryParse(s, provider, out var result))
-                throw new FormatException();
-            return result;
-        }
+        
+        #line default
+        #line hidden
+        
+        #line 523 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
 
-        /// <inheritdoc />
-        public override string ToString()
-            => ToString(null, CultureInfo.CurrentCulture);
+        
+        #line default
+        #line hidden
+        
+        #line 523 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("\"),\r\n");
 
-        /// <inheritdoc />
-        public override int GetHashCode()
-            => _RawValue.GetHashCode();
+        
+        #line default
+        #line hidden
+        
+        #line 524 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+      } 
+        
+        #line default
+        #line hidden
+        
+        #line 524 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("                \"\" => (");
 
-        /// <inheritdoc />
-        public override bool Equals([NotNullWhen(true)] object? obj)
-            => obj is ");
-            
-            #line 463 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"<T> other && Equals(this, other);
+        
+        #line default
+        #line hidden
+        
+        #line 525 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryUnit.MajorName));
 
-        #region unit definitions
+        
+        #line default
+        #line hidden
+        
+        #line 525 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(", \"");
 
-        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
-        public static readonly ImmutableDictionary<string, UnitInfo<T>> UnitsBySymbol = GetUnitsBySymbol();
-        private static ImmutableDictionary<string, UnitInfo<T>> GetUnitsBySymbol()
-        {
-            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo<T>>();
-");
-            
-            #line 472 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("            builder.Add(\"");
-            
-            #line 473 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\", ");
-            
-            #line 473 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Info);\r\n");
-            
-            #line 474 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("            return builder.ToImmutable();\r\n        }\r\n\r\n");
-            
-            #line 478 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("        #region ");
-            
-            #line 479 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\r\n        private static readonly T _");
-            
-            #line 481 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale = T.CreateSaturating(");
-            
-            #line 481 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
-            
-            #line default
-            #line hidden
-            this.Write(");\r\n\r\n        /// <summary> The information for [");
-            
-            #line 483 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("]. </summary>\r\n        public static readonly UnitInfo<T> ");
-            
-            #line 484 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Info = new (_");
-            
-            #line 484 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale, \"");
-            
-            #line 484 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("\", \"");
-            
-            #line 484 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\");\r\n\r\n        /// <summary>\r\n        /// Creates a new <see href=\"");
-            
-            #line 487 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("{T}\" /> instance by interpreting the given real value in the scale of [");
-            
-            #line 487 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("].\r\n        /// </summary>\r\n        /// <param name=\"Second\"></param>\r\n        //" +
-                    "/ <returns></returns>\r\n        public static ");
-            
-            #line 491 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> From");
-            
-            #line 491 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("(T ");
-            
-            #line 491 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(")\r\n            => new (");
-            
-            #line 492 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(" * _");
-            
-            #line 492 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale);\r\n\r\n        /// <summary>\r\n        /// Gets the value of this instance in " +
-                    "[");
-            
-            #line 495 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("] scale.\r\n        /// </summary>\r\n        public T ");
-            
-            #line 497 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(" => _RawValue / _");
-            
-            #line 497 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write("Scale;\r\n\r\n        #endregion\r\n\r\n");
-            
-            #line 501 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("        #endregion\r\n\r\n        #region basic interface implements\r\n\r\n        /// <" +
-                    "inheritdoc />\r\n        public int CompareTo(object? obj)\r\n            => obj is " +
-                    "");
-            
-            #line 508 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> other\r\n            ? Compare(this, other)\r\n            : throw new ArgumentEx" +
-                    "ception(nameof(obj));\r\n\r\n        /// <inheritdoc />\r\n        public int CompareT" +
-                    "o(");
-            
-            #line 513 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> other) => Compare(this, other);\r\n\r\n        /// <inheritdoc />\r\n        public" +
-                    " bool Equals(");
-            
-            #line 516 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"<T> other) => Equals(this, other);
+        
+        #line default
+        #line hidden
+        
+        #line 525 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryUnit.ShortName));
 
-        /// <summary>
-        /// Formats the value of the current instance using the specified format.
-        /// </summary>
-        /// <param name=""format"">
-        /// The format to use. -or- A null reference (Nothing in Visual Basic) to use the
-        /// default format defined for the type of the System.IFormattable implementation.
-        /// </param>
-        /// <returns>
-        /// The value of the current instance in the specified format.
-        /// </returns>
-        public string ToString(string? format)
-            => ToString(format, CultureInfo.CurrentCulture);
+        
+        #line default
+        #line hidden
+        
+        #line 525 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write("\"),\r\n                _ => throw new FormatException(),\r\n            };\r\n         " +
+        "   var number = string.Format(formatProvider, \"{0:\" + info.NumberFormat + \"}\", v" +
+        "alue);\r\n            return (info, number, unit);\r\n        }\r\n\r\n        /// <inhe" +
+        "ritdoc />\r\n        public string ToString(string? format, IFormatProvider? forma" +
+        "tProvider)\r\n        {\r\n            var (info, number, unit) = GetFormatInfo(form" +
+        "at, formatProvider);\r\n            return info.Format(number, unit);\r\n        }\r\n" +
+        "\r\n        #if NET6_0_OR_GREATER\r\n        /// <inheritdoc />\r\n        #else\r\n    " +
+        "    /// <summary>\r\n        /// Tries to format the value of the current instance" +
+        " into the provided span of characters.\r\n        /// </summary>\r\n        /// <par" +
+        "am name=\"destination\">The span in which to write this instance\'s value formatted" +
+        " as a span of characters.</param>\r\n        /// <param name=\"charsWritten\">When t" +
+        "his method returns, contains the number of characters that were written in <para" +
+        "mref name=\"destination\"/>.</param>\r\n        /// <param name=\"format\">A span cont" +
+        "aining the characters that represent a standard or custom format string that def" +
+        "ines the acceptable format for <paramref name=\"destination\"/>.</param>\r\n        " +
+        "/// <param name=\"formatProvider\">An optional object that supplies culture-specif" +
+        "ic formatting information for <paramref name=\"destination\"/>.</param>\r\n        /" +
+        "// <returns><c>true</c> if the formatting was successful; otherwise, <c>false</c" +
+        ">.</returns>\r\n        #endif\r\n        public bool TryFormat(Span<char> destinati" +
+        "on, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? formatProv" +
+        "ider)\r\n        {\r\n            var (info, number, unit) = GetFormatInfo(format.To" +
+        "String(), formatProvider);\r\n            return info.TryFormat(destination, out c" +
+        "harsWritten, number, unit);\r\n        }\r\n\r\n        /// <inheritdoc />\r\n        pu" +
+        "blic override int GetHashCode()\r\n            => _RawValue.GetHashCode();\r\n\r\n    " +
+        "    /// <inheritdoc />\r\n        public override bool Equals([NotNullWhen(true)] " +
+        "object? obj)\r\n            => obj is ");
 
-        /// <inheritdoc />
-        public string ToString(string? format, IFormatProvider? formatProvider)
-        {
-            if(!QuantityFormatInfo.TryCompile(format, out var info))
-            {
-                throw new FormatException();
-            }
+        
+        #line default
+        #line hidden
+        
+        #line 563 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(targetTypeName));
 
-            var (value, unit) = info.UnitSelector switch {
-");
-            
-            #line 540 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            this.Write("                \"");
-            
-            #line 541 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\" => (");
-            
-            #line 541 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(", \"");
-            
-            #line 541 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write("\"),\r\n");
-            
-            #line 542 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("                \"\" => (");
-            
-            #line 543 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryUnit.MajorName));
-            
-            #line default
-            #line hidden
-            this.Write(", \"");
-            
-            #line 543 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryUnit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write(@"""),
-                _ => throw new FormatException(),
-            };
-            var number = string.Format(""{0:"" + info.NumberFormat + ""}"", value);
-            var (open, close) = info.HasBrackets ? (""["", ""]"") : ("""", """");
-            return $""{number}{info.Spacing}{open}{unit}{close}"";
-        }
+        
+        #line default
+        #line hidden
+        
+        #line 563 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
+this.Write(" other && Equals(this, other);\r\n\r\n");
 
-        /// <inheritdoc />
-        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
-        {
-            var str = ToString(format.ToString(), provider);
-            if(destination.Length < str.Length)
-            {
-                charsWritten = default;
-                return false;
-            }
-            str.AsSpan().CopyTo(destination);
-            charsWritten = str.Length;
-            return true;
-        }
+        
+        #line default
+        #line hidden
+        
+        #line 565 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
 
-        /// <inheritdoc />
-        public static bool operator ==(");
-            
-            #line 566 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 566 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static bool" +
-                    " operator !=(");
-            
-            #line 569 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 569 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => !Equals(x, y);\r\n\r\n        /// <inheritdoc />\r\n        public static boo" +
-                    "l operator <(");
-            
-            #line 572 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 572 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => Compare(x, y) < 0;\r\n\r\n        /// <inheritdoc />\r\n        public static" +
-                    " bool operator >(");
-            
-            #line 575 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 575 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => Compare(x, y) > 0;\r\n\r\n        /// <inheritdoc />\r\n        public static" +
-                    " bool operator <=(");
-            
-            #line 578 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 578 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => Compare(x, y) <= 0;\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
-                    "c bool operator >=(");
-            
-            #line 581 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 581 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => Compare(x, y) >= 0;\r\n\r\n        /// <inheritdoc />\r\n        public stati" +
-                    "c ");
-            
-            #line 584 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator +(");
-            
-            #line 584 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 584 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new (x._RawValue + y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n       " +
-                    " public static ");
-            
-            #line 587 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator-(");
-            
-            #line 587 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 587 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new (x._RawValue - y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n       " +
-                    " public static ");
-            
-            #line 590 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator *(T x, ");
-            
-            #line 590 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new (x * y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        public st" +
-                    "atic T operator /(");
-            
-            #line 593 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 593 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => x._RawValue / y._RawValue;\r\n\r\n        /// <inheritdoc />\r\n        publi" +
-                    "c static ");
-            
-            #line 596 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator *(");
-            
-            #line 596 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, T y) => new (x._RawValue * y);\r\n\r\n        /// <inheritdoc />\r\n        publ" +
-                    "ic static ");
-            
-            #line 599 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator /(");
-            
-            #line 599 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, T y) => new(x._RawValue / y);\r\n\r\n        /// <inheritdoc />\r\n        publi" +
-                    "c static ");
-            
-            #line 602 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator %(");
-            
-            #line 602 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 602 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new(x._RawValue % y._RawValue);\r\n\r\n        /// <inheritdoc />\r\n        " +
-                    "public static ");
-            
-            #line 605 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> AdditiveIdentity => default;\r\n\r\n        /// <inheritdoc />\r\n        public st" +
-                    "atic T MultiplicativeIdentity => T.One;\r\n\r\n        /// <inheritdoc />\r\n        p" +
-                    "ublic static ");
-            
-            #line 611 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator +(");
-            
-            #line 611 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> value) => value;\r\n\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 614 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator -(");
-            
-            #line 614 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(@"<T> value) => new(-value._RawValue);
-
-        #endregion
-    }
+}
 
 
-    #region unit operations
-
-    /// NOTE: In specific case recursive generic interface causes JIT compile time increasing exponentially.
-    /// Therefore interface implementations are comment-outed until .Net runtime is improved.
-
-");
-            
-            #line 625 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var op in UnitOperations) { 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    partial struct ");
-            
-            #line 627 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>\r\n//        : IDivisionOperators<");
-            
-            #line 628 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 628 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 628 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 631 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator /(");
-            
-            #line 631 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 631 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
-            
-            #line 634 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>\r\n//        : IMultiplyOperators<");
-            
-            #line 635 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 635 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 635 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 638 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator *(");
-            
-            #line 638 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 638 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new(x.RawValue * y.RawValue);\r\n    }\r\n\r\n");
-            
-            #line 641 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     if(op.MultiplierType != op.MultiplicantType) { 
-            
-            #line default
-            #line hidden
-            this.Write("    partial struct ");
-            
-            #line 642 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>\r\n//        : IDivisionOperators<");
-            
-            #line 643 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 643 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 643 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 646 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator /(");
-            
-            #line 646 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 646 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new(x.RawValue / y.RawValue);\r\n    }\r\n\r\n    partial struct ");
-            
-            #line 649 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>\r\n//        : IMultiplyOperators<");
-            
-            #line 650 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 650 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>, ");
-            
-            #line 650 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T>>\r\n    {\r\n        /// <inheritdoc />\r\n        public static ");
-            
-            #line 653 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.ProductType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> operator *(");
-            
-            #line 653 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplierType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> x, ");
-            
-            #line 653 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(op.MultiplicantType));
-            
-            #line default
-            #line hidden
-            this.Write("<T> y) => new(x.RawValue * y.RawValue);\r\n    }\r\n");
-            
-            #line 655 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     } 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 657 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("    #endregion\r\n\r\n    partial class UnitShorthands\r\n    {\r\n");
-            
-            #line 662 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- foreach(var unit in UnitSymbols) { 
-            
-            #line default
-            #line hidden
-            
-            #line 663 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     if(unit.ExportsShorthandSymbol) { 
-            
-            #line default
-            #line hidden
-            this.Write("            /// <summary> A symbol for <see cref=\"");
-            
-            #line 664 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("\" />. </summary>\r\n            [CLSCompliant(false)]\r\n            public static re" +
-                    "adonly ");
-            
-            #line 666 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" ");
-            
-            #line 666 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.ShortName));
-            
-            #line default
-            #line hidden
-            this.Write(" = new(");
-            
-            #line 666 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(unit.Scale));
-            
-            #line default
-            #line hidden
-            this.Write(");\r\n\r\n");
-            
-            #line 668 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
-     } 
-            
-            #line default
-            #line hidden
-            
-            #line 669 "D:\develop\NetQuantities\src\NetQuantities.Generators\QuantityImplement.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("    }\r\n}\r\n#endif\r\n");
-            return this.GenerationEnvironment.ToString();
-        }
+        
+        #line default
+        #line hidden
     }
     
     #line default

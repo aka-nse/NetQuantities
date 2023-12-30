@@ -15,6 +15,7 @@ partial class QuantityImplement
         => _TypeNameToSymbolMatcher.Replace(targetTypeName, "$1UnitSymbol");
 
     public string TargetTypeName { get; init; } = null!;
+    public bool IsRefLikeType { get; init; } = false;
     public QuantityDef QuantityDef { get; init; } = null!;
     public IList<UnitSymbolDef> UnitSymbols { get; init; } = new List<UnitSymbolDef>();
     public IList<UnitOperationDef> UnitOperations { get; init; } = new List<UnitOperationDef>();

@@ -19,6 +19,7 @@ namespace NetQuantities
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, Size = sizeof(double))]
     public partial struct <#=TargetTypeName#>
+<# if(!IsRefLikeType) { #>
         : IQuantity<<#=TargetTypeName#>>
         , IComparable<<#=TargetTypeName#>>
         , IEquatable<<#=TargetTypeName#>>
@@ -35,6 +36,7 @@ namespace NetQuantities
         , IUnaryPlusOperators<<#=TargetTypeName#>, <#=TargetTypeName#>>
         , IUnaryNegationOperators<<#=TargetTypeName#>, <#=TargetTypeName#>>
     #endif
+<# } #>
     {
         /// <summary>
         /// Gets quantity information instance for <see cref="<#=TargetTypeName#>" />.
@@ -64,135 +66,7 @@ namespace NetQuantities
         internal <#=TargetTypeName#>(double rawValue)
             => _RawValue = rawValue;
 
-        /// <summary>
-        /// Determines whether the 2 values are same or not.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static bool Equals(in <#=TargetTypeName#> x, in <#=TargetTypeName#> y) => x._RawValue == y._RawValue;
-
-        /// <summary>
-        /// Determines which value is greater than another.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static int Compare(in <#=TargetTypeName#> x, in <#=TargetTypeName#> y)
-        {
-            if (x._RawValue == y._RawValue) { return 0; }
-            return x._RawValue < y._RawValue ? -1 : 1;
-        }
-
-        /// <summary>
-        /// Tries to parse a string into a value.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="provider"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
-        public static bool TryParse(string? s, IFormatProvider? provider, out <#=TargetTypeName#> result)
-        {
-            if(!QuantityParseInfo.TryCompile(s, out var info))
-            {
-                result = default;
-                return false;
-            }
-            var (succeeded, value) = info.UnitSelector switch {
-<# foreach(var unit in UnitSymbols) { #>
-                "<#=unit.ShortName#>" => (double.TryParse(info.Number, NumberStyles.Any, provider, out var x), From<#=unit.MajorName#>(x)),
-<# } #>
-                _ => (false, default(<#=TargetTypeName#>)),
-            };
-            result = value;
-            return succeeded;
-        }
-
-        /// <summary>
-        /// Parses a string into a value.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="provider"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="FormatException"></exception>
-        public static <#=TargetTypeName#> Parse(string? s, IFormatProvider? provider)
-        {
-            if(s is null)
-                throw new ArgumentNullException(nameof(s));
-            if(!TryParse(s, provider, out var result))
-                throw new FormatException();
-            return result;
-        }
-
-        /// <inheritdoc />
-        public override string ToString()
-            => ToString(null, CultureInfo.CurrentCulture);
-
-        /// <summary>
-        /// Formats the value of the current instance using the specified format.
-        /// </summary>
-        /// <param name="format">
-        /// The format to use. -or- A null reference (Nothing in Visual Basic) to use the
-        /// default format defined for the type of the System.IFormattable implementation.
-        /// </param>
-        /// <returns>
-        /// The value of the current instance in the specified format.
-        /// </returns>
-        public string ToString(string? format)
-            => ToString(format, CultureInfo.CurrentCulture);
-
-        private (QuantityFormatInfo info, string number, string unit) GetFormatInfo(string? format, IFormatProvider? formatProvider)
-        {
-            if(!QuantityFormatInfo.TryCompile(format, out var info))
-            {
-                throw new FormatException();
-            }
-
-            var (value, unit) = info.UnitSelector switch {
-<# foreach(var unit in UnitSymbols) { #>
-                "<#=unit.ShortName#>" => (<#=unit.MajorName#>, "<#=unit.ShortName#>"),
-<# } #>
-                "" => (<#=PrimaryUnit.MajorName#>, "<#=PrimaryUnit.ShortName#>"),
-                _ => throw new FormatException(),
-            };
-            var number = string.Format(formatProvider, "{0:" + info.NumberFormat + "}", value);
-            return (info, number, unit);
-        }
-
-        /// <inheritdoc />
-        public string ToString(string? format, IFormatProvider? formatProvider)
-        {
-            var (info, number, unit) = GetFormatInfo(format, formatProvider);
-            return info.Format(number, unit);
-        }
-
-#if NET6_0_OR_GREATER
-        /// <inheritdoc />
-#else
-        /// <summary>
-        /// Tries to format the value of the current instance into the provided span of characters.
-        /// </summary>
-        /// <param name="destination">The span in which to write this instance's value formatted as a span of characters.</param>
-        /// <param name="charsWritten">When this method returns, contains the number of characters that were written in <paramref name="destination"/>.</param>
-        /// <param name="format">A span containing the characters that represent a standard or custom format string that defines the acceptable format for <paramref name="destination"/>.</param>
-        /// <param name="formatProvider">An optional object that supplies culture-specific formatting information for <paramref name="destination"/>.</param>
-        /// <returns><c>true</c> if the formatting was successful; otherwise, <c>false</c>.</returns>
-#endif
-        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? formatProvider)
-        {
-            var (info, number, unit) = GetFormatInfo(format.ToString(), formatProvider);
-            return info.TryFormat(destination, out charsWritten, number, unit);
-        }
-
-
-        /// <inheritdoc />
-        public override int GetHashCode()
-            => _RawValue.GetHashCode();
-
-        /// <inheritdoc />
-        public override bool Equals([NotNullWhen(true)] object? obj)
-            => obj is <#=TargetTypeName#> other && Equals(this, other);
+<# GenerateBasicTypeShape(TargetTypeName, "double"); #>
 
         #region unit definitions
 
@@ -228,24 +102,12 @@ namespace NetQuantities
         /// </summary>
         public double <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
 
-        #endregion
-
+        #endregion  // <#=unit.MajorName#>
 <# } #>
-        #endregion
+
+        #endregion  //  unit definitions
 
         #region basic interface implements
-
-        /// <inheritdoc />
-        public int CompareTo(object? obj)
-            => obj is <#=TargetTypeName#> other
-            ? Compare(this, other)
-            : throw new ArgumentException(nameof(obj));
-
-        /// <inheritdoc />
-        public int CompareTo(<#=TargetTypeName#> other) => Compare(this, other);
-
-        /// <inheritdoc />
-        public bool Equals(<#=TargetTypeName#> other) => Equals(this, other);
 
         /// <inheritdoc />
         public static bool operator ==(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => Equals(x, y);
@@ -306,42 +168,50 @@ namespace NetQuantities
 <# foreach(var op in UnitOperations) { #>
 
     partial struct <#=op.ProductType#>
+<#      if(!IsRefLikeType) { #>
     #if NET7_0_OR_GREATER
         : IDivisionOperators<<#=op.ProductType#>, <#=op.MultiplicantType#>, <#=op.MultiplierType#>>
     #endif
+<#      } #>
     {
         /// <inheritdoc />
         public static <#=op.MultiplierType#> operator /(<#=op.ProductType#> x, <#=op.MultiplicantType#> y) => new(x.RawValue / y.RawValue);
     }
 
     partial struct <#=op.MultiplicantType#>
+<#      if(!IsRefLikeType) { #>
     #if NET7_0_OR_GREATER
         : IMultiplyOperators<<#=op.MultiplicantType#>, <#=op.MultiplierType#>, <#=op.ProductType#>>
     #endif
+<#      } #>
     {
         /// <inheritdoc />
         public static <#=op.ProductType#> operator *(<#=op.MultiplicantType#> x, <#=op.MultiplierType#> y) => new(x.RawValue * y.RawValue);
     }
 
-<#     if(op.MultiplierType != op.MultiplicantType) { #>
+<#      if(op.MultiplierType != op.MultiplicantType) { #>
     partial struct <#=op.ProductType#>
+<#          if(!IsRefLikeType) { #>
     #if NET7_0_OR_GREATER
         : IDivisionOperators<<#=op.ProductType#>, <#=op.MultiplierType#>, <#=op.MultiplicantType#>>
     #endif
+<#          } #>
     {
         /// <inheritdoc />
         public static <#=op.MultiplicantType#> operator /(<#=op.ProductType#> x, <#=op.MultiplierType#> y) => new(x.RawValue / y.RawValue);
     }
 
     partial struct <#=op.MultiplierType#>
+<#          if(!IsRefLikeType) { #>
     #if NET7_0_OR_GREATER
         : IMultiplyOperators<<#=op.MultiplierType#>, <#=op.MultiplicantType#>, <#=op.ProductType#>>
     #endif
+<#          } #>
     {
         /// <inheritdoc />
         public static <#=op.ProductType#> operator *(<#=op.MultiplierType#> x, <#=op.MultiplicantType#> y) => new(x.RawValue * y.RawValue);
     }
-<#     } #>
+<#      } #>
 
 <# } #>
     #endregion
@@ -364,6 +234,7 @@ namespace NetQuantities
 namespace NetQuantities.Generic
 {
     public partial struct <#=TargetTypeName#><T>
+<# if(!IsRefLikeType) { #>
         : IQuantity<<#=TargetTypeName#><T>, T>
         , IComparable<<#=TargetTypeName#><T>>
         , IEquatable<<#=TargetTypeName#><T>>
@@ -377,6 +248,7 @@ namespace NetQuantities.Generic
         , IMultiplicativeIdentity<<#=TargetTypeName#><T>, T>
         , IUnaryPlusOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
         , IUnaryNegationOperators<<#=TargetTypeName#><T>, <#=TargetTypeName#><T>>
+<# } #>
         where T : INumber<T>
     {
         private readonly T _RawValue;
@@ -389,78 +261,7 @@ namespace NetQuantities.Generic
         internal <#=TargetTypeName#>(T rawValue)
             => _RawValue = rawValue;
 
-        /// <summary>
-        /// Determines whether the 2 values are same or not.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static bool Equals(in <#=TargetTypeName#><T> x, in <#=TargetTypeName#><T> y) => x._RawValue == y._RawValue;
-
-        /// <summary>
-        /// Determines which value is greater than another.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static int Compare(in <#=TargetTypeName#><T> x, in <#=TargetTypeName#><T> y)
-        {
-            if (x._RawValue == y._RawValue) { return 0; }
-            return x._RawValue < y._RawValue ? -1 : 1;
-        }
-
-        /// <summary>
-        /// Tries to parse a string into a value.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="provider"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
-        public static bool TryParse(string? s, IFormatProvider? provider, out <#=TargetTypeName#><T> result)
-        {
-            if(!QuantityParseInfo.TryCompile(s, out var info))
-            {
-                result = default;
-                return false;
-            }
-            var succeeded = false;
-            result = info.UnitSelector switch {
-<# foreach(var unit in UnitSymbols) { #>
-                "<#=unit.ShortName#>" => (succeeded = T.TryParse(info.Number, provider, out var x)) ? From<#=unit.MajorName#>(x!) : default,
-<# } #>
-                _ => default,
-            };
-            return succeeded;
-        }
-
-        /// <summary>
-        /// Parses a string into a value.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="provider"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="FormatException"></exception>
-        public static <#=TargetTypeName#><T> Parse(string? s, IFormatProvider? provider)
-        {
-            if(s is null)
-                throw new ArgumentNullException(nameof(s));
-            if(!TryParse(s, provider, out var result))
-                throw new FormatException();
-            return result;
-        }
-
-        /// <inheritdoc />
-        public override string ToString()
-            => ToString(null, CultureInfo.CurrentCulture);
-
-        /// <inheritdoc />
-        public override int GetHashCode()
-            => _RawValue.GetHashCode();
-
-        /// <inheritdoc />
-        public override bool Equals([NotNullWhen(true)] object? obj)
-            => obj is <#=TargetTypeName#><T> other && Equals(this, other);
+<# GenerateBasicTypeShape(TargetTypeName + "<T>", "T"); #>
 
         #region unit definitions
 
@@ -502,65 +303,6 @@ namespace NetQuantities.Generic
         #endregion
 
         #region basic interface implements
-
-        /// <inheritdoc />
-        public int CompareTo(object? obj)
-            => obj is <#=TargetTypeName#><T> other
-            ? Compare(this, other)
-            : throw new ArgumentException(nameof(obj));
-
-        /// <inheritdoc />
-        public int CompareTo(<#=TargetTypeName#><T> other) => Compare(this, other);
-
-        /// <inheritdoc />
-        public bool Equals(<#=TargetTypeName#><T> other) => Equals(this, other);
-
-        /// <summary>
-        /// Formats the value of the current instance using the specified format.
-        /// </summary>
-        /// <param name="format">
-        /// The format to use. -or- A null reference (Nothing in Visual Basic) to use the
-        /// default format defined for the type of the System.IFormattable implementation.
-        /// </param>
-        /// <returns>
-        /// The value of the current instance in the specified format.
-        /// </returns>
-        public string ToString(string? format)
-            => ToString(format, CultureInfo.CurrentCulture);
-
-        /// <inheritdoc />
-        public string ToString(string? format, IFormatProvider? formatProvider)
-        {
-            if(!QuantityFormatInfo.TryCompile(format, out var info))
-            {
-                throw new FormatException();
-            }
-
-            var (value, unit) = info.UnitSelector switch {
-<# foreach(var unit in UnitSymbols) { #>
-                "<#=unit.ShortName#>" => (<#=unit.MajorName#>, "<#=unit.ShortName#>"),
-<# } #>
-                "" => (<#=PrimaryUnit.MajorName#>, "<#=PrimaryUnit.ShortName#>"),
-                _ => throw new FormatException(),
-            };
-            var number = string.Format("{0:" + info.NumberFormat + "}", value);
-            var (open, close) = info.HasBrackets ? ("[", "]") : ("", "");
-            return $"{number}{info.Spacing}{open}{unit}{close}";
-        }
-
-        /// <inheritdoc />
-        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
-        {
-            var str = ToString(format.ToString(), provider);
-            if(destination.Length < str.Length)
-            {
-                charsWritten = default;
-                return false;
-            }
-            str.AsSpan().CopyTo(destination);
-            charsWritten = str.Length;
-            return true;
-        }
 
         /// <inheritdoc />
         public static bool operator ==(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Equals(x, y);
@@ -670,3 +412,157 @@ namespace NetQuantities.Generic
     }
 }
 #endif
+
+<#+
+public void GenerateBasicTypeShape(string targetTypeName, string entityTypeName)
+{
+    if(IsRefLikeType)
+    {
+        return;
+    }
+#>
+        /// <inheritdoc />
+        public int CompareTo(object? obj)
+            => obj is <#=targetTypeName#> other
+            ? Compare(this, other)
+            : throw new ArgumentException(nameof(obj));
+
+        /// <inheritdoc />
+        public int CompareTo(<#=targetTypeName#> other) => Compare(this, other);
+
+        /// <inheritdoc />
+        public bool Equals(<#=targetTypeName#> other) => Equals(this, other);
+
+        /// <summary>
+        /// Determines whether the 2 values are same or not.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static bool Equals(in <#=targetTypeName#> x, in <#=targetTypeName#> y) => x._RawValue == y._RawValue;
+
+        /// <summary>
+        /// Determines which value is greater than another.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static int Compare(in <#=targetTypeName#> x, in <#=targetTypeName#> y)
+        {
+            if (x._RawValue == y._RawValue) { return 0; }
+            return x._RawValue < y._RawValue ? -1 : 1;
+        }
+
+        /// <summary>
+        /// Tries to parse a string into a value.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="provider"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        public static bool TryParse(string? s, IFormatProvider? provider, out <#=targetTypeName#> result)
+        {
+            if(!QuantityParseInfo.TryCompile(s, out var info))
+            {
+                result = default;
+                return false;
+            }
+            var (succeeded, value) = info.UnitSelector switch {
+<#+      foreach(var unit in UnitSymbols) { #>
+                "<#=unit.ShortName#>" => (<#=entityTypeName#>.TryParse(info.Number, NumberStyles.Any, provider, out var x), From<#=unit.MajorName#>(x!)),
+<#+      } #>
+                _ => (false, default(<#=targetTypeName#>)),
+            };
+            result = value;
+            return succeeded;
+        }
+
+        /// <summary>
+        /// Parses a string into a value.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="FormatException"></exception>
+        public static <#=targetTypeName#> Parse(string? s, IFormatProvider? provider)
+        {
+            if(s is null)
+                throw new ArgumentNullException(nameof(s));
+            if(!TryParse(s, provider, out var result))
+                throw new FormatException();
+            return result;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+            => ToString(null, CultureInfo.CurrentCulture);
+
+        /// <summary>
+        /// Formats the value of the current instance using the specified format.
+        /// </summary>
+        /// <param name="format">
+        /// The format to use. -or- A null reference (Nothing in Visual Basic) to use the
+        /// default format defined for the type of the System.IFormattable implementation.
+        /// </param>
+        /// <returns>
+        /// The value of the current instance in the specified format.
+        /// </returns>
+        public string ToString(string? format)
+            => ToString(format, CultureInfo.CurrentCulture);
+
+        private (QuantityFormatInfo info, string number, string unit) GetFormatInfo(string? format, IFormatProvider? formatProvider)
+        {
+            if(!QuantityFormatInfo.TryCompile(format, out var info))
+            {
+                throw new FormatException();
+            }
+
+            var (value, unit) = info.UnitSelector switch {
+<#+      foreach(var unit in UnitSymbols) { #>
+                "<#=unit.ShortName#>" => (<#=unit.MajorName#>, "<#=unit.ShortName#>"),
+<#+      } #>
+                "" => (<#=PrimaryUnit.MajorName#>, "<#=PrimaryUnit.ShortName#>"),
+                _ => throw new FormatException(),
+            };
+            var number = string.Format(formatProvider, "{0:" + info.NumberFormat + "}", value);
+            return (info, number, unit);
+        }
+
+        /// <inheritdoc />
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            var (info, number, unit) = GetFormatInfo(format, formatProvider);
+            return info.Format(number, unit);
+        }
+
+        #if NET6_0_OR_GREATER
+        /// <inheritdoc />
+        #else
+        /// <summary>
+        /// Tries to format the value of the current instance into the provided span of characters.
+        /// </summary>
+        /// <param name="destination">The span in which to write this instance's value formatted as a span of characters.</param>
+        /// <param name="charsWritten">When this method returns, contains the number of characters that were written in <paramref name="destination"/>.</param>
+        /// <param name="format">A span containing the characters that represent a standard or custom format string that defines the acceptable format for <paramref name="destination"/>.</param>
+        /// <param name="formatProvider">An optional object that supplies culture-specific formatting information for <paramref name="destination"/>.</param>
+        /// <returns><c>true</c> if the formatting was successful; otherwise, <c>false</c>.</returns>
+        #endif
+        public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? formatProvider)
+        {
+            var (info, number, unit) = GetFormatInfo(format.ToString(), formatProvider);
+            return info.TryFormat(destination, out charsWritten, number, unit);
+        }
+
+        /// <inheritdoc />
+        public override int GetHashCode()
+            => _RawValue.GetHashCode();
+
+        /// <inheritdoc />
+        public override bool Equals([NotNullWhen(true)] object? obj)
+            => obj is <#=targetTypeName#> other && Equals(this, other);
+
+<#+
+}
+
+#>
