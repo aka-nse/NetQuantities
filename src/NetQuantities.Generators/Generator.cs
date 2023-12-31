@@ -63,6 +63,7 @@ public class Generator : IIncrementalGenerator
         var unitSource = new QuantityImplement()
         {
             TargetTypeName = info.TargetSymbol.Name,
+            IsRefLikeType = info.TargetSymbol.IsRefLikeType,
             QuantityDef = QuantityDef.GetQuantityDef(qDef),
             UnitSymbols = unitDefs
                 .SelectMany(UnitSymbolDef.GetUnitSymbols)

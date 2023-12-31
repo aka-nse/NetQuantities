@@ -2,4 +2,5 @@
 using System.Runtime.CompilerServices;
 
 [assembly: CLSCompliant(true)]
+[assembly: InternalsVisibleTo("NetQuantities.Sample")]
 [assembly: InternalsVisibleTo("NetQuantities.Test")]
