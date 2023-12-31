@@ -41,7 +41,10 @@ namespace NetQuantities
         /// <summary>
         /// Gets quantity information instance for <see cref="<#=TargetTypeName#>" />.
         /// </summary>
-        public static QuantityInfo Info { get; } = new(
+        public static QuantityInfo Info => _Info;
+
+        // for reflection of ref struct, explicitly named backing field is provided.
+        internal static readonly QuantityInfo _Info = new(
             "<#=TargetTypeName.Substring(1)#>",
             L : <#=QuantityDef.L #>,
             M : <#=QuantityDef.M #>,
@@ -66,101 +69,11 @@ namespace NetQuantities
         internal <#=TargetTypeName#>(double rawValue)
             => _RawValue = rawValue;
 
-<# GenerateBasicTypeShape(TargetTypeName, "double"); #>
+<# GenerateBasicTypeShape(isGeneric: false); #>
 
-        #region unit definitions
+<# GenerateUnitDefinitionsShape(isGeneric: false); #>
 
-        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
-        public static readonly ImmutableDictionary<string, UnitInfo> UnitsBySymbol = GetUnitsBySymbol();
-        private static ImmutableDictionary<string, UnitInfo> GetUnitsBySymbol()
-        {
-            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo>();
-<# foreach(var unit in UnitSymbols) { #>
-            builder.Add("<#=unit.ShortName#>", <#=unit.MajorName#>Info);
-<# } #>
-            return builder.ToImmutable();
-        }
-
-<# foreach(var unit in UnitSymbols) { #>
-        #region <#=unit.MajorName#>
-
-        private const double _<#=unit.MajorName#>Scale = <#=unit.Scale#>;
-
-        /// <summary> The information for [<#=unit.ShortName#>]. </summary>
-        public static readonly UnitInfo <#=unit.MajorName#>Info = new (_<#=unit.MajorName#>Scale, "<#=unit.MajorName#>", "<#=unit.ShortName#>");
-
-        /// <summary>
-        /// Creates a new <see href="<#=TargetTypeName#>" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
-        /// </summary>
-        /// <param name="Second"></param>
-        /// <returns></returns>
-        public static <#=TargetTypeName#> From<#=unit.MajorName#>(double <#=unit.MajorName#>)
-            => new (<#=unit.MajorName#> * _<#=unit.MajorName#>Scale);
-
-        /// <summary>
-        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
-        /// </summary>
-        public double <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
-
-        #endregion  // <#=unit.MajorName#>
-<# } #>
-
-        #endregion  //  unit definitions
-
-        #region basic interface implements
-
-        /// <inheritdoc />
-        public static bool operator ==(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => Equals(x, y);
-
-        /// <inheritdoc />
-        public static bool operator !=(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => !Equals(x, y);
-
-        /// <inheritdoc />
-        public static bool operator <(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => Compare(x, y) < 0;
-
-        /// <inheritdoc />
-        public static bool operator >(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => Compare(x, y) > 0;
-
-        /// <inheritdoc />
-        public static bool operator <=(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => Compare(x, y) <= 0;
-
-        /// <inheritdoc />
-        public static bool operator >=(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => Compare(x, y) >= 0;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator +(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => new (x._RawValue + y._RawValue);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator-(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => new (x._RawValue - y._RawValue);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator *(double x, <#=TargetTypeName#> y) => new (x * y._RawValue);
-
-        /// <inheritdoc />
-        public static double operator /(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => x._RawValue / y._RawValue;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator *(<#=TargetTypeName#> x, double y) => new (x._RawValue * y);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator /(<#=TargetTypeName#> x, double y) => new(x._RawValue / y);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator %(<#=TargetTypeName#> x, <#=TargetTypeName#> y) => new(x._RawValue % y._RawValue);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> AdditiveIdentity => default;
-
-        /// <inheritdoc />
-        public static double MultiplicativeIdentity => 1.0;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator +(<#=TargetTypeName#> value) => value;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#> operator -(<#=TargetTypeName#> value) => new(-value._RawValue);
-
-        #endregion
+<# GenerateSelfOperatorsShape(isGeneric: false); #>
     }
 
 
@@ -261,101 +174,11 @@ namespace NetQuantities.Generic
         internal <#=TargetTypeName#>(T rawValue)
             => _RawValue = rawValue;
 
-<# GenerateBasicTypeShape(TargetTypeName + "<T>", "T"); #>
+<# GenerateBasicTypeShape(isGeneric: true); #>
 
-        #region unit definitions
+<# GenerateUnitDefinitionsShape(isGeneric: true); #>
 
-        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
-        public static readonly ImmutableDictionary<string, UnitInfo<T>> UnitsBySymbol = GetUnitsBySymbol();
-        private static ImmutableDictionary<string, UnitInfo<T>> GetUnitsBySymbol()
-        {
-            var builder = ImmutableDictionary.CreateBuilder<string, UnitInfo<T>>();
-<# foreach(var unit in UnitSymbols) { #>
-            builder.Add("<#=unit.ShortName#>", <#=unit.MajorName#>Info);
-<# } #>
-            return builder.ToImmutable();
-        }
-
-<# foreach(var unit in UnitSymbols) { #>
-        #region <#=unit.MajorName#>
-
-        private static readonly T _<#=unit.MajorName#>Scale = T.CreateSaturating(<#=unit.Scale#>);
-
-        /// <summary> The information for [<#=unit.ShortName#>]. </summary>
-        public static readonly UnitInfo<T> <#=unit.MajorName#>Info = new (_<#=unit.MajorName#>Scale, "<#=unit.MajorName#>", "<#=unit.ShortName#>");
-
-        /// <summary>
-        /// Creates a new <see href="<#=TargetTypeName#>{T}" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
-        /// </summary>
-        /// <param name="Second"></param>
-        /// <returns></returns>
-        public static <#=TargetTypeName#><T> From<#=unit.MajorName#>(T <#=unit.MajorName#>)
-            => new (<#=unit.MajorName#> * _<#=unit.MajorName#>Scale);
-
-        /// <summary>
-        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
-        /// </summary>
-        public T <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
-
-        #endregion
-
-<# } #>
-        #endregion
-
-        #region basic interface implements
-
-        /// <inheritdoc />
-        public static bool operator ==(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Equals(x, y);
-
-        /// <inheritdoc />
-        public static bool operator !=(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => !Equals(x, y);
-
-        /// <inheritdoc />
-        public static bool operator <(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) < 0;
-
-        /// <inheritdoc />
-        public static bool operator >(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) > 0;
-
-        /// <inheritdoc />
-        public static bool operator <=(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) <= 0;
-
-        /// <inheritdoc />
-        public static bool operator >=(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => Compare(x, y) >= 0;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator +(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new (x._RawValue + y._RawValue);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator-(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new (x._RawValue - y._RawValue);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator *(T x, <#=TargetTypeName#><T> y) => new (x * y._RawValue);
-
-        /// <inheritdoc />
-        public static T operator /(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => x._RawValue / y._RawValue;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator *(<#=TargetTypeName#><T> x, T y) => new (x._RawValue * y);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator /(<#=TargetTypeName#><T> x, T y) => new(x._RawValue / y);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator %(<#=TargetTypeName#><T> x, <#=TargetTypeName#><T> y) => new(x._RawValue % y._RawValue);
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> AdditiveIdentity => default;
-
-        /// <inheritdoc />
-        public static T MultiplicativeIdentity => T.One;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator +(<#=TargetTypeName#><T> value) => value;
-
-        /// <inheritdoc />
-        public static <#=TargetTypeName#><T> operator -(<#=TargetTypeName#><T> value) => new(-value._RawValue);
-
-        #endregion
+<# GenerateSelfOperatorsShape(isGeneric: true); #>
     }
 
 
@@ -414,13 +237,17 @@ namespace NetQuantities.Generic
 #endif
 
 <#+
-public void GenerateBasicTypeShape(string targetTypeName, string entityTypeName)
+public void GenerateBasicTypeShape(bool isGeneric)
 {
+    var targetTypeName = TargetTypeName + (isGeneric ? "<T>" : "");
+    var entityTypeName = isGeneric ? "T" : "double";
     if(IsRefLikeType)
     {
         return;
     }
 #>
+        #region basic type implements
+
         /// <inheritdoc />
         public int CompareTo(object? obj)
             => obj is <#=targetTypeName#> other
@@ -432,26 +259,6 @@ public void GenerateBasicTypeShape(string targetTypeName, string entityTypeName)
 
         /// <inheritdoc />
         public bool Equals(<#=targetTypeName#> other) => Equals(this, other);
-
-        /// <summary>
-        /// Determines whether the 2 values are same or not.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static bool Equals(in <#=targetTypeName#> x, in <#=targetTypeName#> y) => x._RawValue == y._RawValue;
-
-        /// <summary>
-        /// Determines which value is greater than another.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static int Compare(in <#=targetTypeName#> x, in <#=targetTypeName#> y)
-        {
-            if (x._RawValue == y._RawValue) { return 0; }
-            return x._RawValue < y._RawValue ? -1 : 1;
-        }
 
         /// <summary>
         /// Tries to parse a string into a value.
@@ -562,7 +369,142 @@ public void GenerateBasicTypeShape(string targetTypeName, string entityTypeName)
         public override bool Equals([NotNullWhen(true)] object? obj)
             => obj is <#=targetTypeName#> other && Equals(this, other);
 
+        #endregion  // basic type implements
 <#+
 }
 
+public void GenerateUnitDefinitionsShape(bool isGeneric)
+{
+    var targetTypeName = TargetTypeName + (isGeneric ? "<T>" : "");
+    var entityTypeName = isGeneric ? "T" : "double";
+    var unitInfoTypeName = isGeneric ? "UnitInfo<T>" : "UnitInfo";
+    var getUnitScaleFormat = isGeneric ? "T.CreateSaturating({0})" : "{0}";
+#>
+        #region unit definition implements
+
+        /// <summary> The unit informations dictionary which is keyed by unit symbols. </summary>
+        public static readonly ImmutableDictionary<string, <#=unitInfoTypeName#>> UnitsBySymbol = GetUnitsBySymbol();
+        private static ImmutableDictionary<string, <#=unitInfoTypeName#>> GetUnitsBySymbol()
+        {
+            var builder = ImmutableDictionary.CreateBuilder<string, <#=unitInfoTypeName#>>();
+<#+ foreach(var unit in UnitSymbols) { #>
+            builder.Add("<#=unit.ShortName#>", <#=unit.MajorName#>Info);
+<#+ } #>
+            return builder.ToImmutable();
+        }
+
+<#+ foreach(var unit in UnitSymbols) { #>
+        #region <#=unit.MajorName#>
+
+        private static readonly <#=entityTypeName#> _<#=unit.MajorName#>Scale = <#=string.Format(getUnitScaleFormat, unit.Scale)#>;
+
+        /// <summary> The information for [<#=unit.ShortName#>]. </summary>
+        public static readonly <#=unitInfoTypeName#> <#=unit.MajorName#>Info = new (_<#=unit.MajorName#>Scale, "<#=unit.MajorName#>", "<#=unit.ShortName#>");
+
+        /// <summary>
+        /// Creates a new <see href="<#=targetTypeName.Replace('<', '{').Replace('>', '}')#>" /> instance by interpreting the given real value in the scale of [<#=unit.ShortName#>].
+        /// </summary>
+        /// <param name="Second"></param>
+        /// <returns></returns>
+        public static <#=targetTypeName#> From<#=unit.MajorName#>(<#=entityTypeName#> <#=unit.MajorName#>)
+            => new (<#=unit.MajorName#> * _<#=unit.MajorName#>Scale);
+
+        /// <summary>
+        /// Gets the value of this instance in [<#=unit.ShortName#>] scale.
+        /// </summary>
+        public <#=entityTypeName#> <#=unit.MajorName#> => _RawValue / _<#=unit.MajorName#>Scale;
+
+        #endregion
+
+<#+ } #>
+        #endregion  // unit definition implements
+<#+
+}
+
+public void GenerateSelfOperatorsShape(bool isGeneric)
+{
+    var targetTypeName = TargetTypeName + (isGeneric ? "<T>" : "");
+    var entityTypeName = isGeneric ? "T" : "double";
+    var one = isGeneric ? "T.One" : "1.0";
+#>
+        #region operator implements
+
+<#+ if(!IsRefLikeType) { #>
+
+        /// <summary>
+        /// Determines whether the 2 values are same or not.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static bool Equals(in <#=targetTypeName#> x, in <#=targetTypeName#> y) => x._RawValue == y._RawValue;
+
+        /// <summary>
+        /// Determines which value is greater than another.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static int Compare(in <#=targetTypeName#> x, in <#=targetTypeName#> y)
+        {
+            if (x._RawValue == y._RawValue) { return 0; }
+            return x._RawValue < y._RawValue ? -1 : 1;
+        }
+
+        /// <inheritdoc />
+        public static bool operator ==(<#=targetTypeName#> x, <#=targetTypeName#> y) => Equals(x, y);
+
+        /// <inheritdoc />
+        public static bool operator !=(<#=targetTypeName#> x, <#=targetTypeName#> y) => !Equals(x, y);
+
+        /// <inheritdoc />
+        public static bool operator <(<#=targetTypeName#> x, <#=targetTypeName#> y) => Compare(x, y) < 0;
+
+        /// <inheritdoc />
+        public static bool operator >(<#=targetTypeName#> x, <#=targetTypeName#> y) => Compare(x, y) > 0;
+
+        /// <inheritdoc />
+        public static bool operator <=(<#=targetTypeName#> x, <#=targetTypeName#> y) => Compare(x, y) <= 0;
+
+        /// <inheritdoc />
+        public static bool operator >=(<#=targetTypeName#> x, <#=targetTypeName#> y) => Compare(x, y) >= 0;
+
+<#+ } #>
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator +(<#=targetTypeName#> x, <#=targetTypeName#> y) => new (x._RawValue + y._RawValue);
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator-(<#=targetTypeName#> x, <#=targetTypeName#> y) => new (x._RawValue - y._RawValue);
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator *(<#=entityTypeName#> x, <#=targetTypeName#> y) => new (x * y._RawValue);
+
+        /// <inheritdoc />
+        public static <#=entityTypeName#> operator /(<#=targetTypeName#> x, <#=targetTypeName#> y) => x._RawValue / y._RawValue;
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator *(<#=targetTypeName#> x, <#=entityTypeName#> y) => new (x._RawValue * y);
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator /(<#=targetTypeName#> x, <#=entityTypeName#> y) => new(x._RawValue / y);
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator %(<#=targetTypeName#> x, <#=targetTypeName#> y) => new(x._RawValue % y._RawValue);
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> AdditiveIdentity => default;
+
+        /// <inheritdoc />
+        public static <#=entityTypeName#> MultiplicativeIdentity => <#=one#>;
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator +(<#=targetTypeName#> value) => value;
+
+        /// <inheritdoc />
+        public static <#=targetTypeName#> operator -(<#=targetTypeName#> value) => new(-value._RawValue);
+
+        #endregion  // operator implements
+<#+
+}
 #>

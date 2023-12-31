@@ -54,4 +54,28 @@
       <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
       <PackageReference Include="System.Memory" Version="4.5.5" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Update="QHalfway_NoNamedDimensions.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>QHalfway_NoNamedDimensions.g.cs</LastGenOutput>
+      </None>
+        <None Include="QHalfway_NoNamedDimensions.g.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>QHalfway_NoNamedDimensions.tt</DependentUpon>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="QHalfway_NoNamedDimensions.g.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>QHalfway_NoNamedDimensions.tt</DependentUpon>
+      </Compile>
+    </ItemGroup>
 </Project>
