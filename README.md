@@ -120,3 +120,13 @@ Console.WriteLine(Unsafe.As<decimal, QuantitiesDotNet.Generic.QSpeed<decimal>>(r
 
 - generally, coding styles shall be obeyed [.Net C# Coding Style](https://github.com/dotnet/runtime/blob/main/docs/coding-guidelines/coding-style.md).
   - exceptly double brank lines at out of method is allowed.
+
+## Release Notes
+
+### v0.1.0
+
+- First release
+
+### v0.2.0
+
+- Rename project

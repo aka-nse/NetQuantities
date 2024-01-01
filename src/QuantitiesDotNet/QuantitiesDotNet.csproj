@@ -11,7 +11,7 @@
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/aka-nse/QuantitiesDotNet</RepositoryUrl>
         <Description>.Net library for physical quantity handling</Description>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+        <AssemblyVersion>0.2.0.0</AssemblyVersion>
         <FileVersion>$(AssemblyVersion)</FileVersion>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageIcon>icon.png</PackageIcon>
