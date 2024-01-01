@@ -1305,8 +1305,8 @@ namespace QuantitiesDotNet
             
             #line default
             #line hidden
-            this.Write("    }\r\n}\r\n\r\n\r\n#if NET7_0_OR_GREATER\r\nnamespace QuantitiesDotNet.Generic\r\n{\r\n    publ" +
-                    "ic partial struct ");
+            this.Write("    }\r\n}\r\n\r\n\r\n#if NET7_0_OR_GREATER\r\nnamespace QuantitiesDotNet.Generic\r\n{\r\n    p" +
+                    "ublic partial struct ");
             
             #line 366 "D:\develop\QuantitiesDotNet\src\QuantitiesDotNet.Generators\QuantityImplement.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TargetTypeName));
