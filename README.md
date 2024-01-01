@@ -1,4 +1,4 @@
-# NetQuantities
+# QuantitiesDotNet
 
 .Net library for physical quantity handling
 
@@ -13,15 +13,15 @@
 
 ### Install
 
-- `dotnet add package akanse.NetQuantities`
-- [NuGet Gallery | akanse.NetQuantities](https://www.nuget.org/packages/akanse.NetQuantities/1.0.0)
+- `dotnet add package akanse.QuantitiesDotNet`
+- [NuGet Gallery | akanse.QuantitiesDotNet](https://www.nuget.org/packages/akanse.QuantitiesDotNet/1.0.0)
 
 ## Usage
 
 ### quantity dimension operation
 
 ```CSharp
-using NetQuantities;
+using QuantitiesDotNet;
 
 QLength length = QLength.FromMetre(600);
 QTime time = QTime.FromSecond(33.5);
@@ -86,19 +86,19 @@ catch (FormatException)
 ### generic math
 
 If your project based on .Net7 or later, you can use generic version of quantity types.
-They are declared in `NetQuantities.Generic` namespace, and you can use same APIs as non generic versions.
+They are declared in `QuantitiesDotNet.Generic` namespace, and you can use same APIs as non generic versions.
 
 ```CSharp
-var lengthNonGeneric = NetQuantities.QLength.Parse("600.0 [m]", null);
-var timeNonGeneric = NetQuantities.QTime.FromSecond(33.4);
+var lengthNonGeneric = QuantitiesDotNet.QLength.Parse("600.0 [m]", null);
+var timeNonGeneric = QuantitiesDotNet.QTime.FromSecond(33.4);
 var speedNonGeneric = lengthNonGeneric / timeNonGeneric;
 Console.WriteLine(speedNonGeneric.ToString("0.00& m/s"));
 Console.WriteLine(speedNonGeneric.RawValue.GetType());
 // 17.96 m / s
 // System.Double
 
-var lengthGeneric = NetQuantities.Generic.QLength<decimal>.Parse("600.0 [m]", null);
-var timeGeneric = NetQuantities.Generic.QTime<decimal>.FromSecond(33.4m);
+var lengthGeneric = QuantitiesDotNet.Generic.QLength<decimal>.Parse("600.0 [m]", null);
+var timeGeneric = QuantitiesDotNet.Generic.QTime<decimal>.FromSecond(33.4m);
 var speedGeneric = lengthGeneric / timeGeneric;
 Console.WriteLine(speedGeneric.ToString("0.00& m/s"));
 Console.WriteLine(speedGeneric.RawValue.GetType());
@@ -110,13 +110,23 @@ Console.WriteLine(speedGeneric.RawValue.GetType());
 
 ```CSharp
 var rawValueNonGeneric = 1.234;
-Console.WriteLine(Unsafe.As<double, NetQuantities.QSpeed>(ref rawValueNonGeneric));  // 1.234m/s
+Console.WriteLine(Unsafe.As<double, QuantitiesDotNet.QSpeed>(ref rawValueNonGeneric));  // 1.234m/s
 
 var rawValueGeneric = 1.234m;
-Console.WriteLine(Unsafe.As<decimal, NetQuantities.Generic.QSpeed<decimal>>(ref rawValueGeneric));  // 1.234m/s
+Console.WriteLine(Unsafe.As<decimal, QuantitiesDotNet.Generic.QSpeed<decimal>>(ref rawValueGeneric));  // 1.234m/s
 ```
 
 ## Coding Conventions
 
 - generally, coding styles shall be obeyed [.Net C# Coding Style](https://github.com/dotnet/runtime/blob/main/docs/coding-guidelines/coding-style.md).
   - exceptly double brank lines at out of method is allowed.
+
+## Release Notes
+
+### v0.1.0
+
+- First release
+
+### v0.2.0
+
+- Rename project
