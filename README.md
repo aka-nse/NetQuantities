@@ -127,6 +127,6 @@ Console.WriteLine(Unsafe.As<decimal, QuantitiesDotNet.Generic.QSpeed<decimal>>(r
 
 - First release
 
-### v0.1.1
+### v0.2.0
 
 - Rename project
