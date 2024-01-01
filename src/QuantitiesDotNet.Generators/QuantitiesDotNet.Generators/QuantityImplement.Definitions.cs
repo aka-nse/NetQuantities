@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace NetQuantities.Generators;
+namespace QuantitiesDotNet.Generators;
 
 
 partial class QuantityImplement

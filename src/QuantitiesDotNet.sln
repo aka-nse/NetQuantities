@@ -3,18 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetQuantities", "NetQuantities\NetQuantities.csproj", "{8EFE546A-894C-45D1-907D-10D20AB8E9DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantitiesDotNet", "QuantitiesDotNet\QuantitiesDotNet.csproj", "{8EFE546A-894C-45D1-907D-10D20AB8E9DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetQuantities.Generators", "NetQuantities.Generators\NetQuantities.Generators.csproj", "{2177DEA0-3A44-4267-A439-2191D75FAE99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantitiesDotNet.Generators", "QuantitiesDotNet.Generators\QuantitiesDotNet.Generators.csproj", "{2177DEA0-3A44-4267-A439-2191D75FAE99}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetQuantities.Shared", "NetQuantities.Shared", "{6D2C6801-C4CC-4405-B04B-BC9A3BC73963}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QuantitiesDotNet.Shared", "QuantitiesDotNet.Shared", "{6D2C6801-C4CC-4405-B04B-BC9A3BC73963}"
 	ProjectSection(SolutionItems) = preProject
-		NetQuantities.Shared\PlatformCapabilities.cs = NetQuantities.Shared\PlatformCapabilities.cs
+		QuantitiesDotNet.Shared\PlatformCapabilities.cs = QuantitiesDotNet.Shared\PlatformCapabilities.cs
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetQuantities.Test", "NetQuantities.Test\NetQuantities.Test.csproj", "{0C26342B-0C0E-4A60-8B2A-40987AD0576A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantitiesDotNet.Test", "QuantitiesDotNet.Test\QuantitiesDotNet.Test.csproj", "{0C26342B-0C0E-4A60-8B2A-40987AD0576A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetQuantities.Sample", "NetQuantities.Sample\NetQuantities.Sample.csproj", "{4BFC1A37-12B1-442B-B695-9E2CF3B5BBE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantitiesDotNet.Sample", "QuantitiesDotNet.Sample\QuantitiesDotNet.Sample.csproj", "{4BFC1A37-12B1-442B-B695-9E2CF3B5BBE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

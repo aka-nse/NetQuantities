@@ -5,7 +5,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 using System;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 
 [AttributeUsage(AttributeTargets.Struct, AllowMultiple = false)]
@@ -76,7 +76,7 @@ internal sealed class QuantityUnitAttribute : Attribute
     ///     </para>
     /// </param>
     /// <param name="exportsShorthandSymbol">
-    ///     <para>If <c>true</c> generates symbol field for unit shorthands into <see cref="NetQuantities.UnitShorthands.UnitExtensions" />:</para>
+    ///     <para>If <c>true</c> generates symbol field for unit shorthands into <see cref="QuantitiesDotNet.UnitShorthands.UnitExtensions" />:</para>
     ///     <para>otherwise <c>false</c>.</para>
     /// </param>
     public QuantityUnitAttribute(

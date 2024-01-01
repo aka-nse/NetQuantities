@@ -7,7 +7,7 @@
 //     コードが再生成されると失われます。
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace NetQuantities.Generators
+namespace QuantitiesDotNet.Generators
 {
     using System.Linq;
     using System.Text;
@@ -18,7 +18,7 @@ namespace NetQuantities.Generators
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\develop\NetQuantities\src\NetQuantities.Generators\AttributesText.tt"
+    #line 1 "D:\develop\QuantitiesDotNet\src\QuantitiesDotNet.Generators\AttributesText.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AttributesText : AttributesTextBase
     {
@@ -28,7 +28,7 @@ namespace NetQuantities.Generators
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using System;\r\n\r\nnamespace NetQuantities;\r\n\r\n\r\n[AttributeUsage(AttributeTargets.S" +
+            this.Write("using System;\r\n\r\nnamespace QuantitiesDotNet;\r\n\r\n\r\n[AttributeUsage(AttributeTargets.S" +
                     "truct, AllowMultiple = false)]\r\ninternal sealed class QuantityAttribute : Attrib" +
                     "ute\r\n{\r\n    public int L { get; }\r\n    public int M { get; }\r\n    public int T {" +
                     " get; }\r\n    public int I { get; }\r\n    public int Th { get; }\r\n    public int N" +
@@ -60,7 +60,7 @@ namespace NetQuantities.Generators
                     "//                 <description>3</description>\r\n    ///             </item>\r\n  " +
                     "  ///         </list>\r\n    ///     </para>\r\n    /// </param>\r\n    /// <param nam" +
                     "e=\"exportsShorthandSymbol\">\r\n    ///     <para>If <c>true</c> generates symbol f" +
-                    "ield for unit shorthands into <see cref=\"NetQuantities.UnitShorthands.UnitExtens" +
+                    "ield for unit shorthands into <see cref=\"QuantitiesDotNet.UnitShorthands.UnitExtens" +
                     "ions\" />:</para>\r\n    ///     <para>otherwise <c>false</c>.</para>\r\n    /// </pa" +
                     "ram>\r\n    public QuantityUnitAttribute(\r\n        string name,\r\n        string un" +
                     "it,\r\n        double scale,\r\n        UnitPrefix prefix = UnitPrefix.None,\r\n      " +

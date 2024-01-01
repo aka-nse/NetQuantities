@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using static NetQuantities.UnitPrefix;
+using static QuantitiesDotNet.UnitPrefix;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 /// <summary>
 /// Represents a value of acceleration.

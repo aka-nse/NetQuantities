@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="..\NetQuantities.Shared\PlatformCapabilities.cs" Link="PlatformCapabilities.cs" />
+      <Compile Include="..\QuantitiesDotNet.Shared\PlatformCapabilities.cs" Link="PlatformCapabilities.cs" />
     </ItemGroup>
 
     <ItemGroup>

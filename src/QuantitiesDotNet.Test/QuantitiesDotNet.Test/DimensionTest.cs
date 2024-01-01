@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 public class DimensionTest
 {

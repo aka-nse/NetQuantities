@@ -5,11 +5,11 @@
         <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageId>akanse.$(AssemblyName)</PackageId>
-        <Title>NetQuantities</Title>
+        <Title>QuantitiesDotNet</Title>
         <Authors>aka-nse</Authors>
-        <PackageProjectUrl>https://github.com/aka-nse/NetQuantities</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/aka-nse/QuantitiesDotNet</PackageProjectUrl>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/aka-nse/NetQuantities</RepositoryUrl>
+        <RepositoryUrl>https://github.com/aka-nse/QuantitiesDotNet</RepositoryUrl>
         <Description>.Net library for physical quantity handling</Description>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
         <FileVersion>$(AssemblyVersion)</FileVersion>
@@ -25,14 +25,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\NetQuantities.Generators\NetQuantities.Generators.csproj">
+        <ProjectReference Include="..\QuantitiesDotNet.Generators\QuantitiesDotNet.Generators.csproj">
             <OutputItemType>Analyzer</OutputItemType>
             <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
         </ProjectReference>
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="..\NetQuantities.Shared\PlatformCapabilities.cs" Link="PlatformCapabilities.cs" />
+        <Compile Include="..\QuantitiesDotNet.Shared\PlatformCapabilities.cs" Link="PlatformCapabilities.cs" />
     </ItemGroup>
 
     <ItemGroup>

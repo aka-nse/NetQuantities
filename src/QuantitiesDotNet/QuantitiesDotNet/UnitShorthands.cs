@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace NetQuantities
+namespace QuantitiesDotNet
 {
     /// <summary>
     /// Provides unit symbols.
@@ -23,7 +23,7 @@ namespace NetQuantities
 
 #if NET7_0_OR_GREATER
 
-namespace NetQuantities.Generic
+namespace QuantitiesDotNet.Generic
 {
     /// <summary>
     /// Provides unit symbols.

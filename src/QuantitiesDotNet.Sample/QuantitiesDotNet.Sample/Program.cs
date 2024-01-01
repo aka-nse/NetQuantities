@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using NetQuantities;
-using NetQuantities.Samples;
+using QuantitiesDotNet;
+using QuantitiesDotNet.Samples;
 
 var samples = new IUsageSample[]
 {

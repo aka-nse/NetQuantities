@@ -2,7 +2,7 @@
   "profiles": {
     "プロファイル 1": {
       "commandName": "DebugRoslynComponent",
-      "targetProject": "..\\NetQuantities\\NetQuantities.csproj"
+      "targetProject": "..\\QuantitiesDotNet\\QuantitiesDotNet.csproj"
     }
   }
 }

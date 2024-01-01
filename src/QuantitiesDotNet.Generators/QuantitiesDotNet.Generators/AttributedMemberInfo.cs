@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NetQuantities.Generators;
+namespace QuantitiesDotNet.Generators;
 
 internal record AttributedMemberInfo<TSymbol>
     where TSymbol : ISymbol

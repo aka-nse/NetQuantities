@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace NetQuantities
+namespace QuantitiesDotNet
 {
     /// <summary>
     /// Calculation halfway type for energy or torque.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 /// <summary>
 /// Represents a value of dimensionless.

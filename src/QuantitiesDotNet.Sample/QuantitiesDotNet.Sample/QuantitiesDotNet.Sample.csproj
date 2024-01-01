@@ -7,11 +7,11 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
-        <RootNamespace>NetQuantities</RootNamespace>
+        <RootNamespace>QuantitiesDotNet</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\NetQuantities\NetQuantities.csproj" />
+        <ProjectReference Include="..\QuantitiesDotNet\QuantitiesDotNet.csproj" />
     </ItemGroup>
 
 </Project>

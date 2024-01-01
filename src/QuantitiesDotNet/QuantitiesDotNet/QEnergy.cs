@@ -1,9 +1,9 @@
 ﻿using System;
-using static NetQuantities.UnitPrefix;
+using static QuantitiesDotNet.UnitPrefix;
 
 using System.Numerics;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 /// <summary>
 /// Represents a value of energy.

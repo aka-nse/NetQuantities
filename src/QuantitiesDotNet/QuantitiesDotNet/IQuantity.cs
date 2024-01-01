@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace NetQuantities
+namespace QuantitiesDotNet
 {
     public interface IQuantityValue<T>
         where T : notnull
@@ -44,7 +44,7 @@ namespace NetQuantities
 }
 
 #if NET7_0_OR_GREATER
-namespace NetQuantities.Generic
+namespace QuantitiesDotNet.Generic
 {
     public interface IQuantity<TSelf, T>
         : IQuantity

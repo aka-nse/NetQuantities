@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 internal partial record QuantityFormatInfo(
     string NumberFormat,

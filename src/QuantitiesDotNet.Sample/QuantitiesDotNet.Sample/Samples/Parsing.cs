@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetQuantities.Samples;
+namespace QuantitiesDotNet.Samples;
 
 internal class Parsing : IUsageSample
 {

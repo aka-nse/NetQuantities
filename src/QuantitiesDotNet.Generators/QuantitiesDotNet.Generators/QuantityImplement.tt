@@ -15,7 +15,7 @@ using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace NetQuantities
+namespace QuantitiesDotNet
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, Size = sizeof(double))]
     public partial struct <#=TargetTypeName#>
@@ -144,7 +144,7 @@ namespace NetQuantities
 
 
 #if NET7_0_OR_GREATER
-namespace NetQuantities.Generic
+namespace QuantitiesDotNet.Generic
 {
     public partial struct <#=TargetTypeName#><T>
 <# if(!IsRefLikeType) { #>

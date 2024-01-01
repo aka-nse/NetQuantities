@@ -1,4 +1,4 @@
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 public class UnitCalculationsTest
 {

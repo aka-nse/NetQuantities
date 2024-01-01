@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace NetQuantities.Generators;
+namespace QuantitiesDotNet.Generators;
 
 [Generator]
 public class Generator : IIncrementalGenerator
@@ -17,13 +17,13 @@ public class Generator : IIncrementalGenerator
 
         var quantityAttributeSymbol = context
             .CompilationProvider
-            .GetMetadata("NetQuantities.QuantityAttribute");
+            .GetMetadata("QuantitiesDotNet.QuantityAttribute");
         var quantityUnitAttributeSymbol = context
             .CompilationProvider
-            .GetMetadata("NetQuantities.QuantityUnitAttribute");
+            .GetMetadata("QuantitiesDotNet.QuantityUnitAttribute");
         var quantityOperationAttributeSymbol = context
             .CompilationProvider
-            .GetMetadata("NetQuantities.QuantityOperationAttribute");
+            .GetMetadata("QuantitiesDotNet.QuantityOperationAttribute");
         var attributedFiles = context.SyntaxProvider
             .FindAttributedMembers<StructDeclarationSyntax, INamedTypeSymbol>(quantityAttributeSymbol);
 

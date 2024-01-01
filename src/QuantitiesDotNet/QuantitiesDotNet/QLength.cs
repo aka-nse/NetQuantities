@@ -1,6 +1,6 @@
 ﻿using System;
-using static NetQuantities.UnitPrefix;
-namespace NetQuantities;
+using static QuantitiesDotNet.UnitPrefix;
+namespace QuantitiesDotNet;
 
 /// <summary>
 /// Represents a value of length.

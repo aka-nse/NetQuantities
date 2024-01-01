@@ -4,9 +4,9 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NetQuantities.Generic;
+using QuantitiesDotNet.Generic;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 public class FormatTest
 {

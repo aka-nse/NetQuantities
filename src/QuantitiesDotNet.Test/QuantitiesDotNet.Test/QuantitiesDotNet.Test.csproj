@@ -7,7 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <RootNamespace>NetQuantities</RootNamespace>
+        <RootNamespace>QuantitiesDotNet</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\NetQuantities\NetQuantities.csproj" />
+        <ProjectReference Include="..\QuantitiesDotNet\QuantitiesDotNet.csproj" />
     </ItemGroup>
 
 </Project>

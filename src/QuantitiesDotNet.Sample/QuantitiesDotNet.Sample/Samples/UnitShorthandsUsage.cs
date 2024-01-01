@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static NetQuantities.UnitShorthands;
+using static QuantitiesDotNet.UnitShorthands;
 
-namespace NetQuantities.Samples;
+namespace QuantitiesDotNet.Samples;
 
 internal class UnitShorthandsUsage : IUsageSample
 {

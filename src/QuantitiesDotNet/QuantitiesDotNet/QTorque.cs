@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Numerics;
-using static NetQuantities.UnitPrefix;
+using static QuantitiesDotNet.UnitPrefix;
 
-namespace NetQuantities;
+namespace QuantitiesDotNet;
 
 /// <summary>
 /// Represents a value of torque.

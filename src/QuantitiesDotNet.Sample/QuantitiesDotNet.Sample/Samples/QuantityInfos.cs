@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetQuantities.Samples;
+namespace QuantitiesDotNet.Samples;
 
 internal class QuantityInfos : IUsageSample
 {

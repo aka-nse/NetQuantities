@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace NetQuantities
+namespace QuantitiesDotNet
 {
     public record UnitInfo(
         double Scale,
@@ -14,7 +14,7 @@ namespace NetQuantities
 }
 
 #if NET7_0_OR_GREATER
-namespace NetQuantities.Generic
+namespace QuantitiesDotNet.Generic
 {
     public record UnitInfo<T>(
         T Scale,
