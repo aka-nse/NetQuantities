@@ -56,11 +56,13 @@ Console.WriteLine($"{speed.ToString("0.000& [m/s]")}"); // 1.234 [m/s]
 
 ### parse
 
-acceptable expression: `<number>(<spacing><unit>)?`
+acceptable expression: `<number><spacing>*[?<unit>]?`
 
 - `<number>`:<br/>
   You can use parsable string for double.
-- `<unit>` (optional):<br/>
+- `<spacing>*`:<br/>
+  You can put 0 or greater number of whitespace between number and unit.
+- `<unit>`<br/>
   It is a unit specifier.
   You can put square brackets (`[` and `]`) before and after this specifier.
 
