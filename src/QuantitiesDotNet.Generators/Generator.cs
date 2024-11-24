@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace QuantitiesDotNet.Generators;
 
-[Generator]
+[Generator(LanguageNames.CSharp)]
 public class Generator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)

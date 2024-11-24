@@ -1,27 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Nullable>enable</Nullable>
-        <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageId>akanse.$(AssemblyName)</PackageId>
         <Title>QuantitiesDotNet</Title>
-        <Authors>aka-nse</Authors>
-        <PackageProjectUrl>https://github.com/aka-nse/QuantitiesDotNet</PackageProjectUrl>
-        <PackageReadmeFile>readme.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/aka-nse/QuantitiesDotNet</RepositoryUrl>
         <Description>.Net library for physical quantity handling</Description>
         <AssemblyVersion>0.2.0.0</AssemblyVersion>
         <FileVersion>$(AssemblyVersion)</FileVersion>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PackageIcon>icon.png</PackageIcon>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0'">
-        <LangVersion>11</LangVersion>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(TargetFramework)'!='net7.0'">
-        <LangVersion>10</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -51,8 +37,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
-      <PackageReference Include="System.Memory" Version="4.5.5" />
+      <PackageReference Include="System.Collections.Immutable" Version="9.0.0" />
+      <PackageReference Include="System.Memory" Version="4.6.0" />
     </ItemGroup>
 
     <ItemGroup>
