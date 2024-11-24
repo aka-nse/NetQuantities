@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace QuantitiesDotNet;
@@ -23,7 +20,7 @@ internal partial record QuantityParseInfo(
 
     public static bool TryCompile(
         string? expression,
-        [NotNullWhen(true)]out QuantityParseInfo? info)
+        [NotNullWhen(true)] out QuantityParseInfo? info)
     {
         expression ??= "";
         var match = _FormatMatcher.Match(expression);

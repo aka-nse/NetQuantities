@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuantitiesDotNet;
+﻿namespace QuantitiesDotNet;
 
 public class QuantityFormatInfoTest
 {
@@ -39,7 +33,7 @@ public class QuantityFormatInfoTest
     public void TryParse(string format, object? expectedResult)
     {
         var actualSucceeded = QuantityFormatInfo.TryCompile(format, out var actualResult);
-        if(expectedResult is QuantityFormatInfo expectedResult_)
+        if (expectedResult is QuantityFormatInfo expectedResult_)
         {
             Assert.True(actualSucceeded);
             Assert.Equal(expectedResult_, actualResult);

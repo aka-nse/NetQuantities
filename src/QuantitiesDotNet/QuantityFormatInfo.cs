@@ -1,8 +1,17 @@
-﻿using System;
+﻿
+/* プロジェクト 'QuantitiesDotNet(netstandard2.1)' からのマージされていない変更
+前:
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using System.Text.RegularExpressions;
+後:
+using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
+*/
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace QuantitiesDotNet;
@@ -50,14 +59,14 @@ internal partial record QuantityFormatInfo(
         bool hasBrackets;
         switch ((match.Groups["open"].Value, match.Groups["close"].Value))
         {
-            case ("", ""):
-                hasBrackets = false;
-                break;
-            case ("[", "]"):
-                hasBrackets = true;
-                break;
-            default:
-                return false;
+        case ("", ""):
+            hasBrackets = false;
+            break;
+        case ("[", "]"):
+            hasBrackets = true;
+            break;
+        default:
+            return false;
         }
         info = new(
             _EscapeMatcher.Replace(match.Groups["number"].Value, "$1"),

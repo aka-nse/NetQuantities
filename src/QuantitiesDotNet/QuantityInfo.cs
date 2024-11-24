@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace QuantitiesDotNet;
 
@@ -31,12 +29,12 @@ public record QuantityInfo
         {
             static void setup(StringBuilder sb, string symbol, int value, ref string space)
             {
-                if(value == 0)
+                if (value == 0)
                 {
                     return;
                 }
 
-                if(value == 1)
+                if (value == 1)
                 {
                     sb.Append($"{space}{symbol}");
                 }
@@ -49,13 +47,13 @@ public record QuantityInfo
 
             var space = "";
             var sb = new StringBuilder();
-            setup(sb, nameof(L ), L , ref space);
-            setup(sb, nameof(M ), M , ref space);
-            setup(sb, nameof(T ), T , ref space);
-            setup(sb, nameof(I ), I , ref space);
+            setup(sb, nameof(L), L, ref space);
+            setup(sb, nameof(M), M, ref space);
+            setup(sb, nameof(T), T, ref space);
+            setup(sb, nameof(I), I, ref space);
             setup(sb, nameof(Th), Th, ref space);
-            setup(sb, nameof(N ), N , ref space);
-            setup(sb, nameof(J ), J , ref space);
+            setup(sb, nameof(N), N, ref space);
+            setup(sb, nameof(J), J, ref space);
             return sb.Length > 0 ? sb.ToString() : "1";
         }
     }

@@ -1,10 +1,4 @@
 ﻿using QuantitiesDotNet.Generic;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuantitiesDotNet;
 
@@ -51,7 +45,7 @@ public class ParseTest
     [MemberData(nameof(ParseTestCase))]
     public void Parse(string expression, QSpeed? expected)
     {
-        if(expected is QSpeed expected_)
+        if (expected is QSpeed expected_)
         {
             Assert.True(QSpeed.TryParse(expression, null, out var actual));
             Assert.Equal(expected_, actual);

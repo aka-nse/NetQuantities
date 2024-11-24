@@ -1,9 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace QuantitiesDotNet.Generators;
 
@@ -44,13 +40,13 @@ internal static class GeneratorExtensions
             CancellationToken canceller)
         {
             var (target, interestedAttribute) = tuple;
-            if(target is null)
+            if (target is null)
             {
                 return null;
             }
-            foreach(var attachedAttribute in target.GetAttributes())
+            foreach (var attachedAttribute in target.GetAttributes())
             {
-                if(SymbolEqualityComparer.Default.Equals(attachedAttribute.AttributeClass, interestedAttribute))
+                if (SymbolEqualityComparer.Default.Equals(attachedAttribute.AttributeClass, interestedAttribute))
                 {
                     return new(target, interestedAttribute);
                 }

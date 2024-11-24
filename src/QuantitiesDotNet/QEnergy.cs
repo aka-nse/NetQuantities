@@ -1,7 +1,4 @@
-﻿using System;
-using static QuantitiesDotNet.UnitPrefix;
-
-using System.Numerics;
+﻿using static QuantitiesDotNet.UnitPrefix;
 
 namespace QuantitiesDotNet;
 

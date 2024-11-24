@@ -1,9 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using Microsoft.CodeAnalysis;
 
 namespace QuantitiesDotNet.Generators;
 
@@ -99,7 +95,7 @@ public record UnitSymbolDef(
         var powerOfPrefix = attr.ConstructorArguments[QuantityUnitAttributeFields.PowerOfPrefix].Value is int pop ? pop : 1;
         var prefixSet = _UnitPrefix.Where(tpl => (tpl.flag & prefix) != 0);
         var camelMajorName = char.ToLower(majorName[0]) + majorName.Substring(1);
-        foreach(var (_, name, symbol, pScale) in prefixSet)
+        foreach (var (_, name, symbol, pScale) in prefixSet)
         {
             var exMajorName = name + camelMajorName;
             var exShortName = symbol + shortName;

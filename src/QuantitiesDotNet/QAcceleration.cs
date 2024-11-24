@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using static QuantitiesDotNet.UnitPrefix;
+﻿using static QuantitiesDotNet.UnitPrefix;
 
 namespace QuantitiesDotNet;
 

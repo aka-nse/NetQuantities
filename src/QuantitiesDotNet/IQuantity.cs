@@ -1,5 +1,4 @@
-﻿using System;
-using System.Numerics;
+﻿
 
 namespace QuantitiesDotNet
 {
@@ -37,7 +36,7 @@ namespace QuantitiesDotNet
         , IMultiplicativeIdentity<TSelf, double>
         , IUnaryPlusOperators<TSelf, TSelf>
         , IUnaryNegationOperators<TSelf, TSelf>
-    #endif
+#endif
         where TSelf : IQuantity<TSelf>
     {
     }

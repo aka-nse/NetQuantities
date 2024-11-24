@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
-
-namespace QuantitiesDotNet
+﻿namespace QuantitiesDotNet
 {
     public record UnitInfo(
         double Scale,
@@ -14,7 +9,9 @@ namespace QuantitiesDotNet
 }
 
 #if NET7_0_OR_GREATER
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace QuantitiesDotNet.Generic
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     public record UnitInfo<T>(
         T Scale,

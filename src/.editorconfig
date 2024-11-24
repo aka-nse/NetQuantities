@@ -271,3 +271,6 @@ dotnet_naming_style.______camelcase.required_prefix = _
 dotnet_naming_style.______camelcase.required_suffix = 
 dotnet_naming_style.______camelcase.word_separator = 
 dotnet_naming_style.______camelcase.capitalization = camel_case
+
+# extra rules
+dotnet_diagnostic.IDE0005.severity = warning  # Remove unnecessary using directives
