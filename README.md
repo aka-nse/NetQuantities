@@ -1,6 +1,12 @@
-# QuantitiesDotNet
+<div style="display: flex; justify-content: center">
+  <img width=120 src="./resource/icon.svg">
+  <div style="margin-left: 8pt;">
+    <h1 style="margin-bottom: 0pt;">QuantitiesDotNet</h1>
+    <p>.Net library for physical quantity handling</p>
+  </div>
+</div>
 
-.Net library for physical quantity handling
+----
 
 ## Features
 
