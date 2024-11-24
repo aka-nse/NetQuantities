@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuantitiesDotNet.Samples;
+﻿namespace QuantitiesDotNet.Samples;
 
 internal class Generics : IUsageSample
 {

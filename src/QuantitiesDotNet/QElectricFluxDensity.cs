@@ -1,5 +1,4 @@
-﻿using System;
-using static QuantitiesDotNet.UnitPrefix;
+﻿using static QuantitiesDotNet.UnitPrefix;
 
 namespace QuantitiesDotNet;
 
@@ -13,4 +12,3 @@ namespace QuantitiesDotNet;
 public readonly partial struct QElectricFluxDensity : IQuantity<QElectricFluxDensity>
 {
 }
-

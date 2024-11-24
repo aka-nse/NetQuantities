@@ -1,7 +1,4 @@
-﻿using System;
-using static QuantitiesDotNet.UnitPrefix;
-
-namespace QuantitiesDotNet;
+﻿namespace QuantitiesDotNet;
 
 /// <summary>
 /// Represents a value of thermodynamic temperature.

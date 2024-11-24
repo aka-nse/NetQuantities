@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
 namespace QuantitiesDotNet.Samples;
 
@@ -26,7 +21,7 @@ internal class QuantityInfos : IUsageSample
             // for reflection of ref struct, explicitly named backing field is provided.
             var info = type.GetField(nameof(QDimensionless._Info), flags)!.GetValue(null) as QuantityInfo;
 
-            stdout.WriteLine($"{info.Name, -24} (Dimension={info.Dimension})");
+            stdout.WriteLine($"{info?.Name,-24} (Dimension={info?.Dimension})");
         }
     }
 

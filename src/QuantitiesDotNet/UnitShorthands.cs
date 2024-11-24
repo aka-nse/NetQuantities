@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-
-namespace QuantitiesDotNet
+﻿namespace QuantitiesDotNet
 {
     /// <summary>
     /// Provides unit symbols.
@@ -23,7 +18,9 @@ namespace QuantitiesDotNet
 
 #if NET7_0_OR_GREATER
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace QuantitiesDotNet.Generic
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     /// <summary>
     /// Provides unit symbols.

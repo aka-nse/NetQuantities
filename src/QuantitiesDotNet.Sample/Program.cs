@@ -13,7 +13,7 @@ var samples = new IUsageSample[]
     new QuantityInfos(),
 };
 
-foreach(var sample in samples)
+foreach (var sample in samples)
 {
     Console.WriteLine($"【{sample.SampleName}】");
     sample.Execute(Console.Out);
