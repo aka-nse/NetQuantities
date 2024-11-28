@@ -1,9 +1,9 @@
-<div style="display: flex; justify-content: center">
+<div align="center">
   <img width=120 src="./resource/icon.svg">
-  <div style="margin-left: 8pt;">
-    <h1 style="margin-bottom: 0pt;">QuantitiesDotNet</h1>
-    <p>.Net library for physical quantity handling</p>
-  </div>
+</div>
+<div align="center">
+  <h1>QuantitiesDotNet</h1>
+  <p>.Net library for physical quantity handling</p>
 </div>
 
 ----
