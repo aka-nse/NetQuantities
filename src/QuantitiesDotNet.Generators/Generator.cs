@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace QuantitiesDotNet.Generators;
 
 [Generator(LanguageNames.CSharp)]
-public class Generator : IIncrementalGenerator
+public partial class Generator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -34,7 +34,7 @@ public class Generator : IIncrementalGenerator
     {
         var canceller = context.CancellationToken;
         canceller.ThrowIfCancellationRequested();
-        context.AddSource("Attributes.cs", new AttributesText().TransformText());
+        context.AddSource("Attributes.cs", AttributesText);
     }
 
 
