@@ -1,0 +1,24 @@
+name: .NET Core CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build-and-test:
+    runs-on: [windows-latest]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Restore dependencies
+      run: dotnet restore src/QuantitiesDotNet.sln
+
+    - name: Build solution
+      run: dotnet build src/QuantitiesDotNet.sln --no-restore
+
+    - name: Run tests
+      run: dotnet test src/QuantitiesDotNet.sln --no-build --verbosity normal
