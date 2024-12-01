@@ -32,7 +32,9 @@ internal static class GeneratorExtensions
         {
             canceller.ThrowIfCancellationRequested();
             var syntax = (context.Node as TSyntax)!;
+#pragma warning disable RS1039 // 'SemanticModel.GetDeclaredSymbol()' will always return 'null' for this call.
             return context.SemanticModel.GetDeclaredSymbol(syntax, canceller) as TSymbol;
+#pragma warning restore RS1039 // 'SemanticModel.GetDeclaredSymbol()' will always return 'null' for this call.
         }
 
         static AttributedMemberInfo<TSymbol>? postTransform(

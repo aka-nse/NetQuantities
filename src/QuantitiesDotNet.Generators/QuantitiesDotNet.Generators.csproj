@@ -7,6 +7,8 @@
         
         <IsRoslynComponent>true</IsRoslynComponent>
         <AnalyzerLanguage>cs</AnalyzerLanguage>
+
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     </PropertyGroup>
 
     <ItemGroup>
@@ -26,21 +28,6 @@
 
     <ItemGroup>
       <Compile Include="..\QuantitiesDotNet.Shared\PlatformCapabilities.cs" Link="PlatformCapabilities.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="QuantityImplement.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>QuantityImplement.tt</DependentUpon>
-      </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Update="QuantityImplement.tt">
-          <Generator>TextTemplatingFilePreprocessor</Generator>
-          <LastGenOutput>QuantityImplement.cs</LastGenOutput>
-        </None>
     </ItemGroup>
 
 </Project>

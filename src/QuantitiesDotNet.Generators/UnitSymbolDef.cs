@@ -1,40 +1,6 @@
-using System.Text.RegularExpressions;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 
 namespace QuantitiesDotNet.Generators;
-
-
-partial class QuantityImplement
-{
-    private static readonly Regex _TypeNameToSymbolMatcher = new(@"^Q(\w+)$");
-    public static string TargetTypeToSymbol(string targetTypeName)
-        => _TypeNameToSymbolMatcher.Replace(targetTypeName, "$1UnitSymbol");
-
-    public string TargetTypeName { get; init; } = null!;
-    public bool IsRefLikeType { get; init; } = false;
-    public QuantityDef QuantityDef { get; init; } = null!;
-    public IList<UnitSymbolDef> UnitSymbols { get; init; } = new List<UnitSymbolDef>();
-    public IList<UnitOperationDef> UnitOperations { get; init; } = new List<UnitOperationDef>();
-
-    public UnitSymbolDef PrimaryUnit => _PrimaryUnit ??= GetPrimaryUnit();
-    private UnitSymbolDef? _PrimaryUnit;
-    private UnitSymbolDef GetPrimaryUnit() => UnitSymbols.FirstOrDefault() ?? new UnitSymbolDef("RawValue", "", 1, false);
-}
-
-
-public record QuantityDef(int L, int M, int T, int I, int Th, int N, int J)
-{
-    public static QuantityDef GetQuantityDef(AttributeData attr)
-        => new(
-            (int)attr.ConstructorArguments[0].Value!,
-            (int)attr.ConstructorArguments[1].Value!,
-            (int)attr.ConstructorArguments[2].Value!,
-            (int)attr.ConstructorArguments[3].Value!,
-            (int)attr.ConstructorArguments[4].Value!,
-            (int)attr.ConstructorArguments[5].Value!,
-            (int)attr.ConstructorArguments[6].Value!);
-}
-
 
 public record UnitSymbolDef(
     string MajorName,
@@ -133,50 +99,4 @@ public record UnitSymbolDef(
         is bool x
         ? x
         : throw new InvalidOperationException();
-}
-
-
-public record UnitOperationDef(
-    string MultiplicantType,
-    string MultiplierType,
-    string ProductType)
-{
-    public string MultiplicantSymbol => _MultiplicantSymbol ??= QuantityImplement.TargetTypeToSymbol(MultiplicantType);
-    private string? _MultiplicantSymbol;
-
-    public string MultiplierSymbol => _MultiplierSymbol ??= QuantityImplement.TargetTypeToSymbol(MultiplierType);
-    private string? _MultiplierSymbol;
-
-    public string ProductSymbol => _ProductSymbol ??= QuantityImplement.TargetTypeToSymbol(ProductType);
-    private string? _ProductSymbol;
-
-    private static class QuantityOperationAttributeFields
-    {
-        public const int MultiplicantType = 0;
-        public const int MultiplierType = 1;
-        public const int ProductType = 2;
-    }
-
-    public UnitOperationDef(AttributeData attr)
-        : this(
-              GetMultiplicantType(attr),
-              GetMultiplierType(attr),
-              GetProductType(attr))
-    {
-    }
-
-    private static string GetMultiplicantType(AttributeData attr)
-        => (attr.ConstructorArguments[QuantityOperationAttributeFields.MultiplicantType].Value as INamedTypeSymbol)
-            ?.Name
-            ?? throw new InvalidOperationException();
-
-    private static string GetMultiplierType(AttributeData attr)
-        => (attr.ConstructorArguments[QuantityOperationAttributeFields.MultiplierType].Value as INamedTypeSymbol)
-            ?.Name
-            ?? throw new InvalidOperationException();
-
-    private static string GetProductType(AttributeData attr)
-        => (attr.ConstructorArguments[QuantityOperationAttributeFields.ProductType].Value as INamedTypeSymbol)
-            ?.Name
-            ?? throw new InvalidOperationException();
 }
