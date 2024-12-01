@@ -1,4 +1,4 @@
-﻿using QuantitiesDotNet.Generic;
+using QuantitiesDotNet.Generic;
 
 namespace QuantitiesDotNet;
 

@@ -1,4 +1,4 @@
-﻿namespace QuantitiesDotNet
+namespace QuantitiesDotNet
 {
     public record UnitInfo(
         double Scale,

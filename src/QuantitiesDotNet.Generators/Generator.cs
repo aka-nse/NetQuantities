@@ -1,10 +1,11 @@
-﻿using Microsoft.CodeAnalysis;
+using System.Text;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace QuantitiesDotNet.Generators;
 
 [Generator(LanguageNames.CSharp)]
-public class Generator : IIncrementalGenerator
+public partial class Generator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -34,7 +35,7 @@ public class Generator : IIncrementalGenerator
     {
         var canceller = context.CancellationToken;
         canceller.ThrowIfCancellationRequested();
-        context.AddSource("Attributes.cs", new AttributesText().TransformText());
+        context.AddSource("Attributes.cs", AttributesText);
     }
 
 
@@ -55,22 +56,16 @@ public class Generator : IIncrementalGenerator
         var operationDefs = attributes
             .Where(attr => SymbolEqualityComparer.Default.Equals(attr.AttributeClass, qOpAttr));
 
-        var unitSource = new QuantityImplement()
-        {
-            TargetTypeName = info.TargetSymbol.Name,
-            IsRefLikeType = info.TargetSymbol.IsRefLikeType,
-            QuantityDef = QuantityDef.GetQuantityDef(qDef),
-            UnitSymbols = unitDefs
-                .SelectMany(UnitSymbolDef.GetUnitSymbols)
-                .ToArray(),
-            UnitOperations = operationDefs
-                .Select(attr => new UnitOperationDef(attr))
-                .ToArray(),
-        };
-
-        string sourceCode = unitSource.TransformText();
+        var generator = new QuantityImplementBuilder(
+            info.TargetSymbol.Name,
+            info.TargetSymbol.IsRefLikeType,
+            QuantityDef.GetQuantityDef(qDef),
+            unitDefs.SelectMany(UnitSymbolDef.GetUnitSymbols).ToArray(),
+            operationDefs.Select(attr => new UnitOperationDef(attr)).ToArray());
+        var sb = new StringBuilder();
+        generator.Generate(sb, context.CancellationToken);
         context.AddSource(
             $"{info.TargetSymbol.Name}.g.cs",
-            sourceCode);
+            sb.ToString());
     }
 }

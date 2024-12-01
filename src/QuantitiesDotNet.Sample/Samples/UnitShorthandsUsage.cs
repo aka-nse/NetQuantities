@@ -1,4 +1,4 @@
-﻿using static QuantitiesDotNet.UnitShorthands;
+using static QuantitiesDotNet.UnitShorthands;
 
 namespace QuantitiesDotNet.Samples;
 

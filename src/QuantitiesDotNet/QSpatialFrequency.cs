@@ -1,4 +1,4 @@
-﻿using static QuantitiesDotNet.UnitPrefix;
+using static QuantitiesDotNet.UnitPrefix;
 namespace QuantitiesDotNet;
 
 /// <summary>
