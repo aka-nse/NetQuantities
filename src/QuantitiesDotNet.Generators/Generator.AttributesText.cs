@@ -1,4 +1,4 @@
-﻿namespace QuantitiesDotNet.Generators;
+namespace QuantitiesDotNet.Generators;
 
 partial class Generator
 {

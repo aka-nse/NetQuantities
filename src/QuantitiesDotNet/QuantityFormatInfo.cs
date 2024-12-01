@@ -1,4 +1,4 @@
-﻿
+
 /* プロジェクト 'QuantitiesDotNet(netstandard2.1)' からのマージされていない変更
 前:
 using System;

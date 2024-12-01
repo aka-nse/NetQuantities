@@ -1,4 +1,4 @@
-﻿namespace QuantitiesDotNet;
+namespace QuantitiesDotNet;
 
 internal interface IUsageSample
 {

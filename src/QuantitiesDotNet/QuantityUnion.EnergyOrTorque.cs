@@ -1,4 +1,4 @@
-﻿namespace QuantitiesDotNet
+namespace QuantitiesDotNet
 {
     partial class QuantityUnion
     {

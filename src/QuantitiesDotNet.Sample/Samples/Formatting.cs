@@ -1,4 +1,4 @@
-﻿namespace QuantitiesDotNet.Samples;
+namespace QuantitiesDotNet.Samples;
 
 internal class Formatting : IUsageSample
 {

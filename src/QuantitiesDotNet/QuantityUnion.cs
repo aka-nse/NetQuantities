@@ -1,4 +1,4 @@
-﻿namespace QuantitiesDotNet
+namespace QuantitiesDotNet
 {
     /// <summary>
     /// Helpers of <see cref="QuantityUnion{T1, T2}"/>.
